@@ -1,16 +1,16 @@
-# 让 WSL 用上 GUI 应用
+# 让 WSL 用上 GUI
 
-装 WSL 的人多少也有一部分是想在 WSL 开发的。 VSCode 的 WSL 开发体验很好，但是它毕竟只是个*轻量级*的文本编辑器。真要干活还是得上 JB 家的 IDE，但在 Windows 下用 `ssh` 通讯连结 WSL 不是一件很愉快的事，还不如直接在 WSL 运行。
-
-## 如何做？使用 Xserver
-
-### Xserver 简介
+## X Window System 简介
 
 The X Window System (X11, or simply X) is a windowing system for bitmap displays, common on Unix-like operating systems.
 
 TBC
 
 ### 原理
+
+图片摘自鸟哥的 Linux 私房菜
+
+![X Window System](https://linux.vbird.org/linux_basic/centos7/0590xwindow//x_ser_cli.gif)
 
 ## 基本配置
 
@@ -84,3 +84,8 @@ sudo apt install libxss1 libgbm1
 ## 使用中文输入法
 
 TBC
+
+## Reference
+
+1. [鸟哥的 Linux 私房菜：第二十三章、X Window 设定介绍](https://linux.vbird.org/linux_basic/centos7/0590xwindow.php)
+2. [Lainme's Blog：如何优雅的在 Linux 上装 X](https://www.lainme.com/doku.php/blog/2018/07/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%9C%A8windows_10%E4%B8%8A%E8%A3%85x)
