@@ -10,6 +10,8 @@ Windows 上的 Xserver 有好几个选择，我用的是 VcXsrv，安装时一�
 
 右键点击可执行文件， 进入 `Properties -> Compatibility -> Change high DPI settings -> High DPI scaling override`，选中 `Override high EPI scaling behavior`， 将 Scaling performed by 选项设为 Application 即可。
 
+![](img/2020-11-11-16-52-53.png)
+
 在开始菜单查找 xlaunch 并运行，一路默认就可以开启 Xserver。如果是 WSL2，记得还要关闭 access control。
 
 ## WSL 设置
