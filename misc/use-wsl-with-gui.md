@@ -1,8 +1,24 @@
-# 在 WSL 用上 GUI 应用
+# 让 WSL 用上 GUI 应用
 
-## Xserver 安装
+装 WSL 的人多少也有一部分是想在 WSL 开发的。 VSCode 的 WSL 开发体验很好，但是它毕竟只是个*轻量级*的文本编辑器。真要干活还是得上 JB 家的 IDE，但在 Windows 下用 `ssh` 通讯连结 WSL 不是一件很愉快的事，还不如直接在 WSL 运行。
 
-Windows 上的 Xserver 有好几个选择，我用的是 VcXsrv，安装时一路默认就可以了。
+## 如何做？使用 Xserver
+
+### Xserver 简介
+
+The X Window System (X11, or simply X) is a windowing system for bitmap displays, common on Unix-like operating systems.
+
+TBC
+
+### 原理
+
+## 基本配置
+
+### Windows 设置
+
+讲了这么多原理，其实安装挺简单的。
+
+Windows 上的 Xserver 有好几个选择，我用的是 [VcXsrv](https://sourceforge.net/projects/vcxsrv/)。如果你用 [choco](https://chocolatey.org/)，还能更方便，可以直接 `choco install vcxsrv`。
 
 现在很多电脑都是高分屏 ，需要对 VcXsrv 做点设置不然字体会糊。
 
@@ -10,27 +26,27 @@ Windows 上的 Xserver 有好几个选择，我用的是 VcXsrv，安装时一�
 
 右键点击可执行文件， 进入 `Properties -> Compatibility -> Change high DPI settings -> High DPI scaling override`，选中 `Override high EPI scaling behavior`， 将 Scaling performed by 选项设为 Application 即可。
 
-![](img/2020-11-11-16-52-53.png)
+![vcsrv HiDPI setting](img/2020-11-11-16-52-53.png)
 
 在开始菜单查找 xlaunch 并运行，一路默认就可以开启 Xserver。如果是 WSL2，记得还要关闭 access control。
 
-## WSL 设置
+### WSL 设置
 
-### `DISPLAY` 设置
-
-WSL2 不能直接 `export DISPLAY=localhost:0.0` 了， 而要使用 IP。可以这样一劳永逸：
+首先设置 `DISPLAY` 转发。WSL2 不能直接 `export DISPLAY=localhost:0.0` 了， 而要使用 IP。可以这样一劳永逸：
 
 ```bash
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
 ```
 
-### HiDPI 显示设置
+然后是 WSL 的 HiDPI 显示设置
 
 ```bash
 export GDK_SCALE=1
 export GDK_DPI_SCALE=1.5
 ```
+
+其实 JB 家 IDE 用 `GDK_DPI_SCALE=1.5` 有点大。不过除了它们外的应用程式都很 okay 😂，我是决定忍一忍。
 
 ### 大功告成！
 
@@ -64,3 +80,7 @@ JCEF 有 `libcef.so` 和 `libjcef.so` 两个库，都有一大堆依赖。根据
 ```bash
 sudo apt install libxss1 libgbm1
 ```
+
+## 使用中文输入法
+
+TBC
