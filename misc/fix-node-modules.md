@@ -13,7 +13,7 @@
 
 1. 项目的根目录 `package.json` 下，添加 `npm postinstall`, 以便每次执行 `npm install` 时能合进所有的patch文件：
 
-   ```json
+   ```diff
    "scripts": {
       ...
    +  "postinstall": "patch-package"
