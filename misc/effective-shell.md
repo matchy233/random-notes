@@ -3,7 +3,7 @@
 ## Navigating along the command line
 
 | 功能 | 快捷键 |
-| --- | --- | --- |
+| --- | --- |
 | 定位到行开头 | `Ctrl` + `A` 或者 `Home` |
 | 定位到行末尾 |  `Ctrl` + `D` 或者 `End` |
 | 向前（行首）<br>移动一个词 |  `Alt` + `B` 或者 `Ctrl` + `<-` |
