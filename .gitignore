@@ -1,0 +1,7 @@
+# Ignore editor settings folder
+.vscode
+.idea
+
+# Ignore blog post drafts
+draft
+IDE
