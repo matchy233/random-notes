@@ -14,6 +14,9 @@ Random notes for self usage.
 │
 ├───draft (not synced)
 │
+├───Java
+│       Java-io.md
+
 ├───literature
 │       quotes.md
 │
