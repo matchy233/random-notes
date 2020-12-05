@@ -16,13 +16,14 @@ Random notes for self usage.
 │
 ├───Java
 │       Java-io.md
-
-├───literature
+│
+├───Literature
 │       quotes.md
 │
 └───misc
     │   effective-shell.md
     │   fix-node-modules.md
+    │   hadoop-on-k8s.md
     │   use-wsl-with-gui.md
     │
     └───img
