@@ -1,5 +1,7 @@
 # 在 kubernetes 集群部署 hadoop
 
+实际上这是一个差的想法。
+
 ## 使用 helm 安装
 
 ### 下载 helm
@@ -18,6 +20,8 @@ sudo apt-get install helm
 helm create mychart
 ```
 
+默认的 chart 是个 `nginx` web server。可以部署上去看看
+
 ### Install a chart
 
 ```bash
@@ -25,7 +29,7 @@ helm install mychart-release-name mychart
 ```
 
 ```bash
-export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=mychart,app.kubernetes.io/instance=gke" -o jsonpath="{.items[0].metadata.name}")
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=mychart-release-name,app.kubernetes.io/instance=cluster-name" -o jsonpath="{.items[0].metadata.name}")
 export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
 echo "Visit http://127.0.0.1:8080 to use your application"
 kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
@@ -45,15 +49,22 @@ helm uninstall mychart-release-name
 
 Can also be done by `delete` `del` `un`.
 
-### Install `hadoop` chart
+## Install `hadoop` chart
 
 To install the chart with the release name hadoop that utilizes 50% of the available node resources:
 
 ```bash
-helm install hadoop $(stable/hadoop/tools/calc_resources.sh 50) stable/hadoop
+helm install hadoop stable/hadoop
 ```
 
-## Usage
+This command will deploy at least 4 pods on your cluster according to the default settings.
+
+1. hdfs namenode pod
+2. hdfs datanode
+3. yarn resource manager
+4. yarn name manager
+
+### Usage
 
 1. You can check the status of HDFS by running this command:
 
