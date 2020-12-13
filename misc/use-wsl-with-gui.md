@@ -93,9 +93,25 @@ JCEF 依赖的 `libcef.so` 和 `libjcef.so` 两个库都有一大堆依赖。根
 $ sudo apt install libxss1 libgbm1
 ```
 
+## CJK 字体支援
+
+当然可以手动安装字体，不过也可以在 `/usr/share/fonts/` 创建连到 Windows 字体库的软链接：
+
+```bash
+sudo ln -s /mnt/c/Windows/Fonts/ /usr/share/fonts/WindowsFonts
+```
+
+然后 `logout` 再登入，或用 `fc-cache` 手动 index 字体库，即可愉快阅览中日韩内容。
+
+```bash
+fc-cache -f -v
+```
+
 ## 使用中文输入法
 
 应该可以装 `fcitx` 或者 `ibus` 来使用中文输入法。不过目前没有输入中文需求。暂时搁置。
+
+更好的方法是寻求一个办法打通两边使用 Microsoft IME，暂时没有实现想法……
 
 ## Reference
 
