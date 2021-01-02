@@ -1,0 +1,36 @@
+name: Deploy Book
+
+on:
+  push:
+    branches:
+    - main
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: main
+
+    - name: Setup Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+
+    - name: Install mdBook
+      uses: actions-rs/cargo@v1
+      with:
+        command: install
+        args: mdbook
+
+    - name: Build the book
+      run: |
+        mdbook build
+    - name: GitHub Pages Deploy
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+        github_token: ${{ secrets.ACCESS_TOKEN }}
+        publish_dir: ./book

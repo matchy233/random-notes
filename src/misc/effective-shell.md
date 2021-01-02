@@ -1,8 +1,5 @@
 # Effective Shell
 
-- [Effective Shell](#effective-shell)
-  - [Navigating along the command line](#navigating-along-the-command-line)
-
 ## Navigating along the command line
 
 可能应该录制一个 gif 来展示功能。

@@ -1,7 +1,5 @@
-# Ignore editor settings folder
-.vscode
-.idea
+book
 
-# Ignore blog post drafts
-draft
-IDE
+src/devops
+src/draft
+src/IDE

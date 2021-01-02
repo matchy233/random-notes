@@ -1,0 +1,6 @@
+[book]
+authors = ["matchy233"]
+language = "zh-cn"
+multilingual = true
+src = "src"
+title = "Random Notes"
