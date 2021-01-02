@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Use WSL with GUI - Random Notes</title>
+        <title>Write Assembly Code - Random Notes</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Quotes</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">2.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html"><strong aria-hidden="true">3.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="../RevEng/write-asm.html"><strong aria-hidden="true">4.</strong> Write Assembly Code</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">5.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html"><strong aria-hidden="true">6.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html" class="active"><strong aria-hidden="true">7.</strong> Use WSL with GUI</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Quotes</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">2.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html"><strong aria-hidden="true">3.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="../RevEng/write-asm.html" class="active"><strong aria-hidden="true">4.</strong> Write Assembly Code</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">5.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html"><strong aria-hidden="true">6.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">7.</strong> Use WSL with GUI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,86 +163,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#在-windows-10-上装-x" id="在-windows-10-上装-x">在 Windows 10 上装 X</a></h1>
-<h2><a class="header" href="#x-window-system-简介" id="x-window-system-简介">X Window System 简介</a></h2>
-<p>TBC</p>
-<p><img src="https://linux.vbird.org/linux_basic/centos7/0590xwindow//x_ser_cli.gif" alt="X Window System" /></p>
-<h2><a class="header" href="#基本配置" id="基本配置">基本配置</a></h2>
-<h3><a class="header" href="#windows-设置安装-xserver" id="windows-设置安装-xserver">Windows 设置：安装 Xserver</a></h3>
-<p>其实安装个 Xserver 挺简单的。</p>
-<p>Windows 上的 Xserver 有好几个选择，我用的是 <a href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a>。如果你用 <a href="https://chocolatey.org/">choco</a>，还能更方便，可以直接 <code>choco install vcxsrv</code>。 可爱强强又富有的<a href="https://github.com/FluorineDog">狗哥</a>推荐了微软应用商店的 <a href="https://x410.dev/">X410</a>，看起来和 Windows 10 整合得很优秀，不过真的好贵啊……</p>
-<p>然后是 HiDPI 设置，一般通过轻薄本现在应该都至少是 2K 或 3K 屏幕了。不设置一下的话字体会糊。</p>
-<p>首先找到软件的安装路径，比如 <code>C:\Program Files\VcXsrv</code>，然后对两个可执行文件 vcxsrv.exe 和 xlaunch.exe 执行以下操作：</p>
-<ol>
-<li>右键点击可执行文件</li>
-<li>进入 <code>Properties -&gt; Compatibility -&gt; Change high DPI settings -&gt; High DPI scaling override</code></li>
-<li>选中 <code>Override high DPI scaling behavior</code></li>
-<li>将 Scaling performed by 选项设为 Application</li>
-</ol>
-<p><img src="img/2020-11-11-16-52-53.png" alt="vcsrv HiDPI setting" /></p>
-<p>在开始菜单查找 XLaunch 并运行，一路默认就可以开启 Xserver。如果是 WSL2，记得还要关闭 access control。用命令行的话就是添加 <code>-ac</code> 选项。</p>
-<h3><a class="header" href="#wsl-设置" id="wsl-设置">WSL 设置</a></h3>
-<p>首先设置 <code>DISPLAY</code> 环境变量。 WSL1 可以 <code>export DISPLAY=localhost:0.0</code> ， WSL2 就要指定 IP 了。 可以这样一劳永逸：</p>
-<pre><code class="language-bash">export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2&gt;/dev/null):0
-</code></pre>
-<p>这里也设置了一下 <code>LIBGL_ALWAYS_INDIRECT</code>，虽然窝目前好像也没什么 3D rendering 需要……</p>
-<pre><code class="language-bash">export LIBGL_ALWAYS_INDIRECT=1
-</code></pre>
-<p>然后是 WSL 方面的 HiDPI 显示设置，当然是有多种解决方案的。参考 <a href="https://wiki.archlinux.org/index.php/HiDPI">Arch Linux wiki 有关 HiDPI 的页面</a> （写得超级棒！），感觉设置 GTK（GDK）的环境变量是最泛用的。</p>
-<p>我的方案：</p>
-<pre><code class="language-bash">export GDK_SCALE=1
-export GDK_DPI_SCALE=1.5
-</code></pre>
-<p>这个数值在小新 Pro 13 的 2K 屏幕上对于大多数应用效果都不错。不过 JB 家的 IntelliJ IDEA 和 CLion 因为是 Swing 应用， UI scale 只支援整数倍，1.5 似乎相当于 scale 到 2 了，导致字都看起来非常大……不过可以通过调整字体大小解决。</p>
-<p>这个表格大致整理了应该修改哪些地方（基于 CLion 2020 的菜单层级）：</p>
-<table><thead><tr><th>设置项</th><th>作用</th></tr></thead><tbody>
-<tr><td><code>Appearance &amp; Behavior &gt; Appearance &gt; Use Custom Font</code></td><td>设置绝大多数 UI 字体</td></tr>
-<tr><td><code>Editor &gt; Font</code> 或 <br> <code>Editor &gt; Color Scheme &gt; Color Scheme Font</code></td><td>设置编辑器（写代码的区域）的字体</td></tr>
-<tr><td><code>Editor &gt; Color Scheme &gt; Console Font</code></td><td>设置内建终端（Integrated Terminal）的字体</td></tr>
-</tbody></table>
-<h3><a class="header" href="#大功告成" id="大功告成">大功告成！</a></h3>
-<p>设置好 <code>DISPLAY</code> 和 HiDPI 支援并开启 Xserver 之后就能运行 GUI 应用了。</p>
-<p>可以拿 <code>xeyes</code> 测试一下：</p>
-<pre><code class="language-bash">sudo apt install x11-apps
-xeyes
-</code></pre>
-<p>不出意外你就能看到熟悉的弱智小眼球了。</p>
-<p>也能正常使用安装在 WSL 的 Sublime Text、CLion、IntelliJ IDEA 等等。</p>
-<h2><a class="header" href="#jetbrains-ide-的进一步调整" id="jetbrains-ide-的进一步调整">JetBrains IDE 的进一步调整</a></h2>
-<p>装了 JB 家的几个 IDE 之后发现没法即开即用，还要再配置点东西。</p>
-<h3><a class="header" href="#use-windows-default-browser" id="use-windows-default-browser">Use Windows default browser</a></h3>
-<p>WSL 没有默认浏览器（当然），而 JB 家 IDE 的 markdown 渲染器依赖 JCEF，所以必须得有个浏览器。我们可以用 Windows 的浏览器：</p>
-<p>打开 <code>Settings &gt; Tools &gt; Web Browsers</code>，将 <code>Default Browser</code> 的路径改为 <code>/mnt/c/path/to/your/browser/browser.exe</code> 即可。</p>
-<h3><a class="header" href="#resolve-jcef-dependency-issue" id="resolve-jcef-dependency-issue">Resolve JCEF dependency issue</a></h3>
-<p>JCEF 依赖的 <code>libcef.so</code> 和 <code>libjcef.so</code> 两个库都有一大堆依赖。根据 event log 的报错安装一下就好了。我缺 <code>libXss</code> 和 <code>libgbm</code>：</p>
-<pre><code class="language-bash">$ sudo apt install libxss1 libgbm1
-</code></pre>
-<h2><a class="header" href="#cjk-字体支援" id="cjk-字体支援">CJK 字体支援</a></h2>
-<p>当然可以手动安装字体，不过也可以在 <code>/usr/share/fonts/</code> 创建连到 Windows 字体库的软链接：</p>
-<pre><code class="language-bash">sudo ln -s /mnt/c/Windows/Fonts/ /usr/share/fonts/WindowsFonts
-</code></pre>
-<p>然后 <code>logout</code> 再登入，或用 <code>fc-cache</code> 手动 index 字体库，即可愉快阅览中日韩内容。</p>
-<pre><code class="language-bash">fc-cache -f -v
-</code></pre>
-<h2><a class="header" href="#使用中文输入法" id="使用中文输入法">使用中文输入法</a></h2>
-<p>应该可以装 <code>fcitx</code> 或者 <code>ibus</code> 来使用中文输入法。不过目前没有输入中文需求。暂时搁置。</p>
-<p>更好的方法是寻求一个办法打通两边使用 Microsoft IME，暂时没有实现想法……</p>
-<h2><a class="header" href="#reference" id="reference">Reference</a></h2>
-<ol>
-<li><a href="https://linux.vbird.org/linux_basic/centos7/0590xwindow.php">鸟哥的 Linux 私房菜：第二十三章、X Window 设定介绍</a></li>
-<li><a href="https://www.lainme.com/doku.php/blog/2018/07/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%9C%A8windows_10%E4%B8%8A%E8%A3%85x">Lainme's Blog：如何优雅的在 Linux 上装 X</a></li>
-</ol>
+                        <h1><a class="header" href="#手写汇编" id="手写汇编">手写汇编</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../misc/fix-node-modules.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../RevEng/gdb.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
+                        
+                            <a rel="next" href="../misc/effective-shell.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -252,11 +188,15 @@ xeyes
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../misc/fix-node-modules.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../RevEng/gdb.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
+                
+                    <a rel="next" href="../misc/effective-shell.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 

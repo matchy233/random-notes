@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Fix node-modules - Random Notes</title>
+        <title>Random Notes - Random Notes</title>
         
         
 
@@ -18,28 +18,28 @@
         <meta name="theme-color" content="#ffffff" />
 
         
-        <link rel="icon" href="../favicon.svg">
+        <link rel="icon" href="favicon.svg">
         
         
-        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="shortcut icon" href="favicon.png">
         
-        <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
         
-        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="stylesheet" href="css/print.css" media="print">
         
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         
-        <link rel="stylesheet" href="../fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
         
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -49,7 +49,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "../";
+            var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
         </script>
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Quotes</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">2.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html"><strong aria-hidden="true">3.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="../RevEng/write-asm.html"><strong aria-hidden="true">4.</strong> Write Assembly Code</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">5.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html" class="active"><strong aria-hidden="true">6.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">7.</strong> Use WSL with GUI</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html" class="active">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="literature/quotes.html"><strong aria-hidden="true">1.</strong> Quotes</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="Java/Java-io.html"><strong aria-hidden="true">2.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="RevEng/gdb.html"><strong aria-hidden="true">3.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="RevEng/write-asm.html"><strong aria-hidden="true">4.</strong> Write Assembly Code</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="misc/effective-shell.html"><strong aria-hidden="true">5.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="misc/fix-node-modules.html"><strong aria-hidden="true">6.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="misc/use-wsl-with-gui.html"><strong aria-hidden="true">7.</strong> Use WSL with GUI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -131,7 +131,7 @@
 
                     <div class="right-buttons">
                         
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         
@@ -163,56 +163,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#修理-hexo-douban" id="修理-hexo-douban">修理 hexo-douban</a></h1>
-<p>在新博客使用了 <a href="https://github.com/mythsman/hexo-douban"><code>hexo-douban</code></a> 这个库，想展示自己的豆瓣阅读、观影等等。但是生成的豆瓣页在 Fluid 主题下图片显示有点问题，需要手动改 <code>css</code> 来解决；同时装了 <code>bluebird</code> 又检测到几处 <code>TypeError</code>，需要修改 <code>js</code> 源码。
-原作者已经没有精力维护这个库了，<code>npm</code> 肯定不会更新，而我又依赖 GitHub Actions 来部署。如何应用自己的手动修改是个问题。</p>
-<h2><a class="header" href="#使用-patch-package-给包打补丁" id="使用-patch-package-给包打补丁">使用 <code>patch-package</code> 给包打补丁</a></h2>
-<p>这里推荐个小工具 <a href="https://www.npmjs.com/package/patch-package">patch-package</a>。就是给依赖库打个补丁，不影响依赖库正常升级，只是涉及到你修改的内容会用你的补丁替换。</p>
-<p>直接在依赖库中编辑修复有 bug 的文件，然后该工具会生成个临时文件夹存放对应版本的依赖库，然后和你修改的依赖库目录去进行比较，生成一个 patch 文件，下次在执行 <code>npm install</code> 时，该工具会将该 patch 合进该依赖库去。</p>
-<h2><a class="header" href="#具体操作步骤" id="具体操作步骤">具体操作步骤</a></h2>
-<ol>
-<li>
-<p>项目的根目录 <code>package.json</code> 下，添加 <code>npm postinstall</code>, 以便每次执行 <code>npm install</code> 时能合进所有的patch文件：</p>
-<pre><code class="language-diff">&quot;scripts&quot;: {
-   ...
-+  &quot;postinstall&quot;: &quot;patch-package&quot;
-   ...
-}
-</code></pre>
-</li>
-<li>
-<p>安装 <code>patch-package</code></p>
-<pre><code class="language-bash">npm i patch-package --save
-</code></pre>
-</li>
-<li>
-<p>编辑依赖库 <code>&lt;package-name&gt;</code>, 并执行下面命令生成 patch 文件</p>
-<pre><code class="language-bash">npx patch-package &lt;package-name&gt;
-</code></pre>
-</li>
-<li>
-<p>再执行以下命令，你就发现最新安装的包已经合进了你刚刚修改的 patch 文件了</p>
-<pre><code class="language-bash">npm install
-</code></pre>
-</li>
-</ol>
-<h2><a class="header" href="#reference" id="reference">Reference</a></h2>
-<ol>
-<li><a href="https://juejin.im/post/6844904165328551944">JeanZhao: 修改node_modules中依赖库</a></li>
-</ol>
+                        <h1><a class="header" href="#random-notes" id="random-notes">Random Notes</a></h1>
+<p>杂七杂八给自己看的笔记</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../misc/effective-shell.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
 
                         
-                            <a rel="next" href="../misc/use-wsl-with-gui.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="literature/quotes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -224,13 +185,9 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../misc/effective-shell.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
 
                 
-                    <a rel="next" href="../misc/use-wsl-with-gui.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="literature/quotes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -253,14 +210,14 @@
         
 
         
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

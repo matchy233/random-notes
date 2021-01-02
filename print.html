@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="zh-cn" class="sidebar-visible no-js light">
+<html lang="zh" class="sidebar-visible no-js ayu">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -52,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -78,7 +78,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('ayu')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="literature/quotes.html"><strong aria-hidden="true">1.</strong> Quotes</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="Java/Java-io.html"><strong aria-hidden="true">2.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="misc/effective-shell.html"><strong aria-hidden="true">3.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="misc/fix-node-modules.html"><strong aria-hidden="true">4.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="misc/gdb.html"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="misc/use-wsl-with-gui.html"><strong aria-hidden="true">6.</strong> Use WSL with GUI</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="literature/quotes.html"><strong aria-hidden="true">1.</strong> Quotes</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="Java/Java-io.html"><strong aria-hidden="true">2.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="RevEng/gdb.html"><strong aria-hidden="true">3.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="RevEng/write-asm.html"><strong aria-hidden="true">4.</strong> Write Assembly Code</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="misc/effective-shell.html"><strong aria-hidden="true">5.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="misc/fix-node-modules.html"><strong aria-hidden="true">6.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="misc/use-wsl-with-gui.html"><strong aria-hidden="true">7.</strong> Use WSL with GUI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -116,11 +116,11 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
                         </ul>
                         
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
@@ -165,7 +165,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#quotes" id="quotes">Quotes</a></h1>
+                        <h1><a class="header" href="#random-notes" id="random-notes">Random Notes</a></h1>
+<p>杂七杂八给自己看的笔记</p>
+<h1><a class="header" href="#quotes" id="quotes">Quotes</a></h1>
 <ol>
 <li>
 <p>The word God is for me nothing more than the expression and product of human weaknesses, the Bible a collection of honorable, but still primitive, legends which are nevertheless pretty childish.</p>
@@ -202,62 +204,6 @@
 <tr><td>Objects</td><td>ObjectInputStream</td><td>ObjectOutputStream</td><td></td><td></td></tr>
 <tr><td>Utilities</td><td>SequenceInputStream</td><td></td><td></td><td></td></tr>
 </tbody></table>
-<h1><a class="header" href="#effective-shell" id="effective-shell">Effective Shell</a></h1>
-<h2><a class="header" href="#navigating-along-the-command-line" id="navigating-along-the-command-line">Navigating along the command line</a></h2>
-<p>可能应该录制一个 gif 来展示功能。</p>
-<table><thead><tr><th>功能</th><th>快捷键</th></tr></thead><tbody>
-<tr><td>定位到行开头</td><td><code>Ctrl</code> + <code>A</code> 或者 <code>Home</code></td></tr>
-<tr><td>定位到行末尾</td><td><code>Ctrl</code> + <code>D</code> 或者 <code>End</code></td></tr>
-<tr><td>向前（行首）移动<br>一个词</td><td><code>Alt</code> + <code>B</code> 或者 <code>Ctrl</code> + ⬅</td></tr>
-<tr><td>向后（行末）移动<br>一个词</td><td><code>Alt</code> + <code>F</code> 或者 <code>Ctrl</code> + ➡</td></tr>
-<tr><td>删除整行（<code>zsh</code>）</td><td><code>Ctrl</code> + <code>U</code></td></tr>
-<tr><td>删除光标处到行首的<br>所有字符（非 <code>zsh</code>）</td><td><code>Ctrl</code> + <code>U</code></td></tr>
-<tr><td>删除光标处到行末的<br>所有字符</td><td><code>Ctrl</code> + <code>K</code></td></tr>
-<tr><td>删除一个词</td><td><code>Ctrl</code> + <code>W</code> 或者 <code>Alt</code> + <code>D</code></td></tr>
-<tr><td>上一条命令</td><td><code>Ctrl</code> + <code>P</code> 或者 ⬆</td></tr>
-<tr><td>下一条命令</td><td><code>Ctrl</code> + <code>N</code> 或者 ⬇</td></tr>
-<tr><td>打开编辑器编辑当前<br>指令</td><td><code>Ctrl</code> + <code>X</code>, <code>E</code></td></tr>
-</tbody></table>
-<p><code>Ctrl</code> + <code>X</code>,<code>E</code> 打开的编辑器是通过环境变量 <code>$EDITOR</code> 指定的。</p>
-<p>这里有一张非常棒的图可作总结：</p>
-<p><img src="misc/img/2020-11-11-23-27-58.png" alt="Navigating the Command Line" /></p>
-<h1><a class="header" href="#修理-hexo-douban" id="修理-hexo-douban">修理 hexo-douban</a></h1>
-<p>在新博客使用了 <a href="https://github.com/mythsman/hexo-douban"><code>hexo-douban</code></a> 这个库，想展示自己的豆瓣阅读、观影等等。但是生成的豆瓣页在 Fluid 主题下图片显示有点问题，需要手动改 <code>css</code> 来解决；同时装了 <code>bluebird</code> 又检测到几处 <code>TypeError</code>，需要修改 <code>js</code> 源码。
-原作者已经没有精力维护这个库了，<code>npm</code> 肯定不会更新，而我又依赖 GitHub Actions 来部署。如何应用自己的手动修改是个问题。</p>
-<h2><a class="header" href="#使用-patch-package-给包打补丁" id="使用-patch-package-给包打补丁">使用 <code>patch-package</code> 给包打补丁</a></h2>
-<p>这里推荐个小工具 <a href="https://www.npmjs.com/package/patch-package">patch-package</a>。就是给依赖库打个补丁，不影响依赖库正常升级，只是涉及到你修改的内容会用你的补丁替换。</p>
-<p>直接在依赖库中编辑修复有 bug 的文件，然后该工具会生成个临时文件夹存放对应版本的依赖库，然后和你修改的依赖库目录去进行比较，生成一个 patch 文件，下次在执行 <code>npm install</code> 时，该工具会将该 patch 合进该依赖库去。</p>
-<h2><a class="header" href="#具体操作步骤" id="具体操作步骤">具体操作步骤</a></h2>
-<ol>
-<li>
-<p>项目的根目录 <code>package.json</code> 下，添加 <code>npm postinstall</code>, 以便每次执行 <code>npm install</code> 时能合进所有的patch文件：</p>
-<pre><code class="language-diff">&quot;scripts&quot;: {
-   ...
-+  &quot;postinstall&quot;: &quot;patch-package&quot;
-   ...
-}
-</code></pre>
-</li>
-<li>
-<p>安装 <code>patch-package</code></p>
-<pre><code class="language-bash">npm i patch-package --save
-</code></pre>
-</li>
-<li>
-<p>编辑依赖库 <code>&lt;package-name&gt;</code>, 并执行下面命令生成 patch 文件</p>
-<pre><code class="language-bash">npx patch-package &lt;package-name&gt;
-</code></pre>
-</li>
-<li>
-<p>再执行以下命令，你就发现最新安装的包已经合进了你刚刚修改的 patch 文件了</p>
-<pre><code class="language-bash">npm install
-</code></pre>
-</li>
-</ol>
-<h2><a class="header" href="#reference" id="reference">Reference</a></h2>
-<ol>
-<li><a href="https://juejin.im/post/6844904165328551944">JeanZhao: 修改node_modules中依赖库</a></li>
-</ol>
 <h1><a class="header" href="#gdb-逆向调试" id="gdb-逆向调试">GDB 逆向调试</a></h1>
 <h2><a class="header" href="#启动" id="启动">启动</a></h2>
 <p>可以直接控制台输入 <code>gdb</code> 并在 GDB 中指定程序（例为 <code>crackme</code>）</p>
@@ -416,7 +362,7 @@ $2 = 0xffffd7f4 &quot;/path/to/crackme&quot;
 <pre><code class="language-bash">(gdb) layout asm
 </code></pre>
 <p>效果如图</p>
-<p><img src="misc/img/2020-12-25-12-58-23.png" alt="layout asm" /></p>
+<p><img src="RevEng/img/2020-12-25-12-58-23.png" alt="layout asm" /></p>
 <p>想要退出 <code>layout</code> 模式只需 <code>Ctrl</code> + <code>X, A</code> （按住 <code>Ctrl</code> + <code>X</code> 后再按 <code>A</code>，类似 VSCode 的 <code>Ctrl + K, *</code> 系列操作）</p>
 <p><code>layout</code> 除了显示汇编，还可以显示其他内容。具体参数如下：</p>
 <ul>
@@ -435,7 +381,64 @@ $2 = 0xffffd7f4 &quot;/path/to/crackme&quot;
 <pre><code class="language-bash">objdump -M intel
 </code></pre>
 <p>使用 <code>pwndbg</code> 这个 GDB 插件可以把工作量（指记住 GDB 命令）减少很多。在每次运行到断点时 <code>pwndbg</code> 都会把可能需要的信息漂亮地打出来</p>
-<p><img src="misc/img/2020-12-25-13-14-06.png" alt="pwndbg" /></p>
+<p><img src="RevEng/img/2020-12-25-13-14-06.png" alt="pwndbg" /></p>
+<h1><a class="header" href="#手写汇编" id="手写汇编">手写汇编</a></h1>
+<h1><a class="header" href="#effective-shell" id="effective-shell">Effective Shell</a></h1>
+<h2><a class="header" href="#navigating-along-the-command-line" id="navigating-along-the-command-line">Navigating along the command line</a></h2>
+<p>可能应该录制一个 gif 来展示功能。</p>
+<table><thead><tr><th>功能</th><th>快捷键</th></tr></thead><tbody>
+<tr><td>定位到行开头</td><td><code>Ctrl</code> + <code>A</code> 或者 <code>Home</code></td></tr>
+<tr><td>定位到行末尾</td><td><code>Ctrl</code> + <code>D</code> 或者 <code>End</code></td></tr>
+<tr><td>向前（行首）移动<br>一个词</td><td><code>Alt</code> + <code>B</code> 或者 <code>Ctrl</code> + ⬅</td></tr>
+<tr><td>向后（行末）移动<br>一个词</td><td><code>Alt</code> + <code>F</code> 或者 <code>Ctrl</code> + ➡</td></tr>
+<tr><td>删除整行（<code>zsh</code>）</td><td><code>Ctrl</code> + <code>U</code></td></tr>
+<tr><td>删除光标处到行首的<br>所有字符（非 <code>zsh</code>）</td><td><code>Ctrl</code> + <code>U</code></td></tr>
+<tr><td>删除光标处到行末的<br>所有字符</td><td><code>Ctrl</code> + <code>K</code></td></tr>
+<tr><td>删除一个词</td><td><code>Ctrl</code> + <code>W</code> 或者 <code>Alt</code> + <code>D</code></td></tr>
+<tr><td>上一条命令</td><td><code>Ctrl</code> + <code>P</code> 或者 ⬆</td></tr>
+<tr><td>下一条命令</td><td><code>Ctrl</code> + <code>N</code> 或者 ⬇</td></tr>
+<tr><td>打开编辑器编辑当前<br>指令</td><td><code>Ctrl</code> + <code>X</code>, <code>E</code></td></tr>
+</tbody></table>
+<p><code>Ctrl</code> + <code>X</code>,<code>E</code> 打开的编辑器是通过环境变量 <code>$EDITOR</code> 指定的。</p>
+<p>这里有一张非常棒的图可作总结：</p>
+<p><img src="misc/img/2020-11-11-23-27-58.png" alt="Navigating the Command Line" /></p>
+<h1><a class="header" href="#修理-hexo-douban" id="修理-hexo-douban">修理 hexo-douban</a></h1>
+<p>在新博客使用了 <a href="https://github.com/mythsman/hexo-douban"><code>hexo-douban</code></a> 这个库，想展示自己的豆瓣阅读、观影等等。但是生成的豆瓣页在 Fluid 主题下图片显示有点问题，需要手动改 <code>css</code> 来解决；同时装了 <code>bluebird</code> 又检测到几处 <code>TypeError</code>，需要修改 <code>js</code> 源码。
+原作者已经没有精力维护这个库了，<code>npm</code> 肯定不会更新，而我又依赖 GitHub Actions 来部署。如何应用自己的手动修改是个问题。</p>
+<h2><a class="header" href="#使用-patch-package-给包打补丁" id="使用-patch-package-给包打补丁">使用 <code>patch-package</code> 给包打补丁</a></h2>
+<p>这里推荐个小工具 <a href="https://www.npmjs.com/package/patch-package">patch-package</a>。就是给依赖库打个补丁，不影响依赖库正常升级，只是涉及到你修改的内容会用你的补丁替换。</p>
+<p>直接在依赖库中编辑修复有 bug 的文件，然后该工具会生成个临时文件夹存放对应版本的依赖库，然后和你修改的依赖库目录去进行比较，生成一个 patch 文件，下次在执行 <code>npm install</code> 时，该工具会将该 patch 合进该依赖库去。</p>
+<h2><a class="header" href="#具体操作步骤" id="具体操作步骤">具体操作步骤</a></h2>
+<ol>
+<li>
+<p>项目的根目录 <code>package.json</code> 下，添加 <code>npm postinstall</code>, 以便每次执行 <code>npm install</code> 时能合进所有的patch文件：</p>
+<pre><code class="language-diff">&quot;scripts&quot;: {
+   ...
++  &quot;postinstall&quot;: &quot;patch-package&quot;
+   ...
+}
+</code></pre>
+</li>
+<li>
+<p>安装 <code>patch-package</code></p>
+<pre><code class="language-bash">npm i patch-package --save
+</code></pre>
+</li>
+<li>
+<p>编辑依赖库 <code>&lt;package-name&gt;</code>, 并执行下面命令生成 patch 文件</p>
+<pre><code class="language-bash">npx patch-package &lt;package-name&gt;
+</code></pre>
+</li>
+<li>
+<p>再执行以下命令，你就发现最新安装的包已经合进了你刚刚修改的 patch 文件了</p>
+<pre><code class="language-bash">npm install
+</code></pre>
+</li>
+</ol>
+<h2><a class="header" href="#reference" id="reference">Reference</a></h2>
+<ol>
+<li><a href="https://juejin.im/post/6844904165328551944">JeanZhao: 修改node_modules中依赖库</a></li>
+</ol>
 <h1><a class="header" href="#在-windows-10-上装-x" id="在-windows-10-上装-x">在 Windows 10 上装 X</a></h1>
 <h2><a class="header" href="#x-window-system-简介" id="x-window-system-简介">X Window System 简介</a></h2>
 <p>TBC</p>
