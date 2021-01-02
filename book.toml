@@ -1,6 +1,10 @@
 [book]
 authors = ["matchy233"]
-language = "zh-cn"
+language = "zh"
 multilingual = true
 src = "src"
 title = "Random Notes"
+
+[output.html]
+default-theme = "Ayu"
+preferred-dark-theme = "Ayu"
