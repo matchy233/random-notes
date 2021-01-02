@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Intro to gdb - Random Notes</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Quotes</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">2.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">3.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html"><strong aria-hidden="true">4.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/gdb.html" class="active"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">6.</strong> Use WSL with GUI</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Random Notes</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#gdb-逆向调试" id="gdb-逆向调试">GDB 逆向调试</a></h1>
+<h2><a class="header" href="#启动" id="启动">启动</a></h2>
+<p>可以直接控制台输入 <code>gdb</code> 并在 GDB 中指定程序（例为 <code>crackme</code>）</p>
+<pre><code class="language-bash">$ gdb
+(gdb)
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;
+and &quot;show warranty&quot; for details.
+This GDB was configured as &quot;x86_64-linux-gnu&quot;.
+Type &quot;show configuration&quot; for configuration details.
+For bug reporting instructions, please see:
+&lt;http://www.gnu.org/software/gdb/bugs/&gt;.
+Find the GDB manual and other documentation resources online at:
+&lt;http://www.gnu.org/software/gdb/documentation/&gt;.
+For help, type &quot;help&quot;.
+Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;.
+(gdb) file crackme
+Reading symbols from crackme0x00...done.
+</code></pre>
+<p>或者也可以直接指定程序（假定 <code>crackme</code> 在当前目录下）</p>
+<pre><code class="language-bash">$ gdb ./crackme
+</code></pre>
+<h2><a class="header" href="#运行程序和断点" id="运行程序和断点">运行程序和断点</a></h2>
+<h3><a class="header" href="#运行程序" id="运行程序">运行程序</a></h3>
+<p>指定程序后并不会直接运行，需要使用 <code>run</code> 或者缩写 <code>r</code></p>
+<pre><code class="language-bash">(gdb) r
+</code></pre>
+<p>需要传参的话可以在 <code>run</code> 之前 <code>set args</code></p>
+<pre><code class="language-bash">(gdb) set args inputfile.txt
+(gdb) r
+</code></pre>
+<p>或者直接 <code>r args</code></p>
+<pre><code class="language-bash">(gdb) r inputfile.txt
+</code></pre>
+<h3><a class="header" href="#断点" id="断点">断点</a></h3>
+<p>在程序运行前和运行中可以用 <code>break</code> 或 <code>b</code> 指定断点（breakpoint），可以使用函数名，行号（逆向的话通常不知道）和指令地址</p>
+<p>使用函数名断点</p>
+<pre><code class="language-bash">(gdb) b main
+</code></pre>
+<p>使用行号断点</p>
+<pre><code class="language-bash">(gdb) b 9
+</code></pre>
+<p>使用指令地址断点（根据汇编），注意因为是地址所以要用 <code>b *address</code> 格式</p>
+<p>譬如在汇编中注意到有 <code>strcmp</code> 函数调用</p>
+<pre><code class="language-diff">(gdb) disas
+Dump of assembler code for function main:
+    0x080486a3 &lt;+0&gt;:     push   ebp
+    ...
+    0x080486d1 &lt;+46&gt;:    add    esp,0x8
+    0x080486d4 &lt;+49&gt;:    push   0x8048817
+    0x080486d9 &lt;+54&gt;:    lea    eax,[ebp-0x10]
+    0x080486dc &lt;+57&gt;:    push   eax
++   0x080486dd &lt;+58&gt;:    call   0x8048420 &lt;strcmp@plt&gt;
+    0x080486e2 &lt;+63&gt;:    add    esp,0x8
+   ...
+</code></pre>
+<p>在 <code>call strcmp</code> 处断点</p>
+<pre><code class="language-bash">(gdb) b *0x080486dd
+Breakpoint 2 at 0x80486dd: file crackme.c, line 15.
+</code></pre>
+<p>或者也可以用相对 <code>main</code> 的偏移（offset）来断点</p>
+<pre><code class="language-bash">(gdb) b *main+58
+</code></pre>
+<p>程序运行到断点时会停止。这时可以查看汇编、寄存器值等操作</p>
+<pre><code class="language-bash">(gdb) r
+Starting program: /path/to/crackme
+Breakpoint 1, main (argc=1, argv=0xffffd6c4) at crackme.c:9
+</code></pre>
+<h2><a class="header" href="#查看汇编寄存器值变量值" id="查看汇编寄存器值变量值">查看汇编、寄存器值、变量值</a></h2>
+<h3><a class="header" href="#汇编" id="汇编">汇编</a></h3>
+<p><code>disassemble</code> 或 <code>disas</code> 可以查看 <em>当前</em> 栈帧（frame）的汇编。比如刚才在 <code>main</code> 处打了断点，就能够查看 <code>main</code> 的汇编。</p>
+<pre><code class="language-bash">(gdb) disas
+Dump of assembler code for function main:
+   0x08048486 &lt;+0&gt;:     push   ebp
+   0x08048487 &lt;+1&gt;:     mov    ebp,esp
+   0x08048489 &lt;+3&gt;:     sub    esp,0x4
+   ...
+</code></pre>
+<p>汇编格式默认是 AT&amp;T, 不想看 AT&amp;T 的阴间汇编的话要提前设置 assembly flavor</p>
+<pre><code class="language-bash">(gdb) set disassembly-flavor intel
+</code></pre>
+<p>带上 <code>/m</code> 参数可以把源码和汇编一起排列（如果有源码的话），没有也能显示一组汇编对应的 c 程序行号，打断点更方便一些。</p>
+<pre><code class="language-bash">(gdb) disas /m
+Dump of assembler code for function main:
+7       in crackme.c
+   0x08048486 &lt;+0&gt;:     push   ebp
+   0x08048487 &lt;+1&gt;:     mov    ebp,esp
+   0x08048489 &lt;+3&gt;:     sub    esp,0x4
+   ...
+</code></pre>
+<h3><a class="header" href="#寄存器" id="寄存器">寄存器</a></h3>
+<p>可以使用 <code>info register</code> 或缩写 <code>i r</code> 查看寄存器值</p>
+<pre><code class="language-bash">(gdb) i r
+eax            0xf7fbcdd8       -134492712
+ecx            0xfcf63fa0       -50970720
+edx            0xffffd654       -10668
+ebx            0x0      0
+esp            0xffffd624       0xffffd624
+ebp            0xffffd628       0xffffd628
+esi            0xf7fbb000       -134500352
+edi            0x0      0
+eip            0x804848c        0x804848c &lt;main+6&gt;
+eflags         0x286    [ PF SF IF ]
+cs             0x23     35
+ss             0x2b     43
+ds             0x2b     43
+es             0x2b     43
+fs             0x0      0
+gs             0x63     99
+</code></pre>
+<h3><a class="header" href="#变量" id="变量">变量</a></h3>
+<p>如果你知道变量名，可以用 <code>print var</code> 或 <code>p var</code> 打印其内容，也可以打印寄存器内容</p>
+<p>比如打印 <code>argv[0]</code> （程序名）</p>
+<pre><code class="language-bash">(gdb) p argv[0]
+$1 = 0xffffd7f4 &quot;/path/to/crackme&quot;
+</code></pre>
+<p>注意到 <code>print</code> 有一个自增 id，我们可以通过 <code>print $id</code> 来打印之前打印过的值</p>
+<pre><code class="language-bash">(gdb) p $1
+$2 = 0xffffd7f4 &quot;/path/to/crackme&quot;
+</code></pre>
+<p><code>x address</code> 可以用来检视内存内容，比如 <code>x $eax</code> 会把 <code>%eax</code> 中存储的值解读为内存地址，并打印其内容</p>
+<p><code>p</code> 和 <code>x</code> 可以用基本相同的一套格式化方法来指定要打印变量 / 内存地址被解读为何种类型</p>
+<ul>
+<li><code>/o</code>：8 进制（octal）</li>
+<li><code>/x</code>：16 进制 （hexadecimal）</li>
+<li><code>/u</code>：无符号 10 进制（unsigned decimal）</li>
+<li><code>/t</code>：binary</li>
+<li><code>/f</code>：floating point</li>
+<li><code>/a</code>：address —— 这不还是 16 进制吗 =、=</li>
+<li><code>/c</code>：char</li>
+<li><code>/s</code>：string</li>
+</ul>
+<p><code>x</code> 还可以用 <code>/i</code> 采用指令（instruction）格式化方法</p>
+<p><code>x</code> 还能指定字符串的字符宽度（譬如 UTF-16le 或 UTF-8 字符宽度就可能为 2 或 3 个字节）</p>
+<ul>
+<li><code>b</code>: byte</li>
+<li><code>h</code>: halfword (16-bit value)</li>
+<li><code>w</code>: word (32-bit value)</li>
+<li><code>l</code>: giant word (64-bit value)</li>
+</ul>
+<p>来看看打印效果</p>
+<pre><code class="language-bash">(gdb) x/bs 0x8048817
+0x8048817:      &quot;250381&quot;
+(gdb) x/ws 0x8048817
+0x8048817:      U&quot;\x33303532\x50003138\x77737361\x2064726f\x3a204b4f\x616c0029\x3a313062\x6f747574\x6c616972\x766e4900\x64696c61\x73615020\x726f7773Ⅴ\x31b0100䀻܀\xfffbc000烿\xfffc8000铿\xfffcd000峿\xfffda600\xa8ff\xfffe5300죿\xfffed000\xffff3000\x134ff᐀&quot;
+(gdb) x/hs 0x8048817
+0x8048817:      u&quot;㔲㌰ㄸ倀獡睳牯⁤䭏㨠)慬ぢ㨱畴潴楲污䤀癮污摩倠獡睳牯Ⅴ&quot;
+(gdb) x/ls 0x8048817
+0x8048817:      &quot;250381&quot;
+</code></pre>
+<h3><a class="header" href="#其他" id="其他">其他</a></h3>
+<p>如果想边看汇编边调试的话，可以用 <code>layout asm</code> 显示汇编和命令行</p>
+<pre><code class="language-bash">(gdb) layout asm
+</code></pre>
+<p>效果如图</p>
+<p><img src="img/2020-12-25-12-58-23.png" alt="layout asm" /></p>
+<p>想要退出 <code>layout</code> 模式只需 <code>Ctrl</code> + <code>X, A</code> （按住 <code>Ctrl</code> + <code>X</code> 后再按 <code>A</code>，类似 VSCode 的 <code>Ctrl + K, *</code> 系列操作）</p>
+<p><code>layout</code> 除了显示汇编，还可以显示其他内容。具体参数如下：</p>
+<ul>
+<li><code>src</code>   : Displays source and command windows.</li>
+<li><code>asm</code>   : Displays disassembly and command windows.</li>
+<li><code>split</code> : Displays source, disassembly and command windows.</li>
+<li><code>regs</code>  : Displays register window. If existing layout</li>
+</ul>
+<h2><a class="header" href="#按步调试" id="按步调试">按步调试</a></h2>
+<p><code>continue</code> 或缩写 <code>c</code> 可以让程序运行到下一个断点</p>
+<p><code>next</code> 或 <code>n</code> 可以让程序运行到 <em>当前栈帧</em> 的下一条语句。在遇到函数调用时，<code>next</code> <strong>不会</strong>跟踪进入函数。</p>
+<p><code>step</code> 或 <code>s</code> 可以让程序运行到下一条语句。在遇到函数调用的时候，<code>step</code> <strong>会</strong>跟踪进入函数。</p>
+<p><code>nexti</code> 和 <code>stepi</code> 与不带 <code>i</code> 的指令类似，区别是他们会让程序运行到下一条汇编指令（<code>i</code> 指 instruction）</p>
+<h2><a class="header" href="#tips" id="tips">Tips</a></h2>
+<p>觉得在 GDB 里看汇编太累的话可以 <code>objdump</code> 整个文件，在喜欢的编辑器里带着高亮慢慢看。 Sublime Text 3 推荐 NASM x86 Assembly 这个高亮</p>
+<pre><code class="language-bash">objdump -M intel
+</code></pre>
+<p>使用 <code>pwndbg</code> 这个 GDB 插件可以把工作量（指记住 GDB 命令）减少很多。在每次运行到断点时 <code>pwndbg</code> 都会把可能需要的信息漂亮地打出来</p>
+<p><img src="img/2020-12-25-13-14-06.png" alt="pwndbg" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../misc/fix-node-modules.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../misc/use-wsl-with-gui.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../misc/fix-node-modules.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../misc/use-wsl-with-gui.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
