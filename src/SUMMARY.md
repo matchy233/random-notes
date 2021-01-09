@@ -4,7 +4,9 @@
 
 # Literature
 
-- [Quotes](literature/quotes.md)
+- [Random Quotes](literature/quotes.md)
+- [Lyrics Quotes](literature/lyrics.md)
+- [Poem Excerpts](literature/poems.md)
 
 # Java
 
@@ -13,7 +15,6 @@
 # Reverse Engineering
 
 - [Intro to gdb](RevEng/gdb.md)
-- [Write Assembly Code](RevEng/write-asm.md)
 
 # Misc
 
