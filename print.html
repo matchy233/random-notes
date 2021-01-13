@@ -289,8 +289,8 @@ $ gdb progName
 <pre><code class="language-bash">(gdb) set env FOO = bar
 </code></pre>
 <p>gdb 内部会默认设置两个环境变量 <code>LINES</code> 和 <code>COLUMNS</code>。众所周知，环境变量是放在栈底（大地址）的，增加环境变量会影响栈帧地址的构成。如果希望能减少这种影响，可以用 <code>unset</code> 删除环境变量。</p>
-<pre><code class="language-bash">(gdb) unset LINES
-(gdb) unset COLUMNS
+<pre><code class="language-bash">(gdb) unset env LINES
+(gdb) unset env COLUMNS
 </code></pre>
 <h3><a class="header" href="#运行程序" id="运行程序">运行程序</a></h3>
 <p>指定程序后并不会直接运行，需要使用 <code>run</code> 或者缩写 <code>r</code>。</p>
