@@ -60,8 +60,8 @@ $ gdb progName
 gdb 内部会默认设置两个环境变量 `LINES` 和 `COLUMNS`。众所周知，环境变量是放在栈底（大地址）的，增加环境变量会影响栈帧地址的构成。如果希望能减少这种影响，可以用 `unset` 删除环境变量。
 
 ```bash
-(gdb) unset LINES
-(gdb) unset COLUMNS
+(gdb) unset env LINES
+(gdb) unset env COLUMNS
 ```
 
 ### 运行程序
