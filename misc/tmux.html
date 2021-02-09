@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Fix node-modules - Random Notes</title>
+        <title>TMUX usage 101 - Random Notes</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="../literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="../literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">4.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">6.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html" class="active"><strong aria-hidden="true">7.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">8.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="../misc/tmux.html"><strong aria-hidden="true">9.</strong> TMUX usage 101</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="../literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="../literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">4.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">6.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html"><strong aria-hidden="true">7.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">8.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="../misc/tmux.html" class="active"><strong aria-hidden="true">9.</strong> TMUX usage 101</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,58 +163,55 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#修理-hexo-douban" id="修理-hexo-douban">修理 hexo-douban</a></h1>
-<p>在新博客使用了 <a href="https://github.com/mythsman/hexo-douban"><code>hexo-douban</code></a> 这个库，想展示自己的豆瓣阅读、观影等等。但是生成的豆瓣页在 Fluid 主题下图片显示有点问题，需要手动改 <code>css</code> 来解决；同时装了 <code>bluebird</code> 又检测到几处 <code>TypeError</code>，需要修改 <code>js</code> 源码。
-原作者已经没有精力维护这个库了，<code>npm</code> 肯定不会更新，而我又依赖 GitHub Actions 来部署。如何应用自己的手动修改是个问题。</p>
-<h2><a class="header" href="#使用-patch-package-给包打补丁" id="使用-patch-package-给包打补丁">使用 <code>patch-package</code> 给包打补丁</a></h2>
-<p>这里推荐个小工具 <a href="https://www.npmjs.com/package/patch-package">patch-package</a>。就是给依赖库打个补丁，不影响依赖库正常升级，只是涉及到你修改的内容会用你的补丁替换。</p>
-<p>直接在依赖库中编辑修复有 bug 的文件，然后该工具会生成个临时文件夹存放对应版本的依赖库，然后和你修改的依赖库目录去进行比较，生成一个 patch 文件，下次在执行 <code>npm install</code> 时，该工具会将该 patch 合进该依赖库去。</p>
-<h2><a class="header" href="#具体操作步骤" id="具体操作步骤">具体操作步骤</a></h2>
+                        <h1><a class="header" href="#tmux-usage-101" id="tmux-usage-101"><code>tmux</code> usage 101</a></h1>
+<h2><a class="header" href="#motivation-why-you-should-use-tmux" id="motivation-why-you-should-use-tmux">Motivation: why you should use <code>tmux</code>?</a></h2>
+<p><code>tmux</code> is very useful under the following scenarios:</p>
 <ol>
-<li>
-<p>项目的根目录 <code>package.json</code> 下，添加 <code>npm postinstall</code>, 以便每次执行 <code>npm install</code> 时能合进所有的patch文件：</p>
-<pre><code class="language-diff">&quot;scripts&quot;: {
-   ...
-+  &quot;postinstall&quot;: &quot;patch-package&quot;
-   ...
-}
-</code></pre>
-</li>
-<li>
-<p>安装 <code>patch-package</code></p>
-<pre><code class="language-bash">npm i patch-package --save
-</code></pre>
-</li>
-<li>
-<p>编辑依赖库 <code>&lt;package-name&gt;</code>, 并执行下面命令生成 patch 文件</p>
-<pre><code class="language-bash">npx patch-package &lt;package-name&gt;
-</code></pre>
-</li>
-<li>
-<p>再执行以下命令，你就发现最新安装的包已经合进了你刚刚修改的 patch 文件了</p>
-<pre><code class="language-bash">npm install
-</code></pre>
-</li>
+<li>When you <code>ssh</code> to a server, you would like to open multiple shells but don't want to <code>ssh</code> for multiple times.</li>
+<li>When you want to leave your work on the server running without needing to keep your shell alive, and moreover, you want to resume working on it afterwards</li>
 </ol>
-<h2><a class="header" href="#reference" id="reference">Reference</a></h2>
-<ol>
-<li><a href="https://juejin.im/post/6844904165328551944">JeanZhao: 修改node_modules中依赖库</a></li>
-</ol>
+<p>And it's just cool when you can split the shells windows!</p>
+<h2><a class="header" href="#basic-usage" id="basic-usage">Basic Usage</a></h2>
+<p>All the commands for <code>tmux</code> are only available after you type the command prefix. By default it is <code>Ctrl</code>-<code>b</code>. After pressing this combination, it will activate the console mode (or so I believe).</p>
+<h3><a class="header" href="#pane-commands" id="pane-commands">Pane commands</a></h3>
+<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>&quot;</code></td><td>Split current pane <em>vertically</em>, create new pane <em>underneath</em></td></tr>
+<tr><td><code>%</code></td><td>Split current pane <em>horizontally</em>, create new pane on the <em>right</em></td></tr>
+<tr><td><code>x</code></td><td>Close current pane (with confirmation, contrasst to simply pressing <code>Ctrl</code>-<code>d</code>)</td></tr>
+<tr><td><code>z</code></td><td>Maximize current pane (after <code>v1.8</code>)</td></tr>
+<tr><td><code>!</code></td><td>Move current pane to a new window and open it there</td></tr>
+<tr><td><code>;</code></td><td>Switch to the latest used pane</td></tr>
+<tr><td><code>q</code></td><td>Show pane number, and before the numbers disappear, you can switch to that pane by typing the number</td></tr>
+<tr><td><code>{</code></td><td>Swap forward current pane</td></tr>
+<tr><td><code>}</code></td><td>Swap backward current pane</td></tr>
+<tr><td><code>Ctrl</code>+<code>o</code></td><td>Swap all the panes in current window clockwise</td></tr>
+<tr><td><code>arrow</code></td><td>Move to the pane pointed by the arrow key (intuitive!)</td></tr>
+<tr><td><code>o</code></td><td>Switch to the next (pane number order) pane</td></tr>
+<tr><td><code>t</code></td><td>Show a clock :)</td></tr>
+</tbody></table>
+<h2><a class="header" href="#configure" id="configure">Configure</a></h2>
+<h3><a class="header" href="#change-command-prefix" id="change-command-prefix">Change command prefix</a></h3>
+<p>The default command prefix <code>Ctrl</code>-<code>b</code> is not a very good key binding: they are too far away! My choice is to change it to <code>Ctrl</code>-<code>a</code>, but it could be set to any keybinding you like.</p>
+<p>We should use <code>Ctrl</code>-<code>b</code> and then type <code>:</code> to enter the command line mod and enter the following lines</p>
+<pre><code class="language-bash">set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+</code></pre>
+<p>If you would like to set it permanently, it is wise to create a <code>~/.tmux.conf</code>, it functions just like your <code>.bashrc</code> and other dotfiles. If you</p>
+<p>Since <code>tmux</code> 1.6, it is possible to set a second prefix by the following command:</p>
+<pre><code class="language-bash">set -g prefix2 &lt;your-key-binding&gt;
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../misc/effective-shell.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../misc/use-wsl-with-gui.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="../misc/use-wsl-with-gui.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -224,15 +221,11 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../misc/effective-shell.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../misc/use-wsl-with-gui.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a rel="next" href="../misc/use-wsl-with-gui.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
