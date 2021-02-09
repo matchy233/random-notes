@@ -21,7 +21,7 @@ Neil Hilborn
 > She told me that she shouldn't have let me get so attached to her;<br>
 > that this whole thing was a mistake, but...<br>
 > How can it be a mistake that i don't have to wash my hands after I touched her?<br>
-> Lovte is not a mistake, and it's killing me that she can run away from this and I just can't,<br>
+> Love is not a mistake, and it's killing me that she can run away from this and I just can't,<br>
 > I can't — I can't go out and find someone new because I always think of her,<br>
 > Usually, when I obsess over things, I see germs sneaking into my skin.<br>
 > I see myself crushed by an endless succession of cars...<br>
