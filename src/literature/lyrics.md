@@ -40,13 +40,3 @@ Johnny Cash
 >The feelings disappear<br>
 >You are someone else<br>
 >I'm still right here
-
-## 暧昧
-
-杨丞琳
-
-> 暧昧让人受尽委屈<br>
-> 找不到相爱的证据<br>
-> 何时该前进<br>
-> 何时该放弃<br>
-> 连拥抱都没有勇气<br>
