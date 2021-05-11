@@ -25,4 +25,5 @@
 - [Effective Shell 1](misc/effective-shell.md)
 - [Fix node-modules](misc/fix-node-modules.md)
 - [Use WSL with GUI](misc/use-wsl-with-gui.md)
+- [TMUX 101](misc/tmux.md)
 - [How to Differentiate Sukhoi Fighters](misc/sukhoi-fighters.md)
