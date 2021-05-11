@@ -16,9 +16,13 @@
 
 - [Intro to gdb](RevEng/gdb.md)
 
+# Linux
+
+- [Disk Management](Linux/disk-management.md)
+
 # Misc
 
 - [Effective Shell 1](misc/effective-shell.md)
 - [Fix node-modules](misc/fix-node-modules.md)
 - [Use WSL with GUI](misc/use-wsl-with-gui.md)
-- [TMUX usage 101](misc/tmux.md)
+- [How to Differentiate Sukhoi Fighters](misc/sukhoi-fighters.md)
