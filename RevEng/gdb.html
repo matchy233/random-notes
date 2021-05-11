@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="../literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="../literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">4.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html" class="active"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">6.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html"><strong aria-hidden="true">7.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">8.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="../misc/tmux.html"><strong aria-hidden="true">9.</strong> TMUX usage 101</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="../literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="../literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">4.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html" class="active"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded affix "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="../Linux/disk-management.html"><strong aria-hidden="true">6.</strong> Disk Management</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">7.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html"><strong aria-hidden="true">8.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">9.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="../misc/sukhoi-fighters.html"><strong aria-hidden="true">10.</strong> How to Differentiate Sukhoi Fighters</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -136,13 +136,15 @@
                         </a>
                         
                         
+                        
+
                     </div>
                 </div>
 
                 
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -163,8 +165,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#gdb-逆向调试" id="gdb-逆向调试">GDB 逆向调试</a></h1>
-<h2><a class="header" href="#启动" id="启动">启动</a></h2>
+                        <h1 id="gdb-逆向调试"><a class="header" href="#gdb-逆向调试">GDB 逆向调试</a></h1>
+<h2 id="启动"><a class="header" href="#启动">启动</a></h2>
 <p>可以直接控制台输入 <code>gdb</code> 并在 GDB 中指定程序（例为 <code>crackme</code>）。</p>
 <pre><code class="language-diff">$ gdb
 + (gdb)
@@ -195,8 +197,8 @@ $ gdb progName pid
 $ gdb progName
 (gdb) attach pid
 </code></pre>
-<h2><a class="header" href="#运行程序和断点" id="运行程序和断点">运行程序和断点</a></h2>
-<h3><a class="header" href="#环境变量" id="环境变量">环境变量</a></h3>
+<h2 id="运行程序和断点"><a class="header" href="#运行程序和断点">运行程序和断点</a></h2>
+<h3 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h3>
 <p>可以使用 <code>show env</code> 查看环境变量讯息。</p>
 <pre><code class="language-bash">(gdb) show env
 </code></pre>
@@ -207,7 +209,7 @@ $ gdb progName
 <pre><code class="language-bash">(gdb) unset env LINES
 (gdb) unset env COLUMNS
 </code></pre>
-<h3><a class="header" href="#运行程序" id="运行程序">运行程序</a></h3>
+<h3 id="运行程序"><a class="header" href="#运行程序">运行程序</a></h3>
 <p>指定程序后并不会直接运行，需要使用 <code>run</code> 或者缩写 <code>r</code>。</p>
 <pre><code class="language-bash">(gdb) r
 </code></pre>
@@ -223,7 +225,7 @@ $ gdb progName
 </code></pre>
 <p>也可以使用 <code>start</code> 或 <code>starti</code> 来运行程序，本质上是在 <code>main</code> （如果是 C 或者 C++ 程序……有人用 gdb debug 其他语言吗？）处设置一临时断点后执行 <code>run</code>。所有传给 <code>start</code> 的参数都会 verbatim 地转递给 <code>run</code>。</p>
 <p><code>starti</code> 与 <code>start</code> 的区别是如果 <code>main</code> 函数存在 elaboration phase （比如 C++ 里全局变量的建构函数执行），<code>starti</code> 将会在 elaboration phase 的开头打临时断点。</p>
-<h3><a class="header" href="#断点" id="断点">断点</a></h3>
+<h3 id="断点"><a class="header" href="#断点">断点</a></h3>
 <p>在程序运行前和运行中可以用 <code>break</code> 或 <code>b</code> 指定断点（breakpoint），可以使用函数名，行号（逆向的话通常不知道）和指令地址。</p>
 <p>使用函数名断点：</p>
 <pre><code class="language-bash">(gdb) b main
@@ -258,8 +260,8 @@ Starting program: /path/to/crackme
 Breakpoint 1, main (argc=1, argv=0xffffd6c4) at crackme.c:9
 </code></pre>
 <p>可以使用 <code>info breakpoint</code> 或者 <code>i b</code> 查看当前所有的断点。删除断点则是用 <code>delete &lt;breakpoint number&gt;</code> 或 <code>d &lt;breakpoint number&gt;</code>。</p>
-<h2><a class="header" href="#查看汇编寄存器值变量值" id="查看汇编寄存器值变量值">查看汇编、寄存器值、变量值</a></h2>
-<h3><a class="header" href="#汇编" id="汇编">汇编</a></h3>
+<h2 id="查看汇编寄存器值变量值"><a class="header" href="#查看汇编寄存器值变量值">查看汇编、寄存器值、变量值</a></h2>
+<h3 id="汇编"><a class="header" href="#汇编">汇编</a></h3>
 <p><code>disassemble</code> 或 <code>disas</code> 可以查看 <em>当前</em> 栈帧（frame）的汇编。比如刚才在 <code>main</code> 处打了断点，就能够查看 <code>main</code> 的汇编。</p>
 <pre><code class="language-bash">(gdb) disas
 Dump of assembler code for function main:
@@ -280,7 +282,7 @@ Dump of assembler code for function main:
    0x08048489 &lt;+3&gt;:     sub    esp,0x4
    ...
 </code></pre>
-<h3><a class="header" href="#寄存器" id="寄存器">寄存器</a></h3>
+<h3 id="寄存器"><a class="header" href="#寄存器">寄存器</a></h3>
 <p>可以使用 <code>info register</code> 或缩写 <code>i r</code> 查看寄存器值。可能是最常用的操作了。</p>
 <pre><code class="language-bash">(gdb) i r
 eax            0xf7fbcdd8       -134492712
@@ -300,7 +302,7 @@ es             0x2b     43
 fs             0x0      0
 gs             0x63     99
 </code></pre>
-<h3><a class="header" href="#变量" id="变量">变量</a></h3>
+<h3 id="变量"><a class="header" href="#变量">变量</a></h3>
 <p>如果你知道变量名，可以用 <code>print var</code> 或 <code>p var</code> 打印其内容，也可以打印寄存器内容。</p>
 <p>比如打印 <code>argv[0]</code> （程序名）</p>
 <pre><code class="language-bash">(gdb) p argv[0]
@@ -349,7 +351,7 @@ $2 = 0xffffd7f4 &quot;/path/to/crackme&quot;
 (gdb) x/ls 0x8048817
 0x8048817:      &quot;250381&quot;
 </code></pre>
-<h3><a class="header" href="#其他" id="其他">其他</a></h3>
+<h3 id="其他"><a class="header" href="#其他">其他</a></h3>
 <p>如果想边看汇编边调试的话，可以用 <code>layout asm</code> 显示汇编和命令行。</p>
 <pre><code class="language-bash">(gdb) layout asm
 </code></pre>
@@ -363,12 +365,12 @@ $2 = 0xffffd7f4 &quot;/path/to/crackme&quot;
 <li><code>split</code> : Displays source, disassembly and command windows.</li>
 <li><code>regs</code>  : Displays register window. If existing layout</li>
 </ul>
-<h2><a class="header" href="#按步调试" id="按步调试">按步调试</a></h2>
+<h2 id="按步调试"><a class="header" href="#按步调试">按步调试</a></h2>
 <p><code>continue</code> 或缩写 <code>c</code> 可以让程序运行到下一个断点。</p>
 <p><code>next</code> 或 <code>n</code> 可以让程序运行到 <em>当前栈帧</em> 的下一条语句。在遇到函数调用时，<code>next</code> <strong>不会</strong>跟踪进入函数。</p>
 <p><code>step</code> 或 <code>s</code> 可以让程序运行到下一条语句。在遇到函数调用的时候，<code>step</code> <strong>会</strong>跟踪进入函数。</p>
 <p><code>nexti</code> 和 <code>stepi</code> 与不带 <code>i</code> 的指令类似，区别是他们会让程序运行到下一条汇编指令（<code>i</code> 指 instruction）。</p>
-<h2><a class="header" href="#tips" id="tips">Tips</a></h2>
+<h2 id="tips"><a class="header" href="#tips">Tips</a></h2>
 <p>觉得在 GDB 里看汇编太累的话可以 <code>objdump</code> 整个文件，在喜欢的编辑器里带着高亮慢慢看。 Sublime Text 3 推荐 NASM x86 Assembly 这个高亮。</p>
 <pre><code class="language-bash">$ objdump -M intel -d crackme &gt; crackme.asm
 </code></pre>
@@ -386,7 +388,7 @@ $2 = 0xffffd7f4 &quot;/path/to/crackme&quot;
                         
 
                         
-                            <a rel="next" href="../misc/effective-shell.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../Linux/disk-management.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -404,7 +406,7 @@ $2 = 0xffffd7f4 &quot;/path/to/crackme&quot;
                 
 
                 
-                    <a rel="next" href="../misc/effective-shell.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../Linux/disk-management.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
