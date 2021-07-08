@@ -19,6 +19,7 @@
 # Linux
 
 - [Disk Management](Linux/disk-management.md)
+- [Internet Sharing](Linux/net-forwarding.md)
 
 # Misc
 
@@ -27,5 +28,4 @@
 - [Use WSL with GUI](misc/use-wsl-with-gui.md)
 - [TMUX 101](misc/tmux.md)
 - [GPG](misc/gpg.md)
-- [How to Differentiate Sukhoi Fighters](misc/sukhoi-fighters.md)
-
+- [Flankerology 101](misc/sukhoi-fighters.md)
