@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Fix node-modules - Random Notes</title>
+        <title>ASCII shellcode (WIP) - Random Notes</title>
         <!-- Custom HTML head -->
         
 
@@ -77,7 +77,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="../literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="../literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">4.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="../RevEng/ascii-asm.html"><strong aria-hidden="true">6.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item expanded affix "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="../Linux/disk-management.html"><strong aria-hidden="true">7.</strong> Disk Management</a></li><li class="chapter-item expanded "><a href="../Linux/net-forwarding.html"><strong aria-hidden="true">8.</strong> Internet Sharing</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">9.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html" class="active"><strong aria-hidden="true">10.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">11.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="../misc/tmux.html"><strong aria-hidden="true">12.</strong> TMUX 101</a></li><li class="chapter-item expanded "><a href="../misc/gpg.html"><strong aria-hidden="true">13.</strong> GPG</a></li><li class="chapter-item expanded "><a href="../misc/sukhoi-fighters.html"><strong aria-hidden="true">14.</strong> Flankerology 101</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="../literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="../literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="../Java/Java-io.html"><strong aria-hidden="true">4.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="../RevEng/ascii-asm.html" class="active"><strong aria-hidden="true">6.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item expanded affix "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="../Linux/disk-management.html"><strong aria-hidden="true">7.</strong> Disk Management</a></li><li class="chapter-item expanded "><a href="../Linux/net-forwarding.html"><strong aria-hidden="true">8.</strong> Internet Sharing</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/effective-shell.html"><strong aria-hidden="true">9.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../misc/fix-node-modules.html"><strong aria-hidden="true">10.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">11.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="../misc/tmux.html"><strong aria-hidden="true">12.</strong> TMUX 101</a></li><li class="chapter-item expanded "><a href="../misc/gpg.html"><strong aria-hidden="true">13.</strong> GPG</a></li><li class="chapter-item expanded "><a href="../misc/sukhoi-fighters.html"><strong aria-hidden="true">14.</strong> Flankerology 101</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -137,52 +137,55 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="修理-hexo-douban"><a class="header" href="#修理-hexo-douban">修理 hexo-douban</a></h1>
-<p>在新博客使用了 <a href="https://github.com/mythsman/hexo-douban"><code>hexo-douban</code></a> 这个库，想展示自己的豆瓣阅读、观影等等。但是生成的豆瓣页在 Fluid 主题下图片显示有点问题，需要手动改 <code>css</code> 来解决；同时装了 <code>bluebird</code> 又检测到几处 <code>TypeError</code>，需要修改 <code>js</code> 源码。
-原作者已经没有精力维护这个库了，<code>npm</code> 肯定不会更新，而我又依赖 GitHub Actions 来部署。如何应用自己的手动修改是个问题。</p>
-<h2 id="使用-patch-package-给包打补丁"><a class="header" href="#使用-patch-package-给包打补丁">使用 <code>patch-package</code> 给包打补丁</a></h2>
-<p>这里推荐个小工具 <a href="https://www.npmjs.com/package/patch-package">patch-package</a>。就是给依赖库打个补丁，不影响依赖库正常升级，只是涉及到你修改的内容会用你的补丁替换。</p>
-<p>直接在依赖库中编辑修复有 bug 的文件，然后该工具会生成个临时文件夹存放对应版本的依赖库，然后和你修改的依赖库目录去进行比较，生成一个 patch 文件，下次在执行 <code>npm install</code> 时，该工具会将该 patch 合进该依赖库去。</p>
-<h2 id="具体操作步骤"><a class="header" href="#具体操作步骤">具体操作步骤</a></h2>
-<ol>
-<li>
-<p>项目的根目录 <code>package.json</code> 下，添加 <code>npm postinstall</code>, 以便每次执行 <code>npm install</code> 时能合进所有的patch文件：</p>
-<pre><code class="language-diff">&quot;scripts&quot;: {
-   ...
-+  &quot;postinstall&quot;: &quot;patch-package&quot;
-   ...
+                        <h1 id="alphanumeric-shellcode"><a class="header" href="#alphanumeric-shellcode">Alphanumeric shellcode</a></h1>
+<p>Alphanumeric shellcode 限定所使用的汇编 opcode 只能在 <code>0x20</code> ~ <code>0x7f</code> 范围内——这正是“人类可读”的 ascii 字符的范围。所以如果你用如下代码编译出一份字节文件，你将得到一份看起来像乱码文本，但实际上又可执行的怪东西！</p>
+<pre><code class="language-bash">gcc -m64 -c -o shellcode.o shellcode.S
+objcopy -S -O binary -j .text shellcode.o shellcode.ascii
+</code></pre>
+<p>下面我们研究一下，如何书写一份 <code>x86-64</code> 风格的 alphanumeric shellcode。</p>
+<h2 id="限制与问题"><a class="header" href="#限制与问题">限制与问题</a></h2>
+<p>WIP</p>
+<h2 id="演示-shellcode-执行"><a class="header" href="#演示-shellcode-执行">演示 shellcode 执行</a></h2>
+<p>直接把传入的 shellcode 读到 <code>buf</code> 中并且将 <code>buf</code> 解释为函数指针执行 <code>buf</code>。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;err.h&gt;
+#include &lt;stdlib.h&gt;
+
+char buf[2048];
+
+int main()
+{
+  if (!fgets(buf, sizeof(buf), stdin))
+    err(1, &quot;Too long input&quot;);
+
+  // a few info for debugging
+  printf(&quot;&gt; length: %d\n&quot;, (int)strlen(buf));
+  for (int i = 0; i &lt; strlen(buf); i += 1) {
+    if (i % 16 == 0)
+      printf(&quot;&gt; %04X: &quot;, i);
+    printf(&quot;%02X &quot;, (unsigned char)buf[i]);
+    if (i % 16 == 15)
+      printf(&quot;\n&quot;);
+  }
+  printf(&quot;\n&quot;);
+
+  (*(void (*)()) buf)();
 }
+``
+## Reference
+
+1. [NetSec: Alphanumeric Shellcode](https://nets.ec/Alphanumeric_shellcode)
 </code></pre>
-</li>
-<li>
-<p>安装 <code>patch-package</code></p>
-<pre><code class="language-bash">npm i patch-package --save
-</code></pre>
-</li>
-<li>
-<p>编辑依赖库 <code>&lt;package-name&gt;</code>, 并执行下面命令生成 patch 文件</p>
-<pre><code class="language-bash">npx patch-package &lt;package-name&gt;
-</code></pre>
-</li>
-<li>
-<p>再执行以下命令，你就发现最新安装的包已经合进了你刚刚修改的 patch 文件了</p>
-<pre><code class="language-bash">npm install
-</code></pre>
-</li>
-</ol>
-<h2 id="reference"><a class="header" href="#reference">Reference</a></h2>
-<ol>
-<li><a href="https://juejin.im/post/6844904165328551944">JeanZhao: 修改node_modules中依赖库</a></li>
-</ol>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../misc/effective-shell.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../RevEng/gdb.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../misc/use-wsl-with-gui.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../Linux/disk-management.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -191,10 +194,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../misc/effective-shell.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../RevEng/gdb.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../misc/use-wsl-with-gui.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../Linux/disk-management.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
