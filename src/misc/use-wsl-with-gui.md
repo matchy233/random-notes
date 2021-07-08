@@ -1,11 +1,5 @@
 # 在 Windows 10 上装 X
 
-## X Window System 简介
-
-TBC
-
-![X Window System](https://linux.vbird.org/linux_basic/centos7/0590xwindow//x_ser_cli.gif)
-
 ## 基本配置
 
 ### Windows 设置：安装 Xserver
@@ -107,11 +101,9 @@ sudo ln -s /mnt/c/Windows/Fonts/ /usr/share/fonts/WindowsFonts
 fc-cache -f -v
 ```
 
-## 使用中文输入法
+## 其他
 
-应该可以装 `fcitx` 或者 `ibus` 来使用中文输入法。不过目前没有输入中文需求。暂时搁置。
-
-更好的方法是寻求一个办法打通两边使用 Microsoft IME，暂时没有实现想法……
+Windows 计划推出 [WSLg](https://github.com/microsoft/wslg)，以后估计就不用这样了。
 
 ## Reference
 
