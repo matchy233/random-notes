@@ -15,6 +15,7 @@
 # Reverse Engineering
 
 - [Intro to gdb](RevEng/gdb.md)
+- [ASCII shellcode (WIP)](RevEng/ascii-asm.md)
 
 # Linux
 
