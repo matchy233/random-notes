@@ -776,16 +776,44 @@ main:
 <li><a href="https://nets.ec/Alphanumeric_shellcode">NetSec: Alphanumeric Shellcode</a></li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="disk-management"><a class="header" href="#disk-management">Disk Management</a></h1>
-<h2 id="normal-disk-management"><a class="header" href="#normal-disk-management">Normal Disk Management</a></h2>
-<p>List the disk currently have in hand.</p>
-<pre><code class="language-bash">$ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
+<h2 id="normal-disk-operations"><a class="header" href="#normal-disk-operations">Normal Disk Operations</a></h2>
+<h3 id="add-a-disk"><a class="header" href="#add-a-disk">Add a disk</a></h3>
+<p>List the disk currently have in hand.
+Or just <code>lsblk</code> will also do.</p>
+<pre><code class="language-shell">$ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 NAME         SIZE FSTYPE            TYPE  MOUNTPOINT
 sda          256G                   disk
 sdb          256G                   disk /
 </code></pre>
 <p>Format new disks.</p>
-<pre><code class="language-bash">$ mkfs -t ext4 /dev/sba
-$ mkfs.ext4
+<pre><code class="language-shell">$ mkfs -t ext4 /dev/sba
+$ mkfs.ext4 /dev/sba
+</code></pre>
+<p>Mount the formatted disk to certain directory.</p>
+<pre><code class="language-shell">$ mount /dev/sba /mnt/sba
+</code></pre>
+<p>Add to <code>/etc/fstab</code> so that you don't need to mount it every time the device boots (how does it work?).</p>
+<pre><code class="language-shell">$ sudo bash -c 'echo &quot;/dev/sba /mnt/sba ext4 defaults 0 0&quot; &gt;&gt; /etc/fstab
+</code></pre>
+<p>Or use UUID.</p>
+<pre><code class="language-shell">$ UUID=$(sudo blkid | grep /dev/sba | cut -f2 -d ' ' | sed -e 's/\&quot;//g')
+$ sudo bash -c 'echo &quot;${UUID} /mnt/sba ext4 defaults 0 0&quot; &gt;&gt; /etc/fstab'
+</code></pre>
+<p>Or add a label to the disk and use the label to mount.</p>
+<pre><code class="language-shell">$ sudo e2label /dev/sba DISK1
+sudo bash -c 'echo &quot;LABEL=DISK1 /mnt/sba ext4 defaults 0 0&quot; &gt;&gt; /etc/fstab'
+</code></pre>
+<h3 id="optimize-disk-performance"><a class="header" href="#optimize-disk-performance">Optimize disk performance</a></h3>
+<p>Adjust the readahead value to increase IO performance</p>
+<pre><code class="language-shell">$ sudo blockdev /dev/sba
+256
+</code></pre>
+<p>The readahead value is <code>&lt;desired_readahead_bytes&gt;</code> / 512 bytes.</p>
+<p>For example, for an 8-MB readahead, 8 MB is 8388608 bytes (<code>8 * 1024 * 1024</code>).</p>
+<pre><code class="language-text">8388608 bytes / 512 bytes = 16384
+</code></pre>
+<p>Set blockdev to <code>16384</code> to havea 8-MB readahead.</p>
+<pre><code class="language-shell">sudo blockdev --setra 16384 /dev/sba
 </code></pre>
 <h2 id="raid-operations"><a class="header" href="#raid-operations">RAID Operations</a></h2>
 <p>The best option to make a software RAID array is <code>mdadm</code>. You can get it from <code>apt</code> or other package manager.</p>
