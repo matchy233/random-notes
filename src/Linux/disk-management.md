@@ -115,3 +115,7 @@ $ sudo mdadm --create --verbose /dev/md0 \
 $ sudo mdadm --add /dev/md0 /dev/sdd
 $ mdadm --grow --raid-devices=5 /dev/md0
 ```
+
+## Reference
+
+1. [Google Cloud Docs: Optimizing persistent disk performance](https://cloud.google.com/compute/docs/disks/optimizing-pd-performance#adjust_the_readahead_value)
