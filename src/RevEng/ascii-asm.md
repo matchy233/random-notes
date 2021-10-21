@@ -21,6 +21,16 @@ WIP
 {{#include code/target.c}}
 ```
 
+## shellcode
+
+```assembly
+{{#include code/readflag.S}}
+```
+
+```assembly
+{{#include code/readflag2.S}}
+```
+
 ## Reference
 
 1. [NetSec: Alphanumeric Shellcode](https://nets.ec/Alphanumeric_shellcode)
