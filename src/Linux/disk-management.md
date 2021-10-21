@@ -1,10 +1,13 @@
 # Disk Management
 
-## Normal Disk Management
+## Normal Disk Operations
+
+### Add a disk
 
 List the disk currently have in hand.
+Or just `lsblk` will also do.
 
-```bash
+```shell
 $ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 NAME         SIZE FSTYPE            TYPE  MOUNTPOINT
 sda          256G                   disk
@@ -13,9 +16,57 @@ sdb          256G                   disk /
 
 Format new disks.
 
-```bash
+```shell
 $ mkfs -t ext4 /dev/sba
-$ mkfs.ext4
+$ mkfs.ext4 /dev/sba
+```
+
+Mount the formatted disk to certain directory.
+
+```shell
+$ mount /dev/sba /mnt/sba
+```
+
+Add to `/etc/fstab` so that you don't need to mount it every time the device boots (how does it work?).
+
+```shell
+$ sudo bash -c 'echo "/dev/sba /mnt/sba ext4 defaults 0 0" >> /etc/fstab
+```
+
+Or use UUID.
+
+```shell
+$ UUID=$(sudo blkid | grep /dev/sba | cut -f2 -d ' ' | sed -e 's/\"//g')
+$ sudo bash -c 'echo "${UUID} /mnt/sba ext4 defaults 0 0" >> /etc/fstab'
+```
+
+Or add a label to the disk and use the label to mount.
+
+```shell
+$ sudo e2label /dev/sba DISK1
+sudo bash -c 'echo "LABEL=DISK1 /mnt/sba ext4 defaults 0 0" >> /etc/fstab'
+```
+
+### Optimize disk performance
+
+Adjust the readahead value to increase IO performance
+
+```shell
+$ sudo blockdev /dev/sba
+256
+```
+The readahead value is `<desired_readahead_bytes>` / 512 bytes.
+
+For example, for an 8-MB readahead, 8 MB is 8388608 bytes (`8 * 1024 * 1024`).
+
+```text
+8388608 bytes / 512 bytes = 16384
+```
+
+Set blockdev to `16384` to havea 8-MB readahead.
+
+```shell
+sudo blockdev --setra 16384 /dev/sba
 ```
 
 ## RAID Operations
