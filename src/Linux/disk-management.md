@@ -55,6 +55,7 @@ Adjust the readahead value to increase IO performance
 $ sudo blockdev /dev/sba
 256
 ```
+
 The readahead value is `<desired_readahead_bytes>` / 512 bytes.
 
 For example, for an 8-MB readahead, 8 MB is 8388608 bytes (`8 * 1024 * 1024`).
