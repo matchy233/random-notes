@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="Java/Java-io.html"><strong aria-hidden="true">4.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="RevEng/gdb.html"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="RevEng/ascii-asm.html"><strong aria-hidden="true">6.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item expanded affix "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="Linux/disk-management.html"><strong aria-hidden="true">7.</strong> Disk Management</a></li><li class="chapter-item expanded "><a href="Linux/net-forwarding.html"><strong aria-hidden="true">8.</strong> Internet Sharing</a></li><li class="chapter-item expanded affix "><li class="part-title">Terminal Usage</li><li class="chapter-item expanded "><a href="Terminal/effective-shell.html"><strong aria-hidden="true">9.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="Terminal/tmux.html"><strong aria-hidden="true">10.</strong> TMUX 101</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="misc/fix-node-modules.html"><strong aria-hidden="true">11.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="misc/use-wsl-with-gui.html"><strong aria-hidden="true">12.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="misc/gpg.html"><strong aria-hidden="true">13.</strong> GPG</a></li><li class="chapter-item expanded "><a href="misc/sukhoi-fighters.html"><strong aria-hidden="true">14.</strong> Flankerology 101</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="Java/Java-io.html"><strong aria-hidden="true">4.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="RevEng/gdb.html"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="RevEng/ascii-asm.html"><strong aria-hidden="true">6.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item expanded affix "><li class="part-title">DevOps</li><li class="chapter-item expanded "><a href="devops/hadoop-on-k8s.html"><strong aria-hidden="true">7.</strong> Haddop in K8S</a></li><li class="chapter-item expanded "><a href="devops/aws-amplify.html"><strong aria-hidden="true">8.</strong> AWS Amplify Attempts</a></li><li class="chapter-item expanded affix "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="Linux/disk-management.html"><strong aria-hidden="true">9.</strong> Disk Management</a></li><li class="chapter-item expanded "><a href="Linux/net-forwarding.html"><strong aria-hidden="true">10.</strong> Internet Sharing</a></li><li class="chapter-item expanded affix "><li class="part-title">Terminal Usage</li><li class="chapter-item expanded "><a href="Terminal/effective-shell.html"><strong aria-hidden="true">11.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="Terminal/tmux.html"><strong aria-hidden="true">12.</strong> TMUX 101</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="misc/fix-node-modules.html"><strong aria-hidden="true">13.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="misc/use-wsl-with-gui.html"><strong aria-hidden="true">14.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="misc/gpg.html"><strong aria-hidden="true">15.</strong> GPG</a></li><li class="chapter-item expanded "><a href="misc/sukhoi-fighters.html"><strong aria-hidden="true">16.</strong> Flankerology 101</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -775,6 +775,214 @@ main:
 <ol>
 <li><a href="https://nets.ec/Alphanumeric_shellcode">NetSec: Alphanumeric Shellcode</a></li>
 </ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="在-kubernetes-集群部署-hadoop"><a class="header" href="#在-kubernetes-集群部署-hadoop">在 kubernetes 集群部署 hadoop</a></h1>
+<p>实际上这是一个差的想法。</p>
+<h2 id="使用-helm-安装"><a class="header" href="#使用-helm-安装">使用 helm 安装</a></h2>
+<h3 id="下载-helm"><a class="header" href="#下载-helm">下载 helm</a></h3>
+<pre><code class="language-bash">curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+sudo apt-get install apt-transport-https --yes
+echo &quot;deb https://baltocdn.com/helm/stable/debian/ all main&quot; | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+</code></pre>
+<h3 id="create-a-chart"><a class="header" href="#create-a-chart">Create a chart</a></h3>
+<pre><code class="language-bash">helm create mychart
+</code></pre>
+<p>默认的 chart 是个 <code>nginx</code> web server。可以部署上去看看</p>
+<h3 id="install-a-chart"><a class="header" href="#install-a-chart">Install a chart</a></h3>
+<pre><code class="language-bash">helm install mychart-release-name mychart
+</code></pre>
+<pre><code class="language-bash">export POD_NAME=$(kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=mychart-release-name,app.kubernetes.io/instance=cluster-name&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
+export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath=&quot;{.spec.containers[0].ports[0].containerPort}&quot;)
+echo &quot;Visit http://127.0.0.1:8080 to use your application&quot;
+kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
+</code></pre>
+<h3 id="uninstall-chart"><a class="header" href="#uninstall-chart">Uninstall chart</a></h3>
+<pre><code class="language-bash">$ helm list
+NAME                     NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+mychart-release-name     default         1               2020-12-05 18:53:26.6995927 +0900 KST   deployed        mychart-0.1.0   1.16.0
+</code></pre>
+<pre><code class="language-bash">helm uninstall mychart-release-name
+</code></pre>
+<p>Can also be done by <code>delete</code> <code>del</code> <code>un</code>.</p>
+<h2 id="install-hadoop-chart"><a class="header" href="#install-hadoop-chart">Install <code>hadoop</code> chart</a></h2>
+<p>To install the chart with the release name hadoop that utilizes 50% of the available node resources:</p>
+<pre><code class="language-bash">helm install hadoop stable/hadoop
+</code></pre>
+<p>This command will deploy at least 4 pods on your cluster according to the default settings.</p>
+<ol>
+<li>hdfs namenode pod</li>
+<li>hdfs datanode</li>
+<li>yarn resource manager</li>
+<li>yarn name manager</li>
+</ol>
+<h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
+<ol>
+<li>
+<p>You can check the status of HDFS by running this command:</p>
+<pre><code class="language-bash">kubectl exec -n default -it hadoop-hadoop-hdfs-nn-0 -- hdfs dfsadmin -report
+</code></pre>
+</li>
+<li>
+<p>You can list the yarn nodes by running this command:</p>
+<pre><code class="language-bash">kubectl exec -n default -it hadoop-hadoop-yarn-rm-0 -- yarn node -list
+</code></pre>
+</li>
+<li>
+<p>Create a port-forward to the yarn resource manager UI:</p>
+<pre><code class="language-bash">kubectl port-forward -n default hadoop-hadoop-yarn-rm-0 8088:8088
+</code></pre>
+<p>Then open the ui in your browser:</p>
+<pre><code class="language-bash">open http://localhost:8088
+</code></pre>
+</li>
+<li>
+<p>You can run included hadoop tests like this:</p>
+<pre><code class="language-bash">kubectl exec -n default -it hadoop-hadoop-yarn-nm-0 -- hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-2.9.0-tests.jar TestDFSIO -write -nrFiles 5 -fileSize 128MB -resFile /tmp/TestDFSIOwrite.txt
+</code></pre>
+</li>
+<li>
+<p>You can list the mapreduce jobs like this:</p>
+<pre><code class="language-bash">kubectl exec -n default -it hadoop-hadoop-yarn-rm-0 -- mapred job -list
+</code></pre>
+</li>
+<li>
+<p>This chart can also be used with the zeppelin chart</p>
+<pre><code class="language-bash">helm install --namespace default --set hadoop.useConfigMap=true,hadoop.configMapName=hadoop-hadoop stable/zeppelin
+</code></pre>
+</li>
+<li>
+<p>You can scale the number of yarn nodes like this:</p>
+<pre><code class="language-bash">helm upgrade hadoop --set yarn.nodeManager.replicas=4 stable/hadoop
+</code></pre>
+<p>Make sure to update the values.yaml if you want to make this permanent.</p>
+</li>
+</ol>
+<h2 id="edit-helm-release"><a class="header" href="#edit-helm-release">Edit <code>helm</code> release</a></h2>
+<pre><code class="language-bash">helm upgrade -f new-values.yml {release name} {package name or path} --version {fixed-version}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aws-amplify-踩坑记录"><a class="header" href="#aws-amplify-踩坑记录">AWS Amplify 踩坑记录🕳</a></h1>
+<p>我也不知道这算不算 DevOps</p>
+<h2 id="试图从-staging-clone-出一个配置一样的-dev-环境"><a class="header" href="#试图从-staging-clone-出一个配置一样的-dev-环境">试图从 staging clone 出一个配置一样的 dev 环境</a></h2>
+<h3 id="被坑过程"><a class="header" href="#被坑过程">被坑过程</a></h3>
+<p>Amplify backend 已有 staging，想直接再 Amplify Console clone 失败了， 出来一份空的 :/</p>
+<p>在本地有 staging backend 配置表的分支 development 上拉取 dev environment:</p>
+<pre><code class="language-shell">amplify pull --appId &lt;appId&gt; --envName dev
+</code></pre>
+<p>之后进行 push，提示 <code>HostedUIProvidersCustomResourceInputs</code> update 失败。</p>
+<pre><code class="language-shell">Embedded stack arn:aws:cloudformation:&lt;myapp&gt; was not successfully updated. Currently in UPDATE_ROLLBACK_IN_PROGRESS with reason: The following resource(s) failed to update: [HostedUIProvidersCustomResourceInputs].
+</code></pre>
+<p>谷歌到 <a href="https://github.com/aws-amplify/amplify-cli/issues/3798">这个 issue</a>，提示可能是 <code>tream-provider-info.json</code> 里缺 <code>auth</code> 内容。看了一下果然是空的。</p>
+<p>在 JSON 里添加 <code>auth</code> 相关字段。</p>
+<pre><code class="language-json">{
+  ...
+  &quot;categories&quot;: {
+      &quot;auth&quot;: {
+        &quot;&lt;appName&gt;&quot;: {
+          &quot;userPoolId&quot;: &quot;...&quot;,
+          &quot;userPoolName&quot;: &quot;...&quot;,
+          &quot;webClientId&quot;: &quot;...&quot;,
+          &quot;nativeClientId&quot;: &quot;...&quot;
+        }
+      }
+    }
+}
+</code></pre>
+<p>再次 <code>amplify push</code>， 提示 <code>[webClientId, nativeClientId, userPooId] does not exist in the template</code>。</p>
+<pre><code class="language-shell">UPDATE_FAILED auth&lt;appName&gt; AWS::CloudFormation::Stack &lt;TIME&gt; Parameters: [webClientId, nativeClientId, userPoolId] do not exist in the template
+</code></pre>
+<p>看起来只是 <code>/amplify/backend/auth/&lt;appName&gt;/&lt;appName&gt;-cloudformation-template.yml</code> 没配好。我还没 commit my changes，直接用了上一个 commit 的 <code>yaml</code>：</p>
+<pre><code class="language-shell">git checkout &lt;commit-hash&gt; -- ./amplify/backend/auth/&lt;appName&gt;/&lt;appName&gt;-cloudformation-template.yml
+</code></pre>
+<p>再进行一次 <code>amplify push</code>……好像还是不行。</p>
+<p>那我 <code>amplify update auth</code> 呢？反正现在 <code>dev</code> 是空的。走了一遍流程尽量什么也没改：</p>
+<pre><code class="language-shell"># Match: repoName on develop [Node.js 14.18.1] ❯ amplify update auth
+Please note that certain attributes may not be overwritten if you choose to use defaults settings.
+
+You have configured resources that might depend on this Cognito resource.  Updating this Cognito resource could have unintended side effects.
+
+√ A migration is needed to support latest updates on auth resources.
+Recommended to try in a non-production environment first. Run &quot;amplify env add&quot; to create or clone an environment.
+Learn more about this migration: https://docs.amplify.aws/cli/migration/override
+Do you want to migrate auth resource &quot;&lt;appName&gt;&quot;? (Y/n) · no
+Using service: Cognito, provided by: awscloudformation
+ What do you want to do? Walkthrough all the auth configurations
+ Select the authentication/authorization services that you want to use: User Sign-Up, Sign-In, connected with AWS IAM
+ controls (Enables per-user Storage features for images or other content, Analytics, and more)
+ Allow unauthenticated logins? (Provides scoped down permissions that you can control via AWS IAM) No
+ Do you want to enable 3rd party authentication providers in your identity pool? No
+ Do you want to add User Pool Groups? No
+ Do you want to add an admin queries API? No
+ Multifactor authentication (MFA) user login options: OFF
+ Email based user registration/forgot password: Enabled (Requires per-user email entry at registration)
+ Specify an email verification subject: [ArtApp] Request to confirm your email address
+ Specify an email verification message: Confirm your email address
+Your confirmation code is below -- enter it in your app and we'll help you get signed in.
+
+{####}
+
+If you didn't request the mail, there's nothing to worry about -- you can safely ignore it.
+ Do you want to override the default password policy for this User Pool? No
+ Specify the app's refresh token expiration period (in days): 30
+ Do you want to specify the user attributes this app can read and write? No
+ Do you want to enable any of the following capabilities?
+ Do you want to use an OAuth flow? Yes
+ What domain name prefix do you want to use? 3gz4lx4uwbff
+ Which redirect signin URIs do you want to edit?
+ Do you want to add redirect signin URIs? No
+ Which redirect signout URIs do you want to edit?
+ Do you want to add redirect signout URIs? No
+ Select the OAuth flows enabled for this project. Authorization code grant
+ Select the OAuth scopes enabled for this project. Phone, Email, OpenID, Profile, aws.cognito.signin.user.admin
+ Select the identity providers you want to configure for your user pool: Facebook, Google
+
+ You've opted to allow users to authenticate via Facebook.  If you haven't already, you'll need to go to https://deve
+lopers.facebook.com and create an App ID.
+
+ Enter your Facebook App ID for your OAuth flow:  test
+ Enter your Facebook App Secret for your OAuth flow:  test
+
+ You've opted to allow users to authenticate via Google.  If you haven't already, you'll need to go to https://develo
+pers.google.com/identity and create an App ID.
+
+ Enter your Google Web Client ID for your OAuth flow:  test
+ Enter your Google Web Client Secret for your OAuth flow:  test
+? Do you want to configure Lambda Triggers for Cognito? Yes
+? Which triggers do you want to enable for Cognito
+✅ Successfully updated auth resource &lt;appName&gt; locally
+
+✅ Some next steps:
+&quot;amplify push&quot; will build all your local backend resources and provision it in the cloud
+&quot;amplify publish&quot; will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+✅ Successfully updated resource update locally
+
+✅ Some next steps:
+&quot;amplify push&quot; will build all your local backend resources and provision it in the cloud
+&quot;amplify publish&quot; will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+</code></pre>
+<p>再 <code>amplify push</code> 一次，还是不行。删了重开吧，这次不在 amplify console 做了。</p>
+<pre><code class="language-shell"> ❯ amplify env add
+Note: It is recommended to run this command from the root of your app directory
+? Enter a name for the environment dev
+Using default provider  awscloudformation
+? Select the authentication method you want to use: Amplify Admin UI
+Adding backend environment dev to AWS Amplify Console app: d1e84vh5xbcfwc
+\ Initializing project in the cloud...
+</code></pre>
+<p>好像啥也挺成功的…… 再次尝试 <code>amplify push</code></p>
+<pre><code class="language-shell">amplify push --yes
+</code></pre>
+<p>报错 <code>Error: File at path: 'amplify/backend/auth/&lt;appName&gt;/build/parameters.json' does not exist'</code>，看了一下虽然没有 <code>build</code> 但有 <code>parameters.json</code>…… 创建个路径试一下？ —— 终于成功了。很可能是 aws-amplify 版本不同的锅。</p>
+<h3 id="总结"><a class="header" href="#总结">总结</a></h3>
+<ol>
+<li>千万不要随便更新 <code>aws-amplify</code> 版本，配置文件很可能位置会变</li>
+<li>最好不要在 AWS Amplify Console 创建环境。</li>
+</ol>
+<p>正确的基于已存环境创建新环境的做法是 <strong>使用 Amplify CLI</strong> 在有配置文件的分支创建 environment 然后 push。</p>
+<pre><code class="language-bash">amplify env add
+amplify push --yes
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="disk-management"><a class="header" href="#disk-management">Disk Management</a></h1>
 <h2 id="normal-disk-operations"><a class="header" href="#normal-disk-operations">Normal Disk Operations</a></h2>
 <h3 id="add-a-disk"><a class="header" href="#add-a-disk">Add a disk</a></h3>
