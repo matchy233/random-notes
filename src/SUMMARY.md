@@ -17,6 +17,11 @@
 - [Intro to gdb](RevEng/gdb.md)
 - [ASCII shellcode (WIP)](RevEng/ascii-asm.md)
 
+# DevOps
+
+- [Haddop in K8S](devops/hadoop-on-k8s.md)
+- [AWS Amplify Attempts](devops/aws-amplify.md)
+
 # Linux
 
 - [Disk Management](Linux/disk-management.md)
