@@ -154,3 +154,15 @@ amplify push --yes
 amplify env add
 amplify push --yes
 ```
+
+## Debug Amplify admin UI
+
+If you ever encounter any error in your Amplify Admin UI, it's useful to open the debug view in your browser and checkout the console.
+
+![Amplify Admin UI error](img/2021-11-17-15-34-54.png)
+
+In Chrome just press `F12`. There will be some usefull messages concerning what is wrong when Amplify tried to send request to the components in your app.
+
+![Browser Debug Console](img/2021-11-17-15-36-54.png)
+
+Here I have some Uncaught error in one of the items in my DynamoDB...
