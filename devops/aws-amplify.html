@@ -256,6 +256,12 @@ Adding backend environment dev to AWS Amplify Console app: d1e84vh5xbcfwc
 <pre><code class="language-bash">amplify env add
 amplify push --yes
 </code></pre>
+<h2 id="debug-amplify-admin-ui"><a class="header" href="#debug-amplify-admin-ui">Debug Amplify admin UI</a></h2>
+<p>If you ever encounter any error in your Amplify Admin UI, it's useful to open the debug view in your browser and checkout the console.</p>
+<p><img src="img/2021-11-17-15-34-54.png" alt="Amplify Admin UI error" /></p>
+<p>In Chrome just press <code>F12</code>. There will be some usefull messages concerning what is wrong when Amplify tried to send request to the components in your app.</p>
+<p><img src="img/2021-11-17-15-36-54.png" alt="Browser Debug Console" /></p>
+<p>Here I have some Uncaught error in one of the items in my DynamoDB...</p>
 
                     </main>
 
