@@ -164,98 +164,14 @@
 <p>再次 <code>amplify push</code>， 提示 <code>[webClientId, nativeClientId, userPooId] does not exist in the template</code>。</p>
 <pre><code class="language-shell">UPDATE_FAILED auth&lt;appName&gt; AWS::CloudFormation::Stack &lt;TIME&gt; Parameters: [webClientId, nativeClientId, userPoolId] do not exist in the template
 </code></pre>
-<p>看起来只是 <code>/amplify/backend/auth/&lt;appName&gt;/&lt;appName&gt;-cloudformation-template.yml</code> 没配好。我还没 commit my changes，直接用了上一个 commit 的 <code>yaml</code>：</p>
-<pre><code class="language-shell">git checkout &lt;commit-hash&gt; -- ./amplify/backend/auth/&lt;appName&gt;/&lt;appName&gt;-cloudformation-template.yml
-</code></pre>
-<p>再进行一次 <code>amplify push</code>……好像还是不行。</p>
-<p>那我 <code>amplify update auth</code> 呢？反正现在 <code>dev</code> 是空的。走了一遍流程尽量什么也没改：</p>
-<pre><code class="language-shell"># Match: repoName on develop [Node.js 14.18.1] ❯ amplify update auth
-Please note that certain attributes may not be overwritten if you choose to use defaults settings.
-
-You have configured resources that might depend on this Cognito resource.  Updating this Cognito resource could have unintended side effects.
-
-√ A migration is needed to support latest updates on auth resources.
-Recommended to try in a non-production environment first. Run &quot;amplify env add&quot; to create or clone an environment.
-Learn more about this migration: https://docs.amplify.aws/cli/migration/override
-Do you want to migrate auth resource &quot;&lt;appName&gt;&quot;? (Y/n) · no
-Using service: Cognito, provided by: awscloudformation
- What do you want to do? Walkthrough all the auth configurations
- Select the authentication/authorization services that you want to use: User Sign-Up, Sign-In, connected with AWS IAM
- controls (Enables per-user Storage features for images or other content, Analytics, and more)
- Allow unauthenticated logins? (Provides scoped down permissions that you can control via AWS IAM) No
- Do you want to enable 3rd party authentication providers in your identity pool? No
- Do you want to add User Pool Groups? No
- Do you want to add an admin queries API? No
- Multifactor authentication (MFA) user login options: OFF
- Email based user registration/forgot password: Enabled (Requires per-user email entry at registration)
- Specify an email verification subject: [ArtApp] Request to confirm your email address
- Specify an email verification message: Confirm your email address
-Your confirmation code is below -- enter it in your app and we'll help you get signed in.
-
-{####}
-
-If you didn't request the mail, there's nothing to worry about -- you can safely ignore it.
- Do you want to override the default password policy for this User Pool? No
- Specify the app's refresh token expiration period (in days): 30
- Do you want to specify the user attributes this app can read and write? No
- Do you want to enable any of the following capabilities?
- Do you want to use an OAuth flow? Yes
- What domain name prefix do you want to use? 3gz4lx4uwbff
- Which redirect signin URIs do you want to edit?
- Do you want to add redirect signin URIs? No
- Which redirect signout URIs do you want to edit?
- Do you want to add redirect signout URIs? No
- Select the OAuth flows enabled for this project. Authorization code grant
- Select the OAuth scopes enabled for this project. Phone, Email, OpenID, Profile, aws.cognito.signin.user.admin
- Select the identity providers you want to configure for your user pool: Facebook, Google
-
- You've opted to allow users to authenticate via Facebook.  If you haven't already, you'll need to go to https://deve
-lopers.facebook.com and create an App ID.
-
- Enter your Facebook App ID for your OAuth flow:  test
- Enter your Facebook App Secret for your OAuth flow:  test
-
- You've opted to allow users to authenticate via Google.  If you haven't already, you'll need to go to https://develo
-pers.google.com/identity and create an App ID.
-
- Enter your Google Web Client ID for your OAuth flow:  test
- Enter your Google Web Client Secret for your OAuth flow:  test
-? Do you want to configure Lambda Triggers for Cognito? Yes
-? Which triggers do you want to enable for Cognito
-✅ Successfully updated auth resource &lt;appName&gt; locally
-
-✅ Some next steps:
-&quot;amplify push&quot; will build all your local backend resources and provision it in the cloud
-&quot;amplify publish&quot; will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
-
-✅ Successfully updated resource update locally
-
-✅ Some next steps:
-&quot;amplify push&quot; will build all your local backend resources and provision it in the cloud
-&quot;amplify publish&quot; will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
-</code></pre>
-<p>再 <code>amplify push</code> 一次，还是不行。删了重开吧，这次不在 amplify console 做了。</p>
-<pre><code class="language-shell"> ❯ amplify env add
-Note: It is recommended to run this command from the root of your app directory
-? Enter a name for the environment dev
-Using default provider  awscloudformation
-? Select the authentication method you want to use: Amplify Admin UI
-Adding backend environment dev to AWS Amplify Console app: d1e84vh5xbcfwc
-\ Initializing project in the cloud...
-</code></pre>
-<p>好像啥也挺成功的…… 再次尝试 <code>amplify push</code></p>
-<pre><code class="language-shell">amplify push --yes
-</code></pre>
-<p>报错 <code>Error: File at path: 'amplify/backend/auth/&lt;appName&gt;/build/parameters.json' does not exist'</code>，看了一下虽然没有 <code>build</code> 但有 <code>parameters.json</code>…… 创建个路径试一下？ —— 终于成功了。很可能是 aws-amplify 版本不同的锅。</p>
-<h3 id="总结"><a class="header" href="#总结">总结</a></h3>
+<p>重新阅读上面提到的 issue，在对话里翻出 <a href="https://github.com/aws-amplify/amplify-cli/issues/3798#issuecomment-852150899">这么一条</a>：原因是切换环境之后 <code>$HOME</code> directory 下 <code>.aws</code> 的 global settings 中 Amplify 的 deployment-secrets.json 没有正确 fetch 到。这又是 <code>@aws-amplify/cli</code> 更新到新版本之后的改动……</p>
+<p>哎。无语了。</p>
+<p>在 <code>$HOME/.aws/amplify/deployment-secrets.json</code> 中把对应社交平台的 <code>[ProvidersCustomResourceInputs]</code> 的 <code>clientID</code> 和 <code>clientSecrets</code> 填好（哪怕是 dummy ID &amp; secrets 也行得通，只要不是空的），就能正常 deploy 了。</p>
+<p>总结：</p>
 <ol>
-<li>千万不要随便更新 <code>aws-amplify</code> 版本，配置文件很可能位置会变</li>
-<li>最好不要在 AWS Amplify Console 创建环境。</li>
+<li>真的不要随便升级 amplify cli</li>
+<li>创建 resource 一定要在本地，改动则不要在本地，要在 web console……</li>
 </ol>
-<p>正确的基于已存环境创建新环境的做法是 <strong>使用 Amplify CLI</strong> 在有配置文件的分支创建 environment 然后 push。</p>
-<pre><code class="language-bash">amplify env add
-amplify push --yes
-</code></pre>
 <h2 id="debug-amplify-admin-ui"><a class="header" href="#debug-amplify-admin-ui">Debug Amplify admin UI</a></h2>
 <p>If you ever encounter any error in your Amplify Admin UI, it's useful to open the debug view in your browser and checkout the console.</p>
 <p><img src="img/2021-11-17-15-34-54.png" alt="Amplify Admin UI error" /></p>
