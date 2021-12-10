@@ -6,5 +6,6 @@ src = "src"
 title = "Random Notes"
 
 [output.html]
+mathjax-support = true
 default-theme = "Ayu"
 preferred-dark-theme = "Ayu"

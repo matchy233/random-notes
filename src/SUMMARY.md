@@ -36,6 +36,10 @@
 - [Effective Shell 1](Terminal/effective-shell.md)
 - [TMUX 101](Terminal/tmux.md)
 
+# LaTeX
+
+- [General LaTeX tricks](latex/general-latex-tricks.md)
+
 # Misc
 
 - [Fix node-modules](misc/fix-node-modules.md)
