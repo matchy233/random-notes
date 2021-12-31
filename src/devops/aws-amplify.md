@@ -68,3 +68,53 @@ In Chrome just press `F12`. There will be some usefull messages concerning what 
 ![Browser Debug Console](img/2021-11-17-15-36-54.png)
 
 Here I have some Uncaught error in one of the items in my DynamoDB...
+
+## Amplify 7.6.x graphql api migration
+
+Update from **7.5.x** to **7.6.x** will break the models created before since they `Amplify` team introduced new directives.
+
+Run the follwing command to migrate API.
+
+```shell
+$ amplify migrate api
+```
+
+Previously you would have to create a “join table” manually between two models and create `hasMany` relationships from both models into that join table as a work around for this feature. *With the new transformer*, you can specify a `@manyToMany` relationship between the models and `Amplify` CLI will create the join tables behind the scenes.
+
+However, currently (01/01/2022) AWS `Amplify` **DOES NOT** successfully support migration of existing joint table.
+
+If you have a `schema.graphql` like this:
+
+```graphql
+type Student @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  email: AWSEmail
+  email_verified: Boolean
+  name: String
+  profile: ID
+  role: String
+  ClassJoined: [StudentClass] @hasMany(indexName: "byStudent", fields: ["id"])
+  ArtWorks: [ArtWork] @hasMany(indexName: "byStudent", fields: ["id"])
+  Comments: [Comment] @hasMany(indexName: "byStudent", fields: ["id"])
+}
+
+type Class @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  name: String!
+  description: String!
+  ...
+  startDate: AWSDateTime
+  students: [StudentClass] @hasMany(indexName: "byClass", fields: ["id"])
+  teacherID: ID @index(name: "byTeacher")
+}
+
+type StudentClass @model(queries: null) @auth(rules: [{allow: private}]) {
+  id: ID!
+  studentID: ID! @index(name: "byStudent", sortKeyFields: ["classID"])
+  classID: ID! @index(name: "byClass", sortKeyFields: ["studentID"])
+  student: Student! @belongsTo(fields: ["studentID"])
+  class: Class! @belongsTo(fields: ["classID"])
+}
+```
+
+Unfortunately we have two `@index`, and `Amplify` fails to find the second (here `byClass`).
