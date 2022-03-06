@@ -10,6 +10,8 @@
 
 # Frontend
 
+- [Fix node-modules](frontend/fix-node-modules.md)
+- [Use develop branch](frontend/use-develop-branch.md)
 - [Frontend from scratch](frontend/group-buddy-teach-me-how-to-write-js.md)
 
 # Python
@@ -44,7 +46,6 @@
 
 # Misc
 
-- [Fix node-modules](misc/fix-node-modules.md)
 - [Use WSL with GUI](misc/use-wsl-with-gui.md)
 - [GPG](misc/gpg.md)
 - [Flankerology 101](misc/sukhoi-fighters.md)
