@@ -38,6 +38,18 @@ git config --global user.signingkey <key id>
 
 > On (hopefully most) Linux distro the `<key id>` can be tab-completed. Unfortunately not possible for Windows PowerShell :(
 
+Sign a single commit
+
+```bash
+git commit -S -m "commit message"
+```
+
+Always sign
+
+```bash
+git config --global commit.gpgsign true
+```
+
 ### Trouble shooting
 
 If you receive errors like `secrete key not available` or `no secret key` (one example shown below), it is possible that the `gpg` program used by your `git` is different from your system's default `gpg`. Thus, the secret key was only imported to the system `gpg`, but is still unknown to `git`'s `gpg`.
