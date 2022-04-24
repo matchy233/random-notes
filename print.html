@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="zh" class="sidebar-visible no-js ayu">
+<html lang="zh" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -33,7 +33,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -59,7 +59,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('ayu')
+            html.classList.remove('light')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Frontend</li><li class="chapter-item expanded "><a href="frontend/group-buddy-teach-me-how-to-write-js.html"><strong aria-hidden="true">4.</strong> Frontend from scratch</a></li><li class="chapter-item expanded affix "><li class="part-title">Java</li><li class="chapter-item expanded "><a href="Java/Java-io.html"><strong aria-hidden="true">5.</strong> Java IO</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="RevEng/gdb.html"><strong aria-hidden="true">6.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="RevEng/ascii-asm.html"><strong aria-hidden="true">7.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item expanded affix "><li class="part-title">DevOps</li><li class="chapter-item expanded "><a href="devops/hadoop-on-k8s.html"><strong aria-hidden="true">8.</strong> Haddop in K8S</a></li><li class="chapter-item expanded "><a href="devops/aws-amplify.html"><strong aria-hidden="true">9.</strong> AWS Amplify Attempts</a></li><li class="chapter-item expanded affix "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="Linux/disk-management.html"><strong aria-hidden="true">10.</strong> Disk Management</a></li><li class="chapter-item expanded "><a href="Linux/net-forwarding.html"><strong aria-hidden="true">11.</strong> Internet Sharing</a></li><li class="chapter-item expanded affix "><li class="part-title">Terminal Usage</li><li class="chapter-item expanded "><a href="Terminal/effective-shell.html"><strong aria-hidden="true">12.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="Terminal/tmux.html"><strong aria-hidden="true">13.</strong> TMUX 101</a></li><li class="chapter-item expanded affix "><li class="part-title">LaTeX</li><li class="chapter-item expanded "><a href="latex/general-latex-tricks.html"><strong aria-hidden="true">14.</strong> General LaTeX tricks</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="misc/fix-node-modules.html"><strong aria-hidden="true">15.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="misc/use-wsl-with-gui.html"><strong aria-hidden="true">16.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="misc/gpg.html"><strong aria-hidden="true">17.</strong> GPG</a></li><li class="chapter-item expanded "><a href="misc/sukhoi-fighters.html"><strong aria-hidden="true">18.</strong> Flankerology 101</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="literature/quotes.html"><strong aria-hidden="true">1.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="literature/lyrics.html"><strong aria-hidden="true">2.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="literature/poems.html"><strong aria-hidden="true">3.</strong> Poem Excerpts</a></li><li class="chapter-item expanded affix "><li class="part-title">Frontend</li><li class="chapter-item expanded "><a href="frontend/group-buddy-teach-me-how-to-write-js.html"><strong aria-hidden="true">4.</strong> Frontend from scratch</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="RevEng/gdb.html"><strong aria-hidden="true">5.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="RevEng/ascii-asm.html"><strong aria-hidden="true">6.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item expanded affix "><li class="part-title">DevOps</li><li class="chapter-item expanded "><a href="devops/hadoop-on-k8s.html"><strong aria-hidden="true">7.</strong> Haddop in K8S</a></li><li class="chapter-item expanded "><a href="devops/aws-amplify.html"><strong aria-hidden="true">8.</strong> AWS Amplify Attempts</a></li><li class="chapter-item expanded affix "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="Linux/disk-management.html"><strong aria-hidden="true">9.</strong> Disk Management</a></li><li class="chapter-item expanded "><a href="Linux/net-forwarding.html"><strong aria-hidden="true">10.</strong> Internet Sharing</a></li><li class="chapter-item expanded "><a href="Linux/ssh_config.html"><strong aria-hidden="true">11.</strong> ssh config tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Terminal Usage</li><li class="chapter-item expanded "><a href="Terminal/effective-shell.html"><strong aria-hidden="true">12.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="Terminal/tmux.html"><strong aria-hidden="true">13.</strong> TMUX 101</a></li><li class="chapter-item expanded affix "><li class="part-title">LaTeX</li><li class="chapter-item expanded "><a href="latex/general-latex-tricks.html"><strong aria-hidden="true">14.</strong> General LaTeX tricks</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="misc/fix-node-modules.html"><strong aria-hidden="true">15.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="misc/use-wsl-with-gui.html"><strong aria-hidden="true">16.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="misc/gpg.html"><strong aria-hidden="true">17.</strong> GPG</a></li><li class="chapter-item expanded "><a href="misc/sukhoi-fighters.html"><strong aria-hidden="true">18.</strong> Flankerology 101</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -96,11 +96,11 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
@@ -264,26 +264,6 @@ rootStore : RootStore;
 <p>The reason is that <code>this</code> in js works weirdly (well, in my opinion).</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">MDN's document about <code>this</code></a> explains nicely about everything related to <code>this</code>. I'll extract the contents related to my bug here:</p>
 <p>In strict mode (which is the mode my application uses), if the value of <code>this</code> is not set when entering an execution context, it remains as <code>undefined</code>. However, in arrow functions (to understand it naively, they are functions in the form of <code>var fun = () =&gt; {}</code>), <code>this</code> retains the value of the <strong>enclosing lexical</strong> context's <code>this</code> , that is, the <code>this</code> of arrow functions inside a class will be resolved to the class's <code>this</code>.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="java-io"><a class="header" href="#java-io">Java IO</a></h1>
-<h2 id="java-io-class-整理"><a class="header" href="#java-io-class-整理">Java IO Class 整理</a></h2>
-<table><thead><tr><th></th><th>Byte Based Input</th><th>Byte Based Output</th><th>Character Based Input</th><th>Character Based Output</th></tr></thead><tbody>
-<tr><td>Basic</td><td>InputStream</td><td>OutputStream</td><td>Reader<br>InputStreamReader</td><td>Writer<br>OutputStreamWriter</td></tr>
-<tr><td>Arrays</td><td>ByteArrayInputStream</td><td>ByteArrayOutputStream</td><td>CharArrayReader</td><td>CharArrayWriter</td></tr>
-<tr><td>Files</td><td>FileInputStream</td><td></td><td></td><td></td></tr>
-<tr><td>RandomAccessFile</td><td>FileOutputStream</td><td></td><td></td><td></td></tr>
-<tr><td>RandomAccessFile</td><td>FileReader</td><td>FileWriter</td><td></td><td></td></tr>
-<tr><td>Pipes</td><td>PipedInputStream</td><td>PipedOutputStream</td><td>PipedReader</td><td>PipedWriter</td></tr>
-<tr><td>Buffering</td><td>BufferedInputStream</td><td>BufferedOutputStream</td><td>BufferedReader</td><td>BufferedWriter</td></tr>
-<tr><td>Filtering</td><td>FilterInputStream</td><td>FilterOutputStream</td><td>FilterReader</td><td>FilterWriter</td></tr>
-<tr><td>Parsing</td><td>PushbackInputStream</td><td></td><td></td><td></td></tr>
-<tr><td>StreamTokenizer</td><td></td><td>PushbackReader</td><td></td><td></td></tr>
-<tr><td>LineNumberReader</td><td></td><td></td><td></td><td></td></tr>
-<tr><td>Strings</td><td></td><td></td><td>StringReader</td><td>StringWriter</td></tr>
-<tr><td>Data</td><td>DataInputStream</td><td>DataOutputStream</td><td></td><td></td></tr>
-<tr><td>Data - Formatted</td><td></td><td>PrintStream</td><td></td><td>PrintWriter</td></tr>
-<tr><td>Objects</td><td>ObjectInputStream</td><td>ObjectOutputStream</td><td></td><td></td></tr>
-<tr><td>Utilities</td><td>SequenceInputStream</td><td></td><td></td><td></td></tr>
-</tbody></table>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gdb-逆向调试"><a class="header" href="#gdb-逆向调试">GDB 逆向调试</a></h1>
 <h2 id="启动"><a class="header" href="#启动">启动</a></h2>
 <p>可以直接控制台输入 <code>gdb</code> 并在 GDB 中指定程序（例为 <code>crackme</code>）。</p>
@@ -1075,6 +1055,66 @@ PING www.google.com (172.217.27.68) 56(84) bytes of data.
 64 bytes from nrt12s15-in-f68.1e100.net (172.217.27.68): icmp_seq=3 ttl=112 time=58.2 ms
 ...
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ssh-config"><a class="header" href="#ssh-config">ssh config</a></h1>
+<ul>
+<li><code>$HOME/.ssh/config</code> -- personal configuration</li>
+<li><code>/etc/ssh/ssh_config</code> -- global configuration</li>
+</ul>
+<p>Format:</p>
+<pre><code class="language-yaml">Host &lt;alias&gt;
+    SSH_OPTION  value
+</code></pre>
+<h2 id="common-options"><a class="header" href="#common-options">Common options</a></h2>
+<pre><code class="language-yaml">Host * # match all hosts
+    User matchy
+    IdentityFile $HOME/.ssh/id_ed25519
+
+Host cloud
+    HostName dev.example.com
+    # automatically use &quot;matchy&quot; as the User
+    # automatically use id_ed25519 as the IdentityFile
+
+Host dev
+    HostName 147.47.233.45
+    User mischa # overwrites User=&quot;matchy&quot;
+    Port 2333
+    IdentityFile $HOME/.ssh/id_rsa # overwrites
+</code></pre>
+<h2 id="jumpbastion-server-make-easy"><a class="header" href="#jumpbastion-server-make-easy">Jump/Bastion server make-easy</a></h2>
+<p><code>ProxyJump</code> is available since <strong>OpenSSH version 7.5</strong>.</p>
+<pre><code class="language-diff"> Host bastion
+     HostName transfer.example.com
+     User matchy
+     IdentityFile ~/.ssh/id_ed25519
+
+ Host node
+     HostName 192.168.50.233 # the intranet IP to the bastion
++    ForwardAgent yes
++    ProxyJump bastion
+</code></pre>
+<p>If your <code>ssh</code> is olderthan <strong>OpenSSH 7.5</strong> but newer than <strong>OpenSSH 5.4</strong> (assuming <code>bastion</code> config exists in the ssh config):</p>
+<pre><code class="language-diff"> Host node
+     # ...
++    ProxyCommand ssh bastion -W [%h]:%p
+</code></pre>
+<p>If your <code>ssh</code> is even older than <code>OpenSSH 5.4</code>...</p>
+<pre><code class="language-diff"> Host node
+     # ...
++    ProxyCommand ssh bastion nc -q0 %h %p 2&gt; /dev/null
+</code></pre>
+<h2 id="change-starting-directory"><a class="header" href="#change-starting-directory">Change starting directory</a></h2>
+<p><code>RemoteCommand</code> is available since <strong>OpenSSH version 7.5</strong>.</p>
+<pre><code class="language-diff"> Host node
+     # ...
++    RequestTTY force
++    RemoteCommand cd /path/to/your/directory &amp;&amp; bash -l
+</code></pre>
+<p>The command <code>bash -l</code> means starting a <code>bash</code> session as the login shell. Alternatively, if you prefer <code>zsh</code> or <code>fish</code> (or any other shells), simply use <code>zsh -l</code> or <code>fish -l</code> instead.</p>
+<h2 id="to-dos"><a class="header" href="#to-dos">To Dos</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"/>
+Avoid <code>broken pipe</code></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="effective-shell"><a class="header" href="#effective-shell">Effective Shell</a></h1>
 <h2 id="navigating-along-the-command-line"><a class="header" href="#navigating-along-the-command-line">Navigating along the command line</a></h2>
 <p>可能应该录制一个 gif 来展示功能。</p>
@@ -1259,8 +1299,9 @@ xeyes
 <li><a href="https://www.lainme.com/doku.php/blog/2018/07/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%9C%A8windows_10%E4%B8%8A%E8%A3%85x">Lainme's Blog：如何优雅的在 Linux 上装 X</a></li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gpg"><a class="header" href="#gpg">GPG</a></h1>
+<h2 id="basics"><a class="header" href="#basics">Basics</a></h2>
 <p>List keys</p>
-<pre><code class="language-bash">$ gpg --list-secret-keys --key-id-format LONG
+<pre><code class="language-bash">$ gpg --list-secret-keys --keyid-format LONG
 path/to/gnupg/pubring.kbx
 ------------------------------------------------
 sec   rsa4096/20732A67E8F95BD9 2020-12-02 [SC]
@@ -1273,6 +1314,41 @@ ssb   rsa4096/DABE372E78DCA377 2020-12-02 [E]
 </code></pre>
 <p>Import keys (from the secretkey generated)</p>
 <pre><code class="language-bash">gpg --import secretkey
+</code></pre>
+<h2 id="git-gpg-sign"><a class="header" href="#git-gpg-sign"><code>git</code> gpg sign</a></h2>
+<h3 id="basics-1"><a class="header" href="#basics-1">Basics</a></h3>
+<p>Config signing key</p>
+<pre><code class="language-bash">git config --global user.signingkey &lt;key id&gt;
+</code></pre>
+<blockquote>
+<p>On (hopefully most) Linux distro the <code>&lt;key id&gt;</code> can be tab-completed. Unfortunately not possible for Windows PowerShell :(</p>
+</blockquote>
+<h3 id="trouble-shooting"><a class="header" href="#trouble-shooting">Trouble shooting</a></h3>
+<p>If you receive errors like <code>secrete key not available</code> or <code>no secret key</code> (one example shown below), it is possible that the <code>gpg</code> program used by your <code>git</code> is different from your system's default <code>gpg</code>. Thus, the secret key was only imported to the system <code>gpg</code>, but is still unknown to <code>git</code>'s <code>gpg</code>.</p>
+<pre><code class="language-shell">$ git commit -m &quot;Test&quot;
+gpg: skipped &quot;&lt;key id&gt;&quot;: No secret key
+gpg: signing failed: No secret key
+error: gpg failed to sign the data
+fatal: failed to write commit object
+</code></pre>
+<p>To solve this issue, we need to configure <code>git</code>'s <code>gpg</code> program to that with your secret key imported.</p>
+<p>Run <code>which gpg</code> (*nix shells) or <code>Get-Command gpg</code> (<code>PowerShell</code>) to find that path to your system default gpg program.</p>
+<pre><code class="language-bash">$ which gpg
+/usr/bin/gpg2
+</code></pre>
+<pre><code class="language-powershell">$ Get-Command gpg
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Application     gpg.exe                                            2.3.4.6... C:\Program Files (x86)\gnupg\bin\gpg.exe
+</code></pre>
+<p>Configure <code>git</code> to use the output (*nix shell) or the path listed in column <code>Source</code> (<code>Powershell</code>)</p>
+<pre><code class="language-bash">git config --global gpg.program &quot;C:\Program Files (x86)\gnupg\bin\gpg.exe&quot;
+</code></pre>
+<p>Alternatively, you can run this one-liner</p>
+<pre><code class="language-bash">git config --global gpg.program &quot;$(which gpg)&quot;
+</code></pre>
+<pre><code class="language-powershell">git config --global gpg.program (Get-Command gpg).Source
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="侧卫学101"><a class="header" href="#侧卫学101">侧卫学101</a></h1>
 <style>
@@ -1310,14 +1386,14 @@ td.yes {
 <p>首先，J-11 完全等同于 Su-27，J-15 模仿的是 Su-33，J-16 模仿的是 Su-30，所以可以按照判断 Su-27、Su-30、Su-33 的方法大致把看到的 PLA 飞机归类。但进一步判断改型则需要结合涂装、雷达罩、翼尖挂架等等来具体判断。</p>
 <p>PLAAF 也买了一些俄方交付的 Su-27、Su-30 和 Su-35，和歼系（即使是组装的 J-11A）的最大区别就是没有编队灯。在此一并列出。</p>
 <p>PLA 的海军飞机都是偏白的，空海军共有的飞机的海军机种后面会带 H（如 J-11BH），在此不做区分。（P.S. H for Haijun，哈哈哈哈）</p>
-<table><thead><tr><th></th><th align="center">基本型</th><th align="center">雷达罩</th><th align="center">备注</th></tr></thead><tbody>
-<tr><td>Su-27SK</td><td align="center">Su-27</td><td align="center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td align="center">没有编队灯</td></tr>
-<tr><td>Su-27UBK</td><td align="center">Su-27UB</td><td align="center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td align="center">没有编队灯<br>教练机，双座的</td></tr>
-<tr><td>J-11A</td><td align="center">Su-27</td><td align="center">雷达罩<strong>有缺口</strong></td><td align="center"></td></tr>
-<tr><td>J-11B</td><td align="center">Su-27</td><td align="center">黑色雷达罩</td><td align="center"></td></tr>
-<tr><td>J-11BS</td><td align="center">Su-27UB</td><td align="center">黑色雷达罩</td><td align="center">教练机，双座的</td></tr>
-<tr><td>J-15</td><td align="center">Su-33</td><td align="center">灰色雷达罩</td><td align="center"></td></tr>
-<tr><td>J-16</td><td align="center">Su-30</td><td align="center">灰色雷达罩</td><td align="center"></td></tr>
+<table><thead><tr><th></th><th style="text-align: center">基本型</th><th style="text-align: center">雷达罩</th><th style="text-align: center">备注</th></tr></thead><tbody>
+<tr><td>Su-27SK</td><td style="text-align: center">Su-27</td><td style="text-align: center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td style="text-align: center">没有编队灯</td></tr>
+<tr><td>Su-27UBK</td><td style="text-align: center">Su-27UB</td><td style="text-align: center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td style="text-align: center">没有编队灯<br>教练机，双座的</td></tr>
+<tr><td>J-11A</td><td style="text-align: center">Su-27</td><td style="text-align: center">雷达罩<strong>有缺口</strong></td><td style="text-align: center"></td></tr>
+<tr><td>J-11B</td><td style="text-align: center">Su-27</td><td style="text-align: center">黑色雷达罩</td><td style="text-align: center"></td></tr>
+<tr><td>J-11BS</td><td style="text-align: center">Su-27UB</td><td style="text-align: center">黑色雷达罩</td><td style="text-align: center">教练机，双座的</td></tr>
+<tr><td>J-15</td><td style="text-align: center">Su-33</td><td style="text-align: center">灰色雷达罩</td><td style="text-align: center"></td></tr>
+<tr><td>J-16</td><td style="text-align: center">Su-30</td><td style="text-align: center">灰色雷达罩</td><td style="text-align: center"></td></tr>
 </tbody></table>
 <h2 id="基本型侧卫特征查表"><a class="header" href="#基本型侧卫特征查表">基本型侧卫特征查表</a></h2>
 <table >
