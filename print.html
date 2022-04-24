@@ -1323,6 +1323,12 @@ ssb   rsa4096/DABE372E78DCA377 2020-12-02 [E]
 <blockquote>
 <p>On (hopefully most) Linux distro the <code>&lt;key id&gt;</code> can be tab-completed. Unfortunately not possible for Windows PowerShell :(</p>
 </blockquote>
+<p>Sign a single commit</p>
+<pre><code class="language-bash">git commit -S -m &quot;commit message&quot;
+</code></pre>
+<p>Always sign</p>
+<pre><code class="language-bash">git config --global commit.gpgsign true
+</code></pre>
 <h3 id="trouble-shooting"><a class="header" href="#trouble-shooting">Trouble shooting</a></h3>
 <p>If you receive errors like <code>secrete key not available</code> or <code>no secret key</code> (one example shown below), it is possible that the <code>gpg</code> program used by your <code>git</code> is different from your system's default <code>gpg</code>. Thus, the secret key was only imported to the system <code>gpg</code>, but is still unknown to <code>git</code>'s <code>gpg</code>.</p>
 <pre><code class="language-shell">$ git commit -m &quot;Test&quot;
