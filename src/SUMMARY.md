@@ -12,10 +12,6 @@
 
 - [Frontend from scratch](frontend/group-buddy-teach-me-how-to-write-js.md)
 
-# Java
-
-- [Java IO](Java/Java-io.md)
-
 # Reverse Engineering
 
 - [Intro to gdb](RevEng/gdb.md)
@@ -30,6 +26,7 @@
 
 - [Disk Management](Linux/disk-management.md)
 - [Internet Sharing](Linux/net-forwarding.md)
+- [ssh config tips](Linux/ssh_config.md)
 
 # Terminal Usage
 
