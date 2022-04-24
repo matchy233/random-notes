@@ -7,5 +7,5 @@ title = "Random Notes"
 
 [output.html]
 mathjax-support = true
-default-theme = "Ayu"
+default-theme = "Light"
 preferred-dark-theme = "Ayu"
