@@ -1,1 +1,0 @@
-192.168.0.101:/mnt/sda/share/home /home nfs auto,nofail,noatime,nolock,bg,nfsvers=3,intr,tcp,actimeo=1800 0 0
