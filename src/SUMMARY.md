@@ -12,6 +12,10 @@
 
 - [Frontend from scratch](frontend/group-buddy-teach-me-how-to-write-js.md)
 
+# Python
+
+- [Snakemake 101](Python/snakemake.md)
+
 # Reverse Engineering
 
 - [Intro to gdb](RevEng/gdb.md)
@@ -31,6 +35,7 @@
 # Terminal Usage
 
 - [Effective Shell 1](Terminal/effective-shell.md)
+- [Random bash tips](Terminal/random-bash-tips.md)
 - [TMUX 101](Terminal/tmux.md)
 
 # LaTeX
