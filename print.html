@@ -1132,7 +1132,7 @@ Avoid <code>broken pipe</code></li>
 <p>这里有一张非常棒的图可作总结：</p>
 <p><img src="Terminal/img/2020-11-11-23-27-58.png" alt="Navigating the Command Line" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="random-bash-tips"><a class="header" href="#random-bash-tips">Random bash tips</a></h1>
-<h2 id="mv"><a class="header" href="#mv"><code>mv</code></a></h2>
+<h2 id="mvcp-with-wildcard-blob"><a class="header" href="#mvcp-with-wildcard-blob"><code>mv</code>/<code>cp</code> with wildcard (blob)</a></h2>
 <p>The following command will not work</p>
 <pre><code class="language-bash">mv &quot;${dir}/*.txt&quot; &quot;${dir}/another_place&quot;
 </code></pre>
@@ -1143,6 +1143,16 @@ put outside the quote.</p>
 <blockquote>
 <p>Should have more explanation on wildcards and globs</p>
 </blockquote>
+<h2 id="custom-cd"><a class="header" href="#custom-cd">custom <code>cd</code></a></h2>
+<pre><code class="language-bash">function cd {
+    builtin cd &quot;$@&quot;
+    if [[ $(ls | wc -l ) -le 50 ]]; then
+        ls -F --color=auto
+    else
+        echo &quot;There are a total of $(ls -F | wc -l) entries in $(pwd)&quot;
+    fi
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tmux-usage-101"><a class="header" href="#tmux-usage-101"><code>tmux</code> usage 101</a></h1>
 <h2 id="motivation-why-you-should-use-tmux"><a class="header" href="#motivation-why-you-should-use-tmux">Motivation: why you should use <code>tmux</code>?</a></h2>
 <p><code>tmux</code> is very useful under the following scenarios:</p>
