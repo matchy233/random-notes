@@ -2,12 +2,6 @@
 
 [Random Notes](README.md)
 
-# Literature
-
-- [Random Quotes](literature/quotes.md)
-- [Lyrics Quotes](literature/lyrics.md)
-- [Poem Excerpts](literature/poems.md)
-
 # Frontend
 
 - [Fix node-modules](frontend/fix-node-modules.md)
@@ -49,3 +43,9 @@
 - [Use WSL with GUI](misc/use-wsl-with-gui.md)
 - [GPG](misc/gpg.md)
 - [Flankerology 101](misc/sukhoi-fighters.md)
+
+# [Literature](literature/README.md)
+
+- [Random Quotes](literature/quotes.md)
+- [Lyrics Quotes](literature/lyrics.md)
+- [Poem Excerpts](literature/poems.md)
