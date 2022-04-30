@@ -8,10 +8,6 @@
 - [Use develop branch](frontend/use-develop-branch.md)
 - [Frontend from scratch](frontend/group-buddy-teach-me-how-to-write-js.md)
 
-# Python
-
-- [Snakemake 101](Python/snakemake.md)
-
 # Reverse Engineering
 
 - [Intro to gdb](RevEng/gdb.md)
