@@ -40,7 +40,7 @@
 - [GPG](misc/gpg.md)
 - [Flankerology 101](misc/sukhoi-fighters.md)
 
-# [Literature](literature/README.md)
+# Literature
 
 - [Random Quotes](literature/quotes.md)
 - [Lyrics Quotes](literature/lyrics.md)
