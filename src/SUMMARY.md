@@ -2,21 +2,10 @@
 
 [Random Notes](README.md)
 
-# Frontend
-
-- [Fix node-modules](frontend/fix-node-modules.md)
-- [Use develop branch](frontend/use-develop-branch.md)
-- [Frontend from scratch](frontend/group-buddy-teach-me-how-to-write-js.md)
-
 # Reverse Engineering
 
 - [Intro to gdb](RevEng/gdb.md)
 - [ASCII shellcode (WIP)](RevEng/ascii-asm.md)
-
-# DevOps
-
-- [Haddop in K8S](devops/hadoop-on-k8s.md)
-- [AWS Amplify Attempts](devops/aws-amplify.md)
 
 # Linux
 
@@ -39,6 +28,17 @@
 - [Use WSL with GUI](misc/use-wsl-with-gui.md)
 - [GPG](misc/gpg.md)
 - [Flankerology 101](misc/sukhoi-fighters.md)
+
+# DevOps
+
+- [Haddop in K8S](devops/hadoop-on-k8s.md)
+- [AWS Amplify Attempts](devops/aws-amplify.md)
+
+# Frontend
+
+- [Fix node-modules](frontend/fix-node-modules.md)
+- [Use develop branch](frontend/use-develop-branch.md)
+- [Frontend from scratch](frontend/group-buddy-teach-me-how-to-write-js.md)
 
 # Literature
 
