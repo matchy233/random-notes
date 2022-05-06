@@ -158,6 +158,18 @@ put outside the quote.</p>
     fi
 }
 </code></pre>
+<h2 id="monitor-everything"><a class="header" href="#monitor-everything">Monitor everything...</a></h2>
+<p><code>pv</code>: pipe viewer</p>
+<h3 id="monitor-tar-extraction-progress"><a class="header" href="#monitor-tar-extraction-progress">Monitor tar extraction progress</a></h3>
+<pre><code class="language-bash">pv file.tar.gz | tar -xz
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-shell">$ pv big-files-1.tar.gz | tar -I pigz -x -C source/fasta/metaclust_db_1
+9.30GiB 0:01:43 [93.1MiB/s] [=&gt;             ] 17% ETA 0:08:12
+</code></pre>
+<h3 id="monitor-tar-compression-progress"><a class="header" href="#monitor-tar-compression-progress">Monitor tar compression progress</a></h3>
+<pre><code class="language-shell">tar cf - . -P -T file_list.1 | pv -s $( du -sb &lt;file_list.1 | awk '{print $1}') | pigz -k &gt; big-files.tar.g
+</code></pre>
 
                     </main>
 

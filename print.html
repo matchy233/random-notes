@@ -901,6 +901,18 @@ put outside the quote.</p>
     fi
 }
 </code></pre>
+<h2 id="monitor-everything"><a class="header" href="#monitor-everything">Monitor everything...</a></h2>
+<p><code>pv</code>: pipe viewer</p>
+<h3 id="monitor-tar-extraction-progress"><a class="header" href="#monitor-tar-extraction-progress">Monitor tar extraction progress</a></h3>
+<pre><code class="language-bash">pv file.tar.gz | tar -xz
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-shell">$ pv big-files-1.tar.gz | tar -I pigz -x -C source/fasta/metaclust_db_1
+9.30GiB 0:01:43 [93.1MiB/s] [=&gt;             ] 17% ETA 0:08:12
+</code></pre>
+<h3 id="monitor-tar-compression-progress"><a class="header" href="#monitor-tar-compression-progress">Monitor tar compression progress</a></h3>
+<pre><code class="language-shell">tar cf - . -P -T file_list.1 | pv -s $( du -sb &lt;file_list.1 | awk '{print $1}') | pigz -k &gt; big-files.tar.g
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tmux-usage-101"><a class="header" href="#tmux-usage-101"><code>tmux</code> usage 101</a></h1>
 <h2 id="motivation-why-you-should-use-tmux"><a class="header" href="#motivation-why-you-should-use-tmux">Motivation: why you should use <code>tmux</code>?</a></h2>
 <p><code>tmux</code> is very useful under the following scenarios:</p>
