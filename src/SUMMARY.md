@@ -22,6 +22,7 @@
 # LaTeX
 
 - [General LaTeX tricks](latex/general-latex-tricks.md)
+- [LaTeX Workshop notes](latex/latex-workshop.md)
 
 # Misc
 
