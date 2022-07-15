@@ -158,16 +158,6 @@
 %...
 \end{document}
 </code></pre>
-<pre><code class="language-latex">\begin{document}
-% ...
-
-\[
-    \bm{A}
-\]
-
-%...
-\end{document}
-</code></pre>
 <h2 id="pdfpages-insert-pdf-pages-in-a-latex-file"><a class="header" href="#pdfpages-insert-pdf-pages-in-a-latex-file"><code>pdfpages</code>: insert pdf pages in a \(\LaTeX\) file</a></h2>
 <p>对于做 take-home exam 有奇效。</p>
 <pre><code class="language-latex">% preamble
@@ -193,7 +183,7 @@
 <h2 id="datetime2-foramt-datetime-"><a class="header" href="#datetime2-foramt-datetime-"><code>datetime2</code>: foramt datetime :)</a></h2>
 <p>Set up new date style</p>
 <p>The 4 input parameters for <code>\DTMdisplaydate</code> are 1. year, 2. month, 3. date, 4. <code>dow</code>.
-The package asks the users to refer to the input parameters using a double-hash + param number. Thus, while designing the format string, we should refer to <strong>year</strong> by <code>##1</code>, <strong>month</strong> by <code>##2</code> and <strong>date</strong> by <code>##3</code>.</p>
+The package asks the users to refer to the input parameters using a <strong>double-hash + param number</strong>. Thus, while designing the format string, we should refer to <strong>year</strong> by <code>##1</code>, <strong>month</strong> by <code>##2</code> and <strong>date</strong> by <code>##3</code>.</p>
 <pre><code class="language-latex">\DTMnewdatestyle{kordate}% label, just a token
 {% definitions
     \renewcommand*{\DTMdisplaydate}[4]{

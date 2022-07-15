@@ -165,11 +165,12 @@ export GDK_DPI_SCALE=1.5
 </code></pre>
 <p>这个数值在小新 Pro 13 的 2K 屏幕上对于大多数应用效果都不错。不过 JB 家的 IntelliJ IDEA 和 CLion 因为是 Swing 应用， UI scale 只支援整数倍，1.5 似乎相当于 scale 到 2 了，导致字都看起来非常大……不过可以通过调整字体大小解决。</p>
 <p>这个表格大致整理了应该修改哪些地方（基于 CLion 2020 的菜单层级）：</p>
-<table><thead><tr><th>设置项</th><th>作用</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>设置项</th><th>作用</th></tr></thead><tbody>
 <tr><td><code>Appearance &amp; Behavior &gt; Appearance &gt; Use Custom Font</code></td><td>设置绝大多数 UI 字体</td></tr>
 <tr><td><code>Editor &gt; Font</code> 或 <br> <code>Editor &gt; Color Scheme &gt; Color Scheme Font</code></td><td>设置编辑器（写代码的区域）的字体</td></tr>
 <tr><td><code>Editor &gt; Color Scheme &gt; Console Font</code></td><td>设置内建终端（Integrated Terminal）的字体</td></tr>
 </tbody></table>
+</div>
 <h3 id="大功告成"><a class="header" href="#大功告成">大功告成！</a></h3>
 <p>设置好 <code>DISPLAY</code> 和 HiDPI 支援并开启 Xserver 之后就能运行 GUI 应用了。</p>
 <p>可以拿 <code>xeyes</code> 测试一下：</p>

@@ -863,7 +863,7 @@ Avoid <code>broken pipe</code></li>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="effective-shell"><a class="header" href="#effective-shell">Effective Shell</a></h1>
 <h2 id="navigating-along-the-command-line"><a class="header" href="#navigating-along-the-command-line">Navigating along the command line</a></h2>
 <p>可能应该录制一个 gif 来展示功能。</p>
-<table><thead><tr><th>功能</th><th>快捷键</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>功能</th><th>快捷键</th></tr></thead><tbody>
 <tr><td>定位到行开头</td><td><code>Ctrl</code> + <code>A</code> 或者 <code>Home</code></td></tr>
 <tr><td>定位到行末尾</td><td><code>Ctrl</code> + <code>D</code> 或者 <code>End</code></td></tr>
 <tr><td>向前（行首）移动<br>一个词</td><td><code>Alt</code> + <code>B</code> 或者 <code>Ctrl</code> + ⬅</td></tr>
@@ -876,6 +876,7 @@ Avoid <code>broken pipe</code></li>
 <tr><td>下一条命令</td><td><code>Ctrl</code> + <code>N</code> 或者 ⬇</td></tr>
 <tr><td>打开编辑器编辑当前<br>指令</td><td><code>Ctrl</code> + <code>X</code>, <code>E</code></td></tr>
 </tbody></table>
+</div>
 <p><code>Ctrl</code> + <code>X</code>,<code>E</code> 打开的编辑器是通过环境变量 <code>$EDITOR</code> 指定的。</p>
 <p>这里有一张非常棒的图可作总结：</p>
 <p><img src="Terminal/img/2020-11-11-23-27-58.png" alt="Navigating the Command Line" /></p>
@@ -924,7 +925,7 @@ put outside the quote.</p>
 <h2 id="basic-usage"><a class="header" href="#basic-usage">Basic Usage</a></h2>
 <p>All the commands for <code>tmux</code> are only available after you type the command prefix. By default it is <code>Ctrl</code>-<code>b</code>. After pressing this combination, it will activate the console mode (or so I believe).</p>
 <h3 id="pane-commands"><a class="header" href="#pane-commands">Pane commands</a></h3>
-<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>&quot;</code></td><td>Split current pane <em>vertically</em>, create new pane <em>underneath</em></td></tr>
 <tr><td><code>%</code></td><td>Split current pane <em>horizontally</em>, create new pane on the <em>right</em></td></tr>
 <tr><td><code>x</code></td><td>Close current pane (with confirmation, contrasst to simply pressing <code>Ctrl</code>-<code>d</code>)</td></tr>
@@ -939,6 +940,7 @@ put outside the quote.</p>
 <tr><td><code>o</code></td><td>Switch to the next (pane number order) pane</td></tr>
 <tr><td><code>t</code></td><td>Show a clock :)</td></tr>
 </tbody></table>
+</div>
 <h2 id="configure"><a class="header" href="#configure">Configure</a></h2>
 <h3 id="change-command-prefix"><a class="header" href="#change-command-prefix">Change command prefix</a></h3>
 <p>The default command prefix <code>Ctrl</code>-<code>b</code> is not a very good key binding: they are too far away! My choice is to change it to <code>Ctrl</code>-<code>a</code>, but it could be set to any keybinding you like.</p>
@@ -973,16 +975,6 @@ bind C-a send-prefix
 %...
 \end{document}
 </code></pre>
-<pre><code class="language-latex">\begin{document}
-% ...
-
-\[
-    \bm{A}
-\]
-
-%...
-\end{document}
-</code></pre>
 <h2 id="pdfpages-insert-pdf-pages-in-a-latex-file"><a class="header" href="#pdfpages-insert-pdf-pages-in-a-latex-file"><code>pdfpages</code>: insert pdf pages in a \(\LaTeX\) file</a></h2>
 <p>对于做 take-home exam 有奇效。</p>
 <pre><code class="language-latex">% preamble
@@ -1008,7 +1000,7 @@ bind C-a send-prefix
 <h2 id="datetime2-foramt-datetime-"><a class="header" href="#datetime2-foramt-datetime-"><code>datetime2</code>: foramt datetime :)</a></h2>
 <p>Set up new date style</p>
 <p>The 4 input parameters for <code>\DTMdisplaydate</code> are 1. year, 2. month, 3. date, 4. <code>dow</code>.
-The package asks the users to refer to the input parameters using a double-hash + param number. Thus, while designing the format string, we should refer to <strong>year</strong> by <code>##1</code>, <strong>month</strong> by <code>##2</code> and <strong>date</strong> by <code>##3</code>.</p>
+The package asks the users to refer to the input parameters using a <strong>double-hash + param number</strong>. Thus, while designing the format string, we should refer to <strong>year</strong> by <code>##1</code>, <strong>month</strong> by <code>##2</code> and <strong>date</strong> by <code>##3</code>.</p>
 <pre><code class="language-latex">\DTMnewdatestyle{kordate}% label, just a token
 {% definitions
     \renewcommand*{\DTMdisplaydate}[4]{
@@ -1074,11 +1066,12 @@ export GDK_DPI_SCALE=1.5
 </code></pre>
 <p>这个数值在小新 Pro 13 的 2K 屏幕上对于大多数应用效果都不错。不过 JB 家的 IntelliJ IDEA 和 CLion 因为是 Swing 应用， UI scale 只支援整数倍，1.5 似乎相当于 scale 到 2 了，导致字都看起来非常大……不过可以通过调整字体大小解决。</p>
 <p>这个表格大致整理了应该修改哪些地方（基于 CLion 2020 的菜单层级）：</p>
-<table><thead><tr><th>设置项</th><th>作用</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>设置项</th><th>作用</th></tr></thead><tbody>
 <tr><td><code>Appearance &amp; Behavior &gt; Appearance &gt; Use Custom Font</code></td><td>设置绝大多数 UI 字体</td></tr>
 <tr><td><code>Editor &gt; Font</code> 或 <br> <code>Editor &gt; Color Scheme &gt; Color Scheme Font</code></td><td>设置编辑器（写代码的区域）的字体</td></tr>
 <tr><td><code>Editor &gt; Color Scheme &gt; Console Font</code></td><td>设置内建终端（Integrated Terminal）的字体</td></tr>
 </tbody></table>
+</div>
 <h3 id="大功告成"><a class="header" href="#大功告成">大功告成！</a></h3>
 <p>设置好 <code>DISPLAY</code> 和 HiDPI 支援并开启 Xserver 之后就能运行 GUI 应用了。</p>
 <p>可以拿 <code>xeyes</code> 测试一下：</p>
@@ -1192,7 +1185,7 @@ td.yes {
 <p>看完这一篇你也能成为侧卫大师。</p>
 <h2 id="分类特征整理"><a class="header" href="#分类特征整理">分类特征整理</a></h2>
 <h3 id="基本类型侧卫--俄系侧卫"><a class="header" href="#基本类型侧卫--俄系侧卫">基本类型侧卫 —— 俄系侧卫</a></h3>
-<table><thead><tr><th></th><th>座位</th><th>座舱分界</th><th>垂尾</th><th>起落架</th><th>空中加油</th><th>IRST</th><th>空速管</th><th>气动布局</th><th>其他</th><th>备注</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th></th><th>座位</th><th>座舱分界</th><th>垂尾</th><th>起落架</th><th>空中加油</th><th>IRST</th><th>空速管</th><th>气动布局</th><th>其他</th><th>备注</th></tr></thead><tbody>
 <tr><td>Su-27</td><td>单座</td><td>座舱机身<br>明显分界</td><td>垂尾切尖</td><td><strong>前轮单轮</strong></td><td><strong>无空中加油接口</strong></td><td><strong>居中</strong></td><td>有机首空速管</td><td>普通翼身融合，无鸭翼</td><td>座舱后有突起天线</td><td></td></tr>
 <tr><td>Su-27UB</td><td><strong>双座</strong></td><td>座舱机身<br><strong>平滑过渡</strong></td><td>垂尾切尖</td><td><strong>前轮单轮</strong></td><td><strong>无空中加油接口</strong></td><td><strong>居中</strong></td><td>有机首空速管</td><td>普通翼身融合，无鸭翼</td><td>座舱后有突起天线</td><td>教练机</td></tr>
 <tr><td>Su-30</td><td><strong>双座</strong></td><td>座舱机身<br><strong>平滑过渡</strong></td><td>垂尾<strong>平行</strong></td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>有机首空速管</td><td>普通翼身融合，无鸭翼</td><td></td><td>Su-30MKK、Su-30MK2 也是这个基本构型</td></tr>
@@ -1200,11 +1193,12 @@ td.yes {
 <tr><td>Su-33</td><td>单座</td><td>座舱机身<br>明显分界</td><td>垂尾介于<br>切尖和平<br>行之间</td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>有机首空速管</td><td><strong>有鸭翼</strong></td><td></td><td></td></tr>
 <tr><td>Su-35</td><td>单座</td><td>座舱机身<br>明显分界</td><td>垂尾切尖</td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>没有机首空速管</td><td>普通翼身融合，无鸭翼</td><td>雷达罩后方有 4 个小型 L 型空速管</td><td>早期验证机其实有鸭翼</td></tr>
 </tbody></table>
+</div>
 <h3 id="解放军版侧卫"><a class="header" href="#解放军版侧卫">解放军版侧卫</a></h3>
 <p>首先，J-11 完全等同于 Su-27，J-15 模仿的是 Su-33，J-16 模仿的是 Su-30，所以可以按照判断 Su-27、Su-30、Su-33 的方法大致把看到的 PLA 飞机归类。但进一步判断改型则需要结合涂装、雷达罩、翼尖挂架等等来具体判断。</p>
 <p>PLAAF 也买了一些俄方交付的 Su-27、Su-30 和 Su-35，和歼系（即使是组装的 J-11A）的最大区别就是没有编队灯。在此一并列出。</p>
 <p>PLA 的海军飞机都是偏白的，空海军共有的飞机的海军机种后面会带 H（如 J-11BH），在此不做区分。（P.S. H for Haijun，哈哈哈哈）</p>
-<table><thead><tr><th></th><th style="text-align: center">基本型</th><th style="text-align: center">雷达罩</th><th style="text-align: center">备注</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th></th><th style="text-align: center">基本型</th><th style="text-align: center">雷达罩</th><th style="text-align: center">备注</th></tr></thead><tbody>
 <tr><td>Su-27SK</td><td style="text-align: center">Su-27</td><td style="text-align: center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td style="text-align: center">没有编队灯</td></tr>
 <tr><td>Su-27UBK</td><td style="text-align: center">Su-27UB</td><td style="text-align: center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td style="text-align: center">没有编队灯<br>教练机，双座的</td></tr>
 <tr><td>J-11A</td><td style="text-align: center">Su-27</td><td style="text-align: center">雷达罩<strong>有缺口</strong></td><td style="text-align: center"></td></tr>
@@ -1213,6 +1207,7 @@ td.yes {
 <tr><td>J-15</td><td style="text-align: center">Su-33</td><td style="text-align: center">灰色雷达罩</td><td style="text-align: center"></td></tr>
 <tr><td>J-16</td><td style="text-align: center">Su-30</td><td style="text-align: center">灰色雷达罩</td><td style="text-align: center"></td></tr>
 </tbody></table>
+</div>
 <h2 id="基本型侧卫特征查表"><a class="header" href="#基本型侧卫特征查表">基本型侧卫特征查表</a></h2>
 <table >
 <thead>
