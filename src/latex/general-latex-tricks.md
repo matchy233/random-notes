@@ -26,18 +26,6 @@
 \end{document}
 ```
 
-```latex
-\begin{document}
-% ...
-
-\[
-    \bm{A}
-\]
-
-%...
-\end{document}
-```
-
 ## `pdfpages`: insert pdf pages in a \\(\LaTeX\\) file
 
 对于做 take-home exam 有奇效。
@@ -69,7 +57,7 @@
 Set up new date style
 
 The 4 input parameters for `\DTMdisplaydate` are 1. year, 2. month, 3. date, 4. `dow`.
-The package asks the users to refer to the input parameters using a double-hash + param number. Thus, while designing the format string, we should refer to **year** by `##1`, **month** by `##2` and **date** by `##3`.
+The package asks the users to refer to the input parameters using a **double-hash + param number**. Thus, while designing the format string, we should refer to **year** by `##1`, **month** by `##2` and **date** by `##3`.
 
 ```latex
 \DTMnewdatestyle{kordate}% label, just a token
