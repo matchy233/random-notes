@@ -7,6 +7,10 @@
 - [Intro to gdb](RevEng/gdb.md)
 - [ASCII shellcode (WIP)](RevEng/ascii-asm.md)
 
+# IDE
+
+- [VSCode tips](IDE/vscode.md)
+
 # Linux
 
 - [Disk Management](Linux/disk-management.md)
