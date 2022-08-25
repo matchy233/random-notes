@@ -22,6 +22,7 @@
 - [Effective Shell 1](Terminal/effective-shell.md)
 - [Random bash tips](Terminal/random-bash-tips.md)
 - [TMUX 101](Terminal/tmux.md)
+- [Things to put in your shellrc](Terminal/shellrc.md)
 
 # LaTeX
 
