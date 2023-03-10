@@ -51,3 +51,4 @@
 - [Random Quotes](literature/quotes.md)
 - [Lyrics Quotes](literature/lyrics.md)
 - [Poem Excerpts](literature/poems.md)
+- [Geoffrey A. Landis short fictions](literature/geoffrey-a-landis-short-fictions.md)
