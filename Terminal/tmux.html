@@ -4,8 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>TMUX 101 - Random Notes</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -16,27 +18,31 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
         <!-- MathJax -->
-        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -52,7 +58,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -64,12 +70,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -77,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html"><strong aria-hidden="true">1.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="../RevEng/ascii-asm.html"><strong aria-hidden="true">2.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item expanded affix "><li class="part-title">IDE</li><li class="chapter-item expanded "><a href="../IDE/vscode.html"><strong aria-hidden="true">3.</strong> VSCode tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="../Linux/disk-management.html"><strong aria-hidden="true">4.</strong> Disk Management</a></li><li class="chapter-item expanded "><a href="../Linux/net-forwarding.html"><strong aria-hidden="true">5.</strong> Internet Sharing</a></li><li class="chapter-item expanded "><a href="../Linux/ssh_config.html"><strong aria-hidden="true">6.</strong> ssh config tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Terminal Usage</li><li class="chapter-item expanded "><a href="../Terminal/effective-shell.html"><strong aria-hidden="true">7.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../Terminal/random-bash-tips.html"><strong aria-hidden="true">8.</strong> Random bash tips</a></li><li class="chapter-item expanded "><a href="../Terminal/tmux.html" class="active"><strong aria-hidden="true">9.</strong> TMUX 101</a></li><li class="chapter-item expanded "><a href="../Terminal/shellrc.html"><strong aria-hidden="true">10.</strong> Things to put in your shellrc</a></li><li class="chapter-item expanded affix "><li class="part-title">LaTeX</li><li class="chapter-item expanded "><a href="../latex/general-latex-tricks.html"><strong aria-hidden="true">11.</strong> General LaTeX tricks</a></li><li class="chapter-item expanded "><a href="../latex/latex-workshop.html"><strong aria-hidden="true">12.</strong> LaTeX Workshop notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">13.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="../misc/gpg.html"><strong aria-hidden="true">14.</strong> GPG</a></li><li class="chapter-item expanded "><a href="../misc/sukhoi-fighters.html"><strong aria-hidden="true">15.</strong> Flankerology 101</a></li><li class="chapter-item expanded affix "><li class="part-title">DevOps</li><li class="chapter-item expanded "><a href="../devops/hadoop-on-k8s.html"><strong aria-hidden="true">16.</strong> Haddop in K8S</a></li><li class="chapter-item expanded "><a href="../devops/aws-amplify.html"><strong aria-hidden="true">17.</strong> AWS Amplify Attempts</a></li><li class="chapter-item expanded affix "><li class="part-title">Frontend</li><li class="chapter-item expanded "><a href="../frontend/fix-node-modules.html"><strong aria-hidden="true">18.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../frontend/use-develop-branch.html"><strong aria-hidden="true">19.</strong> Use develop branch</a></li><li class="chapter-item expanded "><a href="../frontend/group-buddy-teach-me-how-to-write-js.html"><strong aria-hidden="true">20.</strong> Frontend from scratch</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">21.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="../literature/lyrics.html"><strong aria-hidden="true">22.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="../literature/poems.html"><strong aria-hidden="true">23.</strong> Poem Excerpts</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item expanded "><a href="../RevEng/gdb.html"><strong aria-hidden="true">1.</strong> Intro to gdb</a></li><li class="chapter-item expanded "><a href="../RevEng/ascii-asm.html"><strong aria-hidden="true">2.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item expanded affix "><li class="part-title">IDE</li><li class="chapter-item expanded "><a href="../IDE/vscode.html"><strong aria-hidden="true">3.</strong> VSCode tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Linux</li><li class="chapter-item expanded "><a href="../Linux/disk-management.html"><strong aria-hidden="true">4.</strong> Disk Management</a></li><li class="chapter-item expanded "><a href="../Linux/net-forwarding.html"><strong aria-hidden="true">5.</strong> Internet Sharing</a></li><li class="chapter-item expanded "><a href="../Linux/ssh_config.html"><strong aria-hidden="true">6.</strong> ssh config tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Terminal Usage</li><li class="chapter-item expanded "><a href="../Terminal/effective-shell.html"><strong aria-hidden="true">7.</strong> Effective Shell 1</a></li><li class="chapter-item expanded "><a href="../Terminal/random-bash-tips.html"><strong aria-hidden="true">8.</strong> Random bash tips</a></li><li class="chapter-item expanded "><a href="../Terminal/tmux.html" class="active"><strong aria-hidden="true">9.</strong> TMUX 101</a></li><li class="chapter-item expanded "><a href="../Terminal/shellrc.html"><strong aria-hidden="true">10.</strong> Things to put in your shellrc</a></li><li class="chapter-item expanded affix "><li class="part-title">LaTeX</li><li class="chapter-item expanded "><a href="../latex/general-latex-tricks.html"><strong aria-hidden="true">11.</strong> General LaTeX tricks</a></li><li class="chapter-item expanded "><a href="../latex/latex-workshop.html"><strong aria-hidden="true">12.</strong> LaTeX Workshop notes</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/use-wsl-with-gui.html"><strong aria-hidden="true">13.</strong> Use WSL with GUI</a></li><li class="chapter-item expanded "><a href="../misc/gpg.html"><strong aria-hidden="true">14.</strong> GPG</a></li><li class="chapter-item expanded "><a href="../misc/sukhoi-fighters.html"><strong aria-hidden="true">15.</strong> Flankerology 101</a></li><li class="chapter-item expanded affix "><li class="part-title">DevOps</li><li class="chapter-item expanded "><a href="../devops/hadoop-on-k8s.html"><strong aria-hidden="true">16.</strong> Haddop in K8S</a></li><li class="chapter-item expanded "><a href="../devops/aws-amplify.html"><strong aria-hidden="true">17.</strong> AWS Amplify Attempts</a></li><li class="chapter-item expanded affix "><li class="part-title">Frontend</li><li class="chapter-item expanded "><a href="../frontend/fix-node-modules.html"><strong aria-hidden="true">18.</strong> Fix node-modules</a></li><li class="chapter-item expanded "><a href="../frontend/use-develop-branch.html"><strong aria-hidden="true">19.</strong> Use develop branch</a></li><li class="chapter-item expanded "><a href="../frontend/group-buddy-teach-me-how-to-write-js.html"><strong aria-hidden="true">20.</strong> Frontend from scratch</a></li><li class="chapter-item expanded affix "><li class="part-title">Literature</li><li class="chapter-item expanded "><a href="../literature/quotes.html"><strong aria-hidden="true">21.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="../literature/lyrics.html"><strong aria-hidden="true">22.</strong> Lyrics Quotes</a></li><li class="chapter-item expanded "><a href="../literature/poems.html"><strong aria-hidden="true">23.</strong> Poem Excerpts</a></li><li class="chapter-item expanded "><a href="../literature/geoffrey-a-landis-short-fictions.html"><strong aria-hidden="true">24.</strong> Geoffrey A. Landis short fictions</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -85,7 +93,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -95,7 +103,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -112,6 +120,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -125,8 +134,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -183,9 +193,11 @@ bind C-a send-prefix
                             <a rel="prev" href="../Terminal/random-bash-tips.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../Terminal/shellrc.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -195,6 +207,7 @@ bind C-a send-prefix
                     <a rel="prev" href="../Terminal/random-bash-tips.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../Terminal/shellrc.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -202,16 +215,25 @@ bind C-a send-prefix
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>
