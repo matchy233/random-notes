@@ -20,12 +20,12 @@ Struggled to find proper eBook resources :(
 | 邂逅                                                         | ?                                  |       |
 | [四元素](http://st.kanxshuo.com/book-73635-10.html)          | Elemental                          |       |
 | 恐龙                                                         | Dinosaurs                          |       |
-| [真空态](https://www.99csw.com/book/10134/364697.htm)        | Vacuum States                      |       |
+| [真空态](https://www.99csw.com/book/10134/364697.htm)        | Vacuum States                      | ✅      |
 | 空中的大海                                                   | The River of Air, the Ocean of Sky |       |
 | [狄拉克海上的涟漪](https://www.williamlong.info/story/archives/355.html) | Ripples in the Dirac Sea           | ✅     |
 | [追赶太阳](https://www.99csw.com/article/9288.htm)           | A Walk in the Sun                  | ✅     |
-| 时空的插曲                                                   | Interlude at the Circus            |       |
-| 冲击参数                                                     | Impact Parameter                   |       |
+| 时空的插曲                                                   | [Interlude at the Circus](http://www.geoffreylandis.com/interlude.htp)            |       |
+| [冲击参数]((http://st.kanxshuo.com/book-73635-6.html))       | Impact Parameter                   | ✅      |
 | 拥抱异类                                                     | Embracing the Alien                |       |
 | 在冬天的星星下                                               | Beneath the Stars of Winter        |       |
 | 黄蜂的奇特习性                                               | The Singular Habits of Wasps       |       |
@@ -37,15 +37,15 @@ Struggled to find proper eBook resources :(
 | 最后的日落                                                   | The Last Sunset                    |       |
 | 车轮上的死亡较量                                             | Hot Death on Wheels                |       |
 | 自噬自生蛇                                                   | Ouroboros                          |       |
-| [生态形成](http://st.kanxshuo.com/book-73635-19.html)        | Ecopoiesis                         |       |
+| [生态形成](http://st.kanxshuo.com/book-73635-19.html)        | Ecopoiesis                         | ✅      |
 | 冬天的炮火                                                   | Winter Fire                        |       |
 | 雪                                                           | Snow                               |       |
-| 逼近黑斑                                                     | Approaching Perimelasma            |       |
+| 逼近黑斑                                                     | [Approaching Perimelasma](http://www.infinityplus.co.uk/stories/perimelasma.htm)            |       |
 | 遭遇太空海盗                                                 | Outsider's Chance                  |       |
 | 进入蓝色深渊                                                 | Into the Blue Abyss                |       |
-| [漫长的追捕](https://www.cdstm.cn/theme/khsj/khxs/dpxs/201807/t20180702_815923.html) | The Long Chase                     |       |
+| [漫长的追捕](https://www.cdstm.cn/theme/khsj/khxs/dpxs/201807/t20180702_815923.html) | The Long Chase                     | ✅      |
 | [坠落火星](https://www.williamlong.info/story/archives/1298.html) | Falling Onto Mars                  | ✅     |
-| [剑鱼座故事](https://www.cdstm.cn/theme/khsj/khxs/dpxs/201706/t20170619_515497.html) | At Dorado                          |       |
+| [剑鱼座故事](https://www.cdstm.cn/theme/khsj/khxs/dpxs/201706/t20170619_515497.html) | At Dorado                          | ✅      |
 | 懒汉泰克斯                                                   | Lazy Taekos                        |       |
 | 镜中人                                                       | The Man in the Mirror              | ✅     |
 | 云城之主                                                     | The Sultan of the Clouds           |       |
