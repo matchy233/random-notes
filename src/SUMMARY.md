@@ -50,5 +50,10 @@
 
 - [Random Quotes](literature/quotes.md)
 - [Lyrics Quotes](literature/lyrics.md)
+  - [Hurt](literature/lyrics/hurt.md)
+  - [Ghost Towns](literature/lyrics/ghost-towns.md)
 - [Poem Excerpts](literature/poems.md)
+  - [Had I Not Seen The Sun](literature/poems/had-i-not-seen-the-sun.md)
+  - [OCD](literature/poems/ocd.md)
+  - [盲女](literature/poems/blind-girl.md)
 - [Geoffrey A. Landis short fictions](literature/geoffrey-a-landis-short-fictions.md)
