@@ -45,10 +45,18 @@ unbind C-b
 bind C-a send-prefix
 ```
 
+My current favorite prefix is the grave accent (`` ` ``), but this kinda hinders editing markdown in `tmux`.
+
 If you would like to set it permanently, it is wise to create a `~/.tmux.conf`, it functions just like your `.bashrc` and other dotfiles. If you
 
 Since `tmux` 1.6, it is possible to set a second prefix by the following command:
 
 ```bash
 set -g prefix2 <your-key-binding>
+```
+
+To apply changes, you need to source the configuration file:
+
+```bash
+tmux source-file ~/.tmux.conf
 ```
