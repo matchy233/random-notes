@@ -148,9 +148,10 @@
                     <main>
                         <h1 id="vpn-via-cisco-anyconnect"><a class="header" href="#vpn-via-cisco-anyconnect">VPN via Cisco Anyconnect</a></h1>
 <p>I always work on a remote server, and I need to connect to the university network to access some resources and do homework submission. Hence I need to set up a VPN nn that server (where I have <code>sudo</code> rights)</p>
-<h2 id="unibas-vpn"><a class="header" href="#unibas-vpn">Unibas VPN</a></h2>
+<h2 id="setting-up-unibas-vpn"><a class="header" href="#setting-up-unibas-vpn">Setting up Unibas VPN</a></h2>
 <p>Download <a href="https://its.unibas.ch/de/anleitungen/netzwerkzugang/anleitung-vpn/">Linux VPN Client</a> with:</p>
-<pre><code class="language-bash">$ wget --user &lt;unibas-long-username&gt; --password &lt;unibas-password&gt; https://data.its.unibas.ch/extern/vpn/Linux/anyconnect-linux64-4.10.06079-core-vpn-webdeploy-k9.sh
+<pre><code class="language-bash">$ wget --user &lt;unibas-long-username&gt; --password &lt;unibas-password&gt; \
+  https://data.its.unibas.ch/extern/vpn/Linux/anyconnect-linux64-4.10.06079-core-vpn-webdeploy-k9.sh
 </code></pre>
 <p>As instructed, run the script with <code>sudo</code>:</p>
 <pre><code class="language-bash">$ sudo chmod +x anyconnect-linux64-4.10.06079-core-vpn-webdeploy-k9.sh
@@ -159,9 +160,16 @@ $ sudo ./anyconnect-linux64-4.10.06079-core-vpn-webdeploy-k9.sh
 <p>Cisco VPN client will be installed to <code>/opt/cisco/anyconnect/</code>.</p>
 <p>Initially tried <code>/opt/cisco/anyconnect/bin/vpn connect vpn.mobile.unibas.ch</code>, but the <strong>required authentication method is not supported for CLI</strong>.</p>
 <p>The tried Remote Desktop + the GUI client. But was prompted:</p>
-<pre><code class="language-text">VPN establishment capability for a remote user is disabled. A VPN connection will not be established.
+<pre><code class="language-text">VPN establishment capability for a remote user is disabled.
+A VPN connection will not be established.
 </code></pre>
-<p><strong>Should look into this.</strong></p>
+<p>It's because inside the profile of cisco anyconnect the VPN establishment is configured to <code>LocalUserOnly</code> (for Linux if you install to the default path, the configuration <code>xml</code> file will locate in <code>/opt/cisco/anycconnect/profile/</code>).</p>
+<pre><code class="language-xml">&lt;WindowsVPNEstablishment&gt;LocalUserOnly&lt;/WindowsVPNEstablishment&gt;
+&lt;LinuxVPNEstablishment&gt;LocalUserOnly&lt;/LinuxVPNEstablishment&gt;
+</code></pre>
+<p>Change it to <code>AllowRemoteUsers</code> will solve the problem. But Cisco will <em>always</em> re-write the configuration file to <code>LocalUserOnly</code> after you close the GUI client. So it is necessary to watch the file and re-write it back to <code>AllowRemoteUsers</code> after it is changed.</p>
+<h2 id="hack-cisco-anyconnect-vpns-configuration"><a class="header" href="#hack-cisco-anyconnect-vpns-configuration">Hack Cisco AnyConnect VPN's configuration</a></h2>
+<p>TODO</p>
 <h2 id="ref"><a class="header" href="#ref">Ref</a></h2>
 <p><a href="https://blog.expta.com/2020/04/how-to-enable-cisco-anyconnect-vpn.html">How to enable (and hack) Cisco AnyConnect VPN through Remote Desktop</a></p>
 
