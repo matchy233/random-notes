@@ -58,6 +58,7 @@
   - [盲女](literature/poems/blind-girl.md)
   - [穿过大半个中国去睡你](literature/poems/sleep-with-you.md)
   - [阿乐，你又不幸地被我想起](literature/poems/ale-you-are-unfortunately-reminded-by-me.md)
+  - [你没有看见我被遮蔽的部分](literature/poems/you-did-not-see-my-obscured-part.md)
   - [Had I Not Seen The Sun](literature/poems/had-i-not-seen-the-sun.md)
   - [OCD](literature/poems/ocd.md)
   - [路人](literature/poems/stranger.md)
