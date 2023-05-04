@@ -9,3 +9,7 @@ title = "Random Notes"
 mathjax-support = true
 default-theme = "Light"
 preferred-dark-theme = "Ayu"
+
+[output.html.fold]
+enable = true
+level = 0
