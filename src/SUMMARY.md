@@ -50,6 +50,8 @@
 # Literature
 
 - [Random Quotes](literature/quotes.md)
+- [Literature Excerpts](literature/literature.md)
+  - [商市街](literature/literature/shang-shi-jie.md)
 - [Lyrics Quotes](literature/lyrics.md)
   - [Hurt](literature/lyrics/hurt.md)
   - [Ghost Towns](literature/lyrics/ghost-towns.md)
