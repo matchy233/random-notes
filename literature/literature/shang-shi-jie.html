@@ -1,0 +1,465 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>商市街 - Random Notes</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../index.html">Random Notes</a></li><li class="chapter-item affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item "><a href="../../RevEng/gdb.html"><strong aria-hidden="true">1.</strong> Intro to gdb</a></li><li class="chapter-item "><a href="../../RevEng/ascii-asm.html"><strong aria-hidden="true">2.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item affix "><li class="part-title">IDE</li><li class="chapter-item "><a href="../../IDE/vscode.html"><strong aria-hidden="true">3.</strong> VSCode tips</a></li><li class="chapter-item affix "><li class="part-title">Linux</li><li class="chapter-item "><a href="../../Linux/disk-management.html"><strong aria-hidden="true">4.</strong> Disk Management</a></li><li class="chapter-item "><a href="../../Linux/net-forwarding.html"><strong aria-hidden="true">5.</strong> Internet Sharing</a></li><li class="chapter-item "><a href="../../Linux/ssh_config.html"><strong aria-hidden="true">6.</strong> ssh config tips</a></li><li class="chapter-item "><a href="../../Linux/vpn-cisco-anyconnect.html"><strong aria-hidden="true">7.</strong> VPN via Cisco Anyconnect</a></li><li class="chapter-item affix "><li class="part-title">Terminal Usage</li><li class="chapter-item "><a href="../../Terminal/effective-shell.html"><strong aria-hidden="true">8.</strong> Effective Shell 1</a></li><li class="chapter-item "><a href="../../Terminal/random-bash-tips.html"><strong aria-hidden="true">9.</strong> Random bash tips</a></li><li class="chapter-item "><a href="../../Terminal/tmux.html"><strong aria-hidden="true">10.</strong> TMUX 101</a></li><li class="chapter-item "><a href="../../Terminal/shellrc.html"><strong aria-hidden="true">11.</strong> Things to put in your shellrc</a></li><li class="chapter-item affix "><li class="part-title">LaTeX</li><li class="chapter-item "><a href="../../latex/general-latex-tricks.html"><strong aria-hidden="true">12.</strong> General LaTeX tricks</a></li><li class="chapter-item "><a href="../../latex/latex-workshop.html"><strong aria-hidden="true">13.</strong> LaTeX Workshop notes</a></li><li class="chapter-item affix "><li class="part-title">Misc</li><li class="chapter-item "><a href="../../misc/use-wsl-with-gui.html"><strong aria-hidden="true">14.</strong> Use WSL with GUI</a></li><li class="chapter-item "><a href="../../misc/gpg.html"><strong aria-hidden="true">15.</strong> GPG</a></li><li class="chapter-item "><a href="../../misc/sukhoi-fighters.html"><strong aria-hidden="true">16.</strong> Flankerology 101</a></li><li class="chapter-item affix "><li class="part-title">DevOps</li><li class="chapter-item "><a href="../../devops/hadoop-on-k8s.html"><strong aria-hidden="true">17.</strong> Haddop in K8S</a></li><li class="chapter-item "><a href="../../devops/aws-amplify.html"><strong aria-hidden="true">18.</strong> AWS Amplify Attempts</a></li><li class="chapter-item affix "><li class="part-title">Frontend</li><li class="chapter-item "><a href="../../frontend/fix-node-modules.html"><strong aria-hidden="true">19.</strong> Fix node-modules</a></li><li class="chapter-item "><a href="../../frontend/use-develop-branch.html"><strong aria-hidden="true">20.</strong> Use develop branch</a></li><li class="chapter-item "><a href="../../frontend/group-buddy-teach-me-how-to-write-js.html"><strong aria-hidden="true">21.</strong> Frontend from scratch</a></li><li class="chapter-item affix "><li class="part-title">Literature</li><li class="chapter-item "><a href="../../literature/quotes.html"><strong aria-hidden="true">22.</strong> Random Quotes</a></li><li class="chapter-item expanded "><a href="../../literature/literature.html"><strong aria-hidden="true">23.</strong> Literature Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../literature/literature/shang-shi-jie.html" class="active"><strong aria-hidden="true">23.1.</strong> 商市街</a></li></ol></li><li class="chapter-item "><a href="../../literature/lyrics.html"><strong aria-hidden="true">24.</strong> Lyrics Quotes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../literature/lyrics/hurt.html"><strong aria-hidden="true">24.1.</strong> Hurt</a></li><li class="chapter-item "><a href="../../literature/lyrics/ghost-towns.html"><strong aria-hidden="true">24.2.</strong> Ghost Towns</a></li><li class="chapter-item "><a href="../../literature/lyrics/chasing-the-wind.html"><strong aria-hidden="true">24.3.</strong> Chasing the Wind</a></li></ol></li><li class="chapter-item "><a href="../../literature/poems.html"><strong aria-hidden="true">25.</strong> Poem Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../literature/poems/blind-girl.html"><strong aria-hidden="true">25.1.</strong> 盲女</a></li><li class="chapter-item "><a href="../../literature/poems/sleep-with-you.html"><strong aria-hidden="true">25.2.</strong> 穿过大半个中国去睡你</a></li><li class="chapter-item "><a href="../../literature/poems/ale-you-are-unfortunately-reminded-by-me.html"><strong aria-hidden="true">25.3.</strong> 阿乐，你又不幸地被我想起</a></li><li class="chapter-item "><a href="../../literature/poems/you-did-not-see-my-obscured-part.html"><strong aria-hidden="true">25.4.</strong> 你没有看见我被遮蔽的部分</a></li><li class="chapter-item "><a href="../../literature/poems/had-i-not-seen-the-sun.html"><strong aria-hidden="true">25.5.</strong> Had I Not Seen The Sun</a></li><li class="chapter-item "><a href="../../literature/poems/ocd.html"><strong aria-hidden="true">25.6.</strong> OCD</a></li><li class="chapter-item "><a href="../../literature/poems/stranger.html"><strong aria-hidden="true">25.7.</strong> 路人</a></li></ol></li><li class="chapter-item "><a href="../../literature/geoffrey-a-landis-short-fictions.html"><strong aria-hidden="true">26.</strong> Geoffrey A. Landis short fictions</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Random Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="商市街"><a class="header" href="#商市街">商市街</a></h1>
+<p><a href="http://www.millionbook.com/xd/x/xiaohong/xhsw/index.html">百万书库 - 萧红散文</a></p>
+<h2 id="前言"><a class="header" href="#前言">前言</a></h2>
+<blockquote>
+<p>她的童年，即是在孤寂中度过的。家庭的富裕并没有给她带来幸福，年幼丧母，父亲和继母的贪婪冷酷，使聪敏的她过早地品尝了寂寞的滋味，她生活在缺少爱的世界中只有祖父等很少的人给她一点安慰。也许正由于这种境遇，外界发生的一切才得以清晰地印在她的脑海之中，供她日后反复回味、抒写。</p>
+</blockquote>
+<blockquote>
+<p>一段时间内，她挣扎在生活的边缘，她这样描述自己：“<strong>我穿着街头，我无目的的走。</strong>”——她是宁愿漂流，宁愿无家可归，也不肯走回父亲的冷酷的眼光中。</p>
+</blockquote>
+<blockquote>
+<p>“冻死，饿死，黑暗死，每天都有这样的事情，把持住自己，渡我们的桥梁吧，小孩子！”当然他们并没有只渡自己的桥，周围这太多的在生存困境中挣扎的受难者，这无声无息的一群“一点生命也感不到的活着”，构成了这个无望无爱的世界最凄惨的色调，萧红的早期作品（如《王阿嫂的死》）即是为这些众生画像、呼号。</p>
+</blockquote>
+<blockquote>
+<p>苦难毁灭了她，同时也造就了她。可以说，萧红最成功的作品几乎都与她经历、见闻过的辛酸人事相关。从备受压抑的童年到颠沛流离的青年时代，从自己到别人，从中国人到外国人，从人到动物，<strong>凡是残损的生命形式，她都加以深切的关怀，她不愿看到美好的生命被轻而易举地撕扯成碎片</strong>。所以她在自己挣扎的同时，<strong>她用笔来瓦解这个凶残而失去了人性的世界，度己度人</strong>：这就是萧红创作的基本主题。</p>
+</blockquote>
+<blockquote>
+<p>她始终摆脱不掉童年的影子，也许她是在用这种遥远的回忆来补偿和对抗对现实生活中的不如意，所以她笔下的童年世界尽管阴冷如东北的天气，尽管活动其中的多是冷血动物，但也有了解她给她快乐的人，有让她全神贯注的游戏，有夏夜草丛中的虫鸣，所有这些都是她难以忘怀、着意强调的。她尤其津津乐道于她的游戏：<strong>发自天真的内心，在与刻板冷漠的成人世界对照时总带着一种亵渎意味的游戏</strong>。对哈尔滨一段生活的回顾，不是无力的呻吟与诉苦。<strong>独自流浪时她倔强地挣扎，她宣誓般地说永不回家，她承受得住这种命运</strong>。</p>
+</blockquote>
+<blockquote>
+<p>但在她周围的苦难世界中，萧红发现不了一点温暖与情致：一切都是赤裸裸血淋淋的悲惨，类似地狱：黑暗，冷漠，沉闷，令人绝望。她只能带着同情如实描绘。</p>
+</blockquote>
+<blockquote>
+<p>萧红的笔致，天真，细腻，而又带一点“野味”[……]她是用“初生的眼”看世界，仿佛一切都神秘而新鲜，陌生而有趣。当然，天真并不意味着简单，相反，萧红给我们创造的是细致入微的、感觉化的世界：她不空洞地宣泄，而是一点一滴地展现。</p>
+</blockquote>
+<h2 id="永久的憧憬和追求"><a class="header" href="#永久的憧憬和追求">永久的憧憬和追求</a></h2>
+<blockquote>
+<p>九岁时，母亲死去。父亲也就更变了样，偶然打碎了一只杯子，他就要骂到使人发抖的程度。后来就连父亲的眼睛也转了弯，每从他的身边经过，我就象自己的身上生了针刺一样：<strong>他斜视着你，他那高傲的眼光从鼻梁经过嘴角而后往下流着</strong>。</p>
+<p>所以每每在大雪中的黄昏里，围着暖炉，围着祖父，听着祖父读着诗篇，看着祖父读着诗篇时微红的嘴唇。</p>
+<p>父亲打了我的时候，我就在祖父的房里，一直面向着窗子，从黄昏到深夜——窗外的白雪，好象白棉花一样飘着；而暖炉上水壶的盖子，则象伴奏的乐器似的振动着。</p>
+<p>祖父时时把多纹的两手放在我的肩上，而后又放在我的头上，我的耳边便响着这样的声音：</p>
+<p>“快快长吧！长大就好了。”</p>
+<p>二十岁那年，我就逃出了父亲的家庭。直到现在还是过着流浪的生活。</p>
+<p><strong>“长大”是“长大”了，而没有“好”。</strong></p>
+<p><strong>可是从祖父那里，知道了人生除掉了冰冷和憎恶而外，还有温暖和爱。</strong></p>
+<p><strong>所以我就向这“温暖”和“爱”的方面，怀着永久的憧憬和追求。</strong></p>
+</blockquote>
+<h2 id="夏夜"><a class="header" href="#夏夜">夏夜</a></h2>
+<blockquote>
+<p>密密的浓黑的一带长林，远在天边静止着。夏夜蓝色的天，蓝色的夜。夏夜坐在茅檐边，望着茅檐借宿麻雀的窠巢，隔着墙可以望见北山森静的密林，林的那端，望不见弯月勾垂着。</p>
+<p>于是虫声，各样的穿着夜衣的幽灵般的生命的响叫。墙外小溪畅引着，水声脆脆瑯瑯。菱姑在北窗下语着多时了！眼泪凝和着夜露已经多时了！她依着一株花枝，花枝的影子抹上墙去，那样她俨若睡在荷叶上。</p>
+</blockquote>
+<blockquote>
+<p>那夜我怎样努力也不能睡着，我反复想过菱姑的话，可怜的菱姑她只知道在家庭里是受压迫，因为家中有腐败的老太婆。<strong>然而她不能知道工厂里更有齿轮，齿轮更会压榨</strong>。</p>
+</blockquote>
+<h2 id="感情的碎片"><a class="header" href="#感情的碎片">感情的碎片</a></h2>
+<blockquote>
+<p><strong>近来觉得眼泪常常充满着眼睛，热的，它们常常会使我的眼围发烧。然而它们一次也没有滚落下来，有时候它们站到了眼毛的尖端，闪耀着玻璃似的液体，每每在镜子里面看到。</strong></p>
+<p>一看到这样的眼睛，又好像回到了母亲死的时候。<strong>母亲并不十分爱我，但也总算是母亲</strong>。她病了三天了，是七月的末梢，许多医生来过了，他们骑着白马，坐着二轮车，但那最高的一个，他用银针在母亲的腿上刺了一下，他说：</p>
+<p>“血流则生，不流则亡。”</p>
+<p>我确确实实看到那针孔是没有流血，只是母亲的腿上凭空多了一个黑点。</p>
+</blockquote>
+<blockquote>
+<p>而后我站到房后摆着花盆的木架旁边去。我从衣袋取出来母亲买给我的小洋刀。</p>
+<p>“小洋刀丢了就从此没有了吧？”于是眼泪又来了。</p>
+<p><strong>花盆里的金百合映着我的眼睛，小洋刀的闪光映着我的眼睛。眼泪就再没有流落下来。然而那是热的，是发炎的。但那是孩子的时候。</strong></p>
+<p><strong>而今则不应该了。</strong></p>
+</blockquote>
+<h2 id="祖父死了的时候"><a class="header" href="#祖父死了的时候">祖父死了的时候</a></h2>
+<blockquote>
+<p>祖父总是有点变样子，他喜欢流起眼泪来，同时过去很重要的事情他也忘掉。比方过去那一些他常讲的故事，现在讲起来，讲了一半下一半他就说：“我记不得了。”</p>
+<p>某夜，他又病了一次，经过这一次病，他竟说：“给你三姑写信，叫她来一趟，我不是四五年没看过她吗？”他叫我写信给我已经死去五年的姑母。</p>
+<p>那次离家是很痛苦的。学校来了开学通知信，祖父又一天一天地变样起来。</p>
+<p><strong>祖父睡着的时候，我就躺在他的旁边哭，好象祖父已经离开我死去似的，一面哭着一面抬头看他凹陷的嘴唇。我若死掉祖父，就死掉我一生最重要的一个人，好象他死了就把人间一切“爱”和“温暖”带得空空虚虚。我的心被丝线扎住或铁丝绞住了。</strong></p>
+</blockquote>
+<blockquote>
+<p>学校开学，我迟到了四天。三月里，我又回家一次，正在外面叫门，里面小弟弟嚷着：“姐姐回来了！姐姐回来了！”大门开时，我就远远注意着祖父住着的那间房子。**果然祖父的面孔和胡子闪现在玻璃窗里。我跳着笑着跑进屋去。但不是高兴，只是心酸，祖父的脸色更惨淡更白了。**等屋子里一个人没有时，他流着泪，他慌慌忙忙的一边用袖口擦着眼泪，一边抖动着嘴唇说：“爷爷不行了，不知早晚……前些日子好险没跌……跌死。”</p>
+<p>“怎么跌的？”</p>
+<p>“就是在后屋，我想去解手，招呼人，也听不见，按电铃也没有人来，就得爬啦。还没到后门口，腿颤，心跳，眼前发花了一阵就倒下去。没跌断了腰……人老了，有什么用处！爷爷是八十一岁呢。”</p>
+<p>“爷爷是八十一岁。”</p>
+<p>“没用了，活了八十一岁还是在地上爬呢！我想你看不着爷爷了，谁知没有跌死，我又慢慢爬到炕上。”</p>
+<p><strong>我走的那天也是和我回来那天一样，白色的脸的轮廓闪现在玻璃窗里。</strong></p>
+<p><strong>在院心我回头看着祖父的面孔，走到大门口，在大门口我仍可看见，出了大门，就被门扇遮断。</strong></p>
+<p>从这一次祖父就与我永远隔绝了。虽然那次和祖父告别，并没说出一个永别的字。我回来看祖父，这回门前吹着喇叭，幡杆挑得比房头更高，<strong>马车离家很远的时候，我已看到高高的白色幡杆了，吹鼓手们的喇叭怆凉的在悲号。马车停在喇叭声中，大门前的白幡、白对联、院心的灵棚、闹嚷嚷许多人，吹鼓手们响起乌乌的哀号。</strong></p>
+<p><strong>这回祖父不坐在玻璃窗里，是睡在堂屋的板床上，没有灵魂的躺在那里。</strong> 我要看一看他白色的胡子，可是怎样看呢！拿开他脸上蒙着的纸吧，胡子、眼睛和嘴，都不会动了，他真的一点感觉也没有了？我从祖父的袖管里去摸他的手，手也没有感觉了。祖父这回真死去了啊！</p>
+<p><strong>祖父装进棺材去的那天早晨，正是后园里玫瑰花开放满树的时候。</strong> 我扯着祖父的一张被角，抬向灵前去。吹鼓手在灵前吹着大喇叭。</p>
+<p>我怕起来，我号叫起来。</p>
+<p>“咣咣！”黑色的，半尺厚的灵柩盖子压上去。</p>
+<p><strong>吃饭的时候，我饮了酒，用祖父的酒杯饮的。饭后我跑到后园玫瑰树下去卧倒，园中飞着蜂子和蝴蝶，绿草的清凉的气味，这都和十年前一样。可是十年前死了妈妈。妈妈死后我仍是在园中扑蝴蝶；这回祖父死去，我却饮了酒。</strong></p>
+<p><strong>过去的十年我是和父亲打斗着生活。在这期间我觉得人是残酷的东西。</strong> 父亲对我是没有好面孔的，对于仆人也是没有好面孔的，他对于祖父也是没有好面孔的。因为仆人是穷人，祖父是老人，我是个小孩子，所以我们这些完全没有保障的人就落到他的手里。后来我看到新娶来的母亲也落到他的手里，他喜欢她的时候，便同她说笑，他恼怒时便骂她，母亲渐渐也怕起父亲来。</p>
+<p>母亲也不是穷人，也不是老人，也不是孩子，怎么也怕起父亲来呢？我到邻家去看看，邻家的女人也是怕男人。我到舅家去，舅母也是怕舅父。</p>
+<p><strong>我懂得的尽是些偏僻的人生，我想世间死了祖父，就没有再同情我的人了，世间死了祖父，剩下的尽是些凶残的人了。</strong></p>
+<p>我饮了酒，回想，幻想……</p>
+<p><strong>以后我必须不要家，到广大的人群中去，但我在玫瑰树下颤怵了，人群中没有我的祖父。</strong></p>
+<p><strong>所以我哭着，整个祖父死的时候我哭着。</strong></p>
+</blockquote>
+<h2 id="家族以外的人"><a class="header" href="#家族以外的人">家族以外的人</a></h2>
+<blockquote>
+<p>秋末：我们寂寞了一个长久的时间。</p>
+<p>那些空房子里充满了冷风和黑暗；长在空场上的高草，干败了而倒了下来；房后菜园上的各种秧棵完全挂满了白霜；老榆树在墙根边仍旧随风摇摆它那还没有落完的叶子；天空是发灰色的，云彩也失去了形状，有时带来了雨点，有时又带来了细雪。</p>
+</blockquote>
+<blockquote>
+<p>厨夫收拾桌子的时候，就点起煤油灯来，我面向着菜园坐在门槛上，从门道流出来的黄色的灯光当中，砌着我圆圆的头部和肩膀，我时时举动着手，揩着额头的汗水，每揩了一下，那影子也学着我揩了一下。透过我单衫的晚风，象是青蓝色的河水似的清凉……后街，粮米店的胡琴的声音也响了起来，幽远的回音，东边也在叫着，西边也在叫着……日里黄色的花变成白色的了，红色的花，变成黑色的了。</p>
+<p>火一样红的马蛇菜的花也变成黑色的了。同时，那盘结着墙根的野马蛇菜的小花，就完全看不见了。</p>
+<p>有二伯也许就踏着那些小花走去的，因为他太接近了墙根，我看着他……看着他……他走出了菜园的板门。</p>
+</blockquote>
+<blockquote>
+<p>有二伯和后园里的老茄子一样，是灰白了，然而老茄子一天比一天静默下去，好象完全任凭了命运。可是有二伯从东墙骂到西墙，从扫地的扫帚骂到水桶……而后他骂着他自己的草帽……</p>
+</blockquote>
+<blockquote>
+<p>园里的葵花子，完全成熟了，那过重的头柄几乎折断了它自己的身子。玉米有的只带了叶子站在那里，有的还挂着稀少的玉米棒。黄瓜老在架上了，赫黄色的，麻裂了皮，有的束上了红色的带子，母亲规定了它们：来年做为种子。葵花子也是一样，在它们的颈间也有的是挂了红布条。只有已经发了灰白的老茄子还都自由的吊在枝棵上，因为它们的内面，完全是黑色的子粒，孩子们既然不吃它，厨子也总不采它。</p>
+<p>只有红柿子，红得更快，一个跟着一个，一堆跟着一堆。好象捣衣裳的声音，从四面八方传来了一样。</p>
+</blockquote>
+<blockquote>
+<p>冬天一来了的时候，那榆树的叶子，连一棵也不能够存在，因为是一棵孤树，所有从四面来的风，都摇得到它。所以每夜听着火炉盖上茶壶咝咝的声音的时候，我就从后窗看着那棵大树，白的，穿起了鹅毛似的……连那顶小的枝子也胖了一些。太阳来了的时候，榆树也会闪光，和闪光的房顶，闪光的地面一样。</p>
+</blockquote>
+<blockquote>
+<p>我知道他又是从前那一套，我冲开了门站在院心去了。被烟所伤痛的眼睛什么也不能看了，只是流着泪……</p>
+<p>但有二伯摊在火堆旁边，幽幽的起着哭声……</p>
+<p>我走向上房去了，太阳晒着我，还有别的白色的闪光，它们都来包围了我；或是在前面迎接着，或是从后面迫赶着我站在台阶上，向四面看看，那么多纯白而闪光的房顶！那么多闪光的树枝！它们好象白石雕成的珊瑚树似的站在一些房子中间。</p>
+<p>有二伯的哭声更高了的时候，我就对着这眼前的一切更爱：它们多么接近，比方雪地是踏在我的脚下，那些房顶和树枝就是我的邻家，太阳虽然远一点，然而也来照在我的头上。</p>
+<p>春天，我进了附近的小学校。</p>
+<p>有二伯从此也就不见了。</p>
+</blockquote>
+<h2 id="失眠之夜"><a class="header" href="#失眠之夜">失眠之夜</a></h2>
+<blockquote>
+<p><strong>为什么要失眠呢！烦躁，恶心，心跳，胆小，并且想要哭泣。我想想，也许就是故乡的思虑罢。</strong></p>
+<p><strong>窗子外面的天空高远了，和白棉一样绵软的云彩低近了，吹来的风好象带点草原的气味，这就是说已经是秋天了。</strong></p>
+<p>在家乡那边，秋天最可爱。</p>
+<p><strong>蓝天蓝得有点发黑，白云就象银子做成一样，就象白色的大花朵似的点缀在天上；就又象沉重得快要脱离开天空而坠了下来似的，而那天空就越显得高了，高得再没有那么高的。</strong></p>
+</blockquote>
+<blockquote>
+<p>有时候，他也不等我说完，他就接下去。<strong>我们讲的故事，彼此都好象是讲给自己听，而不是为着对方。</strong></p>
+<p>只有那么一天，买来了一张《东北富源图》挂在墙上了，染着黄色的平原上站着小乌，小羊，还有骆驼，还有牵着骆驼的小人；海上就是些小鱼，大鱼，黄色的鱼，红色的好象小瓶似的大肚的鱼，还有黑色的大鲸鱼；而兴安岭和辽宁一带画着许多和海涛似的绿色的山脉。</p>
+<p>他的家就在离着渤海不远的山脉中，<strong>他的指甲在山脉爬着</strong>：“这是大凌河……这是小凌河……哼……没有，这个地图是个不完全的，是个略图……”</p>
+<p>“好哇！天天说凌河，哪有凌河呢！”<strong>我不知为什么一提到家乡，常常愿意给他扫兴一点。</strong></p>
+<p>“你不相信！我给你看。”他去翻他的书橱去了，“这不是大凌河……小凌河……小孩的时候在凌河沿上捉小鱼，拿到山上去，在石头上用火烤着吃……这边就是沈家台，离我们家二里路……”因为是把地图摊在地板上看的缘故，一面说着，他一面用手扫着他已经垂在前额的发梢。</p>
+<p>《东北富源图》就挂在床头，所以第二天早晨，我一张开了眼睛，他就抓住了我的手：</p>
+<p>“我想将来我回家的时候，先买两匹驴，一匹你骑着，一匹我骑着……先到我姑姑家，再到我姐姐家……顺便也许看看我的舅舅去……我姐姐很爱我……她出嫁以后，每回来一次就哭一次，姐姐一哭，我也哭……这有七八年不见了！也都老了。”</p>
+<p><strong>那地图上的小鱼，红的，黑的，都能够看清，我一边看着，一边听着，这一次我没有打断他，或给他扫一点兴。</strong></p>
+<p>“买黑色的驴，挂着铃子，走起来……铛啷啷啷啷啷啷……”<strong>他形容着铃音的时候，就象他的嘴里边含着铃子似的在响。</strong></p>
+<p><strong>“我带你到沈家台去赶集。那赶集的日子，热闹！驴身上挂着烧酒瓶……我们那边，羊肉非常便宜……羊肉炖片粉……真有味道！唉呀！这有多少年没吃那羊肉啦！”他的眉毛和额头上起着很多皱纹。</strong></p>
+<p>我在大镜子里边看了他，他的手从我的手上抽回去，放在他自己的胸上，而后又背着放在枕头下面去，但很快地又抽出来。只理一理他自己的发梢又放在枕头上去。</p>
+</blockquote>
+<blockquote>
+<p>这失眠大概也许不是因为这个。但买驴子的买驴子，吃咸盐豆的吃咸盐豆，而我呢？<strong>坐在驴子上，所去的仍是生疏的地方，我停着的仍然是别人的家乡。</strong></p>
+<p><strong>家乡这个观念，在我本不甚切的，但当别人说起来的时候，我也就心慌了！虽然那块土地在没有成为日本的之前，“家”在我就等于没有了。</strong></p>
+<p><strong>这失眠一直继续到黎明之前，在高射炮的声中，我也听到了一声声和家乡一样的震抖在原野上的鸡鸣。</strong></p>
+</blockquote>
+<h2 id="破落之街"><a class="header" href="#破落之街">破落之街</a></h2>
+<blockquote>
+<p>天明了，白白的阳光空空的染了全室。</p>
+</blockquote>
+<blockquote>
+<p><strong>秋风是紧了，秋风的凄凉特别在破落之街道上。</strong></p>
+<p><strong>苍蝇满集在饭馆的墙壁，一切人忙着吃喝，不闻苍蝇。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>在房间里，阳光不落在墙壁上，那是灰色的四面墙，好像匣子，好像笼子，墙壁在逼着我，使我的思想没有用，使我的力量不能与人接触，不能用于世。</strong></p>
+<p>我不愿意我的脑浆翻绞，又睡下，拉我的被子，在床上辗转，仿佛是个病人一样，我的肚子叫响，太阳西沉下去，平没有回来。我只吃过一碗玉米粥，那还是清早。</p>
+<p>他回来，只是自己回来，不带馒头或别的充饥的东西回来。</p>
+<p>肚子越响了，怕给他听着这肚子的呼唤，我把肚子翻向床，压住这呼唤。</p>
+</blockquote>
+<blockquote>
+<p>泥泞的街道，沿路的屋顶和蜂巢样密挤着，平房屋顶，又生出一层平屋来。那是用板钉成的，看起像是楼房，也闭着窗子，歇着门。**可是生在楼房里的不像人，是些猪猡，是污浊的群。**我们往来都看见这样的景致。**现在街道是泥泞了，肚子是叫唤了！一心要奔到苍蝇堆里，要吃馒头。**桌子的对边那个老头，他唠叨起来了，大概他是个油匠，胡子染着白色，不管衣襟或袖口，都有斑点花色的颜料，他用有颜料的手吃东西。并没能发现他是不讲卫生，因为我们是一道生活。</p>
+<p><strong>他嚷了起来，他看一看没有人理他，他升上木凳好像老旗杆样，人们举目看他。终归他不是造反的领袖，那是私事，他的粥碗里面睡着个苍蝇。</strong></p>
+<p>大家都笑了，笑他一定在发神经病。</p>
+<p>“我是老头子了，你们拿苍蝇喂我！”他一面说，有点伤心。</p>
+<p>一直到掌柜的呼唤伙计再给他换一碗粥来，他才从木凳降落下来。但他寂寞着，他的头摇曳着。</p>
+</blockquote>
+<blockquote>
+<p><strong>这破落之街我们一年没有到过了，我们的生活技术比他们高，和他们不同，我们是从水泥中向外爬。可是他们永远留在那里，那里淹没着他们的一生，也淹没着他们的子子孙孙，但是这要淹没到什么时代呢？</strong></p>
+<p><strong>我们也是一条狗，和别的狗一样没有心肝。我们从水泥中自己向外爬，忘记别人，忘记别人。</strong></p>
+</blockquote>
+<h2 id="欧罗巴旅馆"><a class="header" href="#欧罗巴旅馆">欧罗巴旅馆</a></h2>
+<blockquote>
+<p>楼梯是那样长，好象让我顺着一条小道爬上天顶。其实只是三层楼，也实在无力了。手扶着楼栏，努力拔着两条颤颤的，不属于我的腿，升上几步，手也开始和腿一般颤。</p>
+<p>等我走进那个房间的时候，和受辱的孩子似的偎上床去，用袖口慢慢擦着脸。他——郎华，我的情人，那时候他还是我的情人，他问我了：“你哭了吗？”</p>
+<p>“为什么哭呢？我擦的是汗呀，不是眼泪呀！”</p>
+</blockquote>
+<blockquote>
+<p>那女人动手去收拾：软枕，床单，就连桌布她也从桌子扯下去。床单夹在她的腋下。一切都夹在她的腋下。一秒钟，这洁白的小室跟随她花色的包头巾一同消失去。</p>
+<p>我虽然是腿颤，虽然肚子饿得那样空，我也要站起来，打开柳条箱去拿自己的被子。</p>
+<p><strong>小室被劫了一样，床上一张肿胀的草褥赤现在那里，破木桌一些黑点和白圈显露出来，大藤椅也好象跟着变了颜色。</strong></p>
+<p><strong>晚饭以前，我们就在草褥上吻着抱着过的。</strong></p>
+<p>晚饭就在桌子上摆着，黑“列巴”和白盐。</p>
+</blockquote>
+<h2 id="他去追求职业"><a class="header" href="#他去追求职业">他去追求职业</a></h2>
+<blockquote>
+<p>他是一匹受冻受饿的犬呀！</p>
+</blockquote>
+<blockquote>
+<p>在楼梯尽端，在过道的那边，他着湿的帽子被墙角隔住，他着湿的鞋子踏过发光的地板，一个一个排着脚踵的印泥。</p>
+<p>这还是清早，过道的光线还不充足。可是有的房间门上已经挂好“列巴圈”了！</p>
+<p>**送牛奶的人，轻轻带着白色的、发热的瓶子，排在房间的门外。这非常引诱我，好象我已嗅到“列巴圈”的麦香，好象那成串肥胖的圆形的点心，已经挂在我的鼻头了。**几天没有饱食，我是怎样的需要啊！胃口在胸膛里面收缩，没有钱买，让那“列巴圈”们白白在虐待我。</p>
+<p>过道渐渐响起来。他们呼唤着茶房，关门开门，倒脸水。外国女人清早便高声说笑。<strong>可是我的小室，没有光线，连灰尘都看不见飞扬，静得桌子在墙角欲睡了，藤椅在地板上伴着桌子睡，静得棚顶和天空一般高，一切离得我远远的，一切都厌烦我。</strong></p>
+</blockquote>
+<h2 id="家庭教师"><a class="header" href="#家庭教师">家庭教师</a></h2>
+<blockquote>
+<p>长久的时间静默着，灯光照在两人脸上，也不跳动一下，我说要给他缝缝袖口，明天要买针线。说到袖口，他警觉一般看一下袖口，脸上立刻浮现着幻想，并且嘴唇微微张开，不太自然似的，又不说什么。</p>
+<p>关了灯，月光照在窗外，反映得全室微白。两人扯着一张被子，头下破书当做枕头。隔壁手风琴又咿咿呀呀地在诉说生之苦乐。乐器伴着他，他慢慢打开他幽禁的心灵了：</p>
+<p>“敏子，……这是敏子姑娘给我缝的。可是过去了，过去了就没有什么意义。我对你说过，那时候我疯狂了。直到最末一次信来，才算结束，结束就是说从那时起她不再给我来信了。这样意外的，相信也不能相信的事情，弄得我昏迷了许多日子……以前许多信都是写着爱我……甚至于说非爱我不可。最末一次信却骂起我来，直到现在我还不相信，可是事实是那样……”</p>
+<p>他起来去拿毛衣给我看，“你看过桃色的线……是她缝的……敏子缝的……”</p>
+<p>又灭了灯，隔壁的手风琴仍不停止。<strong>在说话里边他叫那个名字“敏子，敏子。”都是喉头发着水声。</strong></p>
+<p>“很好看的，小眼眉很黑……嘴唇很……很红啊！”<strong>说到恰好的时候，在被子里边他紧紧捏了我一下手。我想：我又不是她。</strong></p>
+<p>“嘴唇通红通红……啊……”他仍说下去。</p>
+<p><strong>马蹄打在街石上嗒嗒响声。每个院落在想象中也都睡去。</strong></p>
+</blockquote>
+<h2 id="提篮者"><a class="header" href="#提篮者">提篮者</a></h2>
+<blockquote>
+<p>提篮人，他的大篮子，长形面包，圆面包……每天早晨他带来诱人的麦香，等在过道。</p>
+<p>我数着……三个，五个，十个……把所有的铜板给了他。一块黑面包摆在桌子上。郎华回来第一件事，他在面包上掘了一个洞，连帽子也没脱，就嘴里嚼着，又去找白盐。<strong>他从外面带进来的冷空气发着腥味。他吃面包，鼻子时时滴下清水滴。</strong></p>
+</blockquote>
+<blockquote>
+<p>一块黑面包，一角钱。我还要五分钱的“列巴圈”，那人用绳穿起来。我还说：“不用，不用。”我打算就要吃了！<strong>我伏在床上，把头抬起来，正象见了桑叶而抬头的蚕一样。</strong></p>
+<p>可是，立刻受了打击，我眼看着那人从郎华的手上把面包夺回去，五个“列巴圈”也夺回去。
+“明早一起取钱不行吗？”</p>
+<p>“不行，昨天那半角也给我吧！”</p>
+<p>我充满口涎的舌头向嘴唇舐了几下，不但“列巴圈”没有吃到，把所有的铜板又都带走了。</p>
+<p><strong>“早饭吃什么呀？”</strong></p>
+<p><strong>“你说吃什么？”锁好门，他回到床上时，冰冷的身子贴住我。</strong></p>
+</blockquote>
+<h2 id="饿"><a class="header" href="#饿">饿</a></h2>
+<blockquote>
+<p>从昨夜到中午，四肢软一点，肚子好象被踢打放了气的皮球。</p>
+<p>窗子在墙壁中央，天窗似的，我从窗口升了出去，赤裸裸，完全和日光接近；市街临在我的脚下，直线的，错综着许多角度的楼房，大柱子一般工厂的烟囱，街道横顺交织着，秃光的街树。白云在天空作出各样的曲线，高空的风吹乱我的头发，飘荡我的衣襟。市街象一张繁繁杂杂颜色不清晰的地图，挂在我们眼前。楼顶和树梢都挂住一层稀薄的白霜，整个城市在阳光下闪闪烁烁撒了一层银片。我的衣襟被风拍着作响，我冷了，我孤孤独独的好象站在无人的山顶。每家楼顶的白霜，一刻不是银片了，而是些雪花、冰花，或是什么更严寒的东西在吸我，象全身浴在冰水里一般。</p>
+</blockquote>
+<blockquote>
+<p>郎华仍不回来，我拿什么来喂肚子呢？桌子可以吃吗？草褥子可以吃吗？</p>
+<p>晒着阳光的行人道，来往的行人，小贩乞丐…这一些看得我疲倦了！打着呵欠，从窗口爬下来。</p>
+<p><strong>窗子一关起来，立刻生满了霜，过一刻，玻璃片就流着眼泪了！起初是一条条的，后来就大哭了！满脸是泪，好象在行人道上讨饭的母亲的脸。</strong></p>
+<p><strong>我坐在小屋，象饿在笼中的鸡一般，只想合起眼睛来静着，默着，但又不是睡。</strong></p>
+</blockquote>
+<blockquote>
+<p>郎华还没有回来，我应该立刻想到饿，<strong>但我完全被青春迷惑了，读书的时候，哪里懂得“饿”？只晓得青春最重要，虽然现在我也并没老，但总觉得青春是过去了！过去了！</strong></p>
+<p>我冥想了一个长时期，心浪和海水一般翻了一阵。
+追逐实际吧！<strong>青春惟有自私的人才系念她，“只有饥寒，没有青春。”</strong></p>
+</blockquote>
+<h2 id="最末的一块木柈"><a class="header" href="#最末的一块木柈">最末的一块木柈</a></h2>
+<blockquote>
+<p>脱掉袜子，腿在被子里面团卷着。想要把自己的脚放到自己肚子上面暖一暖，但是不可能，腿生得太长了，实在感到不便，腿实在是无用。在被子里面也要颤抖似的。<strong>窗子上的霜，已经挂得那样厚，并且四壁刷的绿颜色，涂着金边，这一些更使人感到寒冷。两个人的呼吸象冒着烟一般地。玻璃上的霜好象柳絮落到河面，密结的起着绒毛。夜来时也不知道，天明时也不知道，是个没有明暗的幽室，人住在里面，正象菌类生在不见天日的大树下；快要朽了。而人不是菌类。</strong></p>
+</blockquote>
+<h2 id="黑列巴和白盐"><a class="header" href="#黑列巴和白盐">黑列巴和白盐</a></h2>
+<blockquote>
+<p><strong>玻璃窗子又慢慢结起霜来，不管人和狗经过窗前，都辨认不清楚。</strong></p>
+<p><strong>“我们不是新婚吗？”他这话说得很响，他唇下的开水杯起一个小圆波浪。他放下杯子，在黑面包上涂一点白盐送下喉去。大概是面包已不在喉中，他又说：</strong></p>
+<p><strong>“这不正是度蜜月吗！”</strong></p>
+<p>“对的，对的。”我笑了。</p>
+<p><strong>他连忙又取一片黑面包，涂上一点白盐，学着电影上那样度蜜月，把涂盐的“列巴”先送上我的嘴，我咬了一下，而后他才去吃。一定盐太多了，舌尖感到不愉快，他连忙去喝水：</strong></p>
+<p><strong>“不行不行，再这样度蜜月，把人咸死了。”</strong></p>
+<p><strong>盐毕竟不是奶油，带给人的感觉一点也不甜，一点也不香。我坐在旁边笑。</strong></p>
+<p>光线完全不能透进屋来，四面是墙，窗子已经无用，象封闭了的洞门似的，与外界绝对隔离开。天天就生活在这里边。素食，有时候不食，好象传说上要成仙的人在这地方苦修苦炼。很有成绩，修炼得倒是不错了，脸也黄了，骨头也瘦了。我的眼睛越来越扩大，他的颊骨和木块一样突在腮边。</p>
+<p>这些工夫都做到，只是还没成仙。</p>
+<p>“借钱”，“借钱”，郎华每日出去“借钱”。他借回来的钱总是很少，三角，五角，借到一元，那是很稀有的事。</p>
+<p>黑列巴和白盐，许多日子成了我们唯一的生命线。</p>
+</blockquote>
+<h2 id="度日"><a class="header" href="#度日">度日</a></h2>
+<blockquote>
+<p><strong>天色连日阴沉下去，一点光也没有，完全灰色，灰得怎样程度呢？那和墨汁混到水盆中一样。</strong></p>
+<p>火炉台擦得很亮了，碗、筷子、小刀摆在格子上。清早起第一件事点起火炉来，而后擦地板，铺床。</p>
+<p>炉铁板烧得很热时，我便站到火炉旁烧饭，刀子、匙子弄得很响。炉火在炉腔里起着小的爆炸，饭锅腾着气，葱花炸到油里，发出很香的烹调的气味。我细看葱花在油边滚着，渐渐变黄起来。……小洋刀好象剥着梨皮一样，把地豆刮得很白，很好看，去了皮的地豆呈乳黄色，柔和而有弹力。炉台上铺好一张纸，把地豆再切成薄片。饭已熟，地豆煎好。打开小窗望了望，院心几条小狗在戏耍。</p>
+<p><strong>家庭教师还没有下课，菜和米香引我回到炉前再吃两口，用匙子调一下饭，再调一下菜，很忙的样子象在偷吃。</strong> 在地板上走了又走，一个钟头的课程还不到吗？于是再打开锅盖吞下几口。再从小窗望一望。我快要吃饱的时候，他才回来。习惯上知道一定是他，他都是在院心大声弄着嗓子响。我藏在门后等他，有时候我不等他寻到，就作着怪声跳出来。</p>
+<p>早饭吃完以后，就是洗碗，刷锅，擦炉台，摆好木格子。</p>
+<p>假如有表，怕是十一点还多了！</p>
+<p>再过三四个钟头，又是烧晚饭。他出去找职业，我在家里烧饭，我在家里等他。火炉台，我开始围着它转走起来。每天吃饭，睡觉，愁柴，愁米……</p>
+<p>这一切给我一个印象：这不是孩子时候了，是在过日子，开始过日子。</p>
+</blockquote>
+<h2 id="借"><a class="header" href="#借">借</a></h2>
+<blockquote>
+<p><strong>圆月从东边一小片林梢透过来，暗红色的圆月，很大很混浊的样子，好象老人昏花的眼睛，垂到天边去。</strong> 脚下的雪不住在滑着，响着，走了许多时候，一个行人没有遇见，来到火车站了！大时钟在暗红色的空中发着光，火车的汽笛震鸣着冰寒的空气，电车，汽车，马车，人力车，车站前忙着这一切。</p>
+<p>顺着电车道走，电车响着铃子从我们身边一辆一辆地过去。没有借到钱，电车就上不去。走吧，挨着走，肚痛我也不能说。<strong>走在桥上，大概是东行的火车，冒着烟从桥下经过，震得人会耳鸣起来，索链一般的爬向市街去。</strong></p>
+<p>从岗上望下来，最远处，商店的红绿电灯不住地闪烁；<strong>在夜里的人家好象在烟里一般；若没有灯光从窗子流出来，那么所有的楼房就该变成幽寂的、没有钟声的大教堂了！</strong> 站在岗上望下去，“许公路”的电灯，好象扯在太阳下的长串的黄色铜铃，越远，那些铜铃越增加着密度，渐渐数不过来了！</p>
+<p><strong>挨着走，昏昏茫茫地走，什么夜，什么市街，全是阴沟，我们滚在沟中。携着手吧！相牵着走吧！</strong> 天气那样冷，道路那样滑，我时时要滑倒的样子，脚下不稳起来，不自主起来，在一家电影院门前，我终于跌倒了，坐在冰上，因为道上无处不是冰。膝盖的关节一定受了伤害，他虽拉着我，走起来也十分困难。“肚子跌痛了没有？你实在不能走了吧？”</p>
+<p>到家把剩下来的一点米煮成稀饭，没有盐，没有油，没有菜，暖一暖肚子算了。</p>
+<p><strong>吃饭，肚子仍不能暖，饼干盒子盛了热水，盒子漏了。郎华又拿一个空玻璃瓶要盛热水给我暖肚子，瓶底炸掉下来，满地流着水。他拿起没有底的瓶子当号筒来吹。在那呜呜的响声里边，我躺到冰冷的床上。</strong></p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../literature/literature.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../literature/lyrics.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../literature/literature.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../literature/lyrics.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
