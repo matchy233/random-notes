@@ -91,11 +91,33 @@
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -1912,7 +1934,7 @@ rootStore : RootStore;
 <blockquote>
 <p>在楼梯尽端，在过道的那边，他着湿的帽子被墙角隔住，他着湿的鞋子踏过发光的地板，一个一个排着脚踵的印泥。</p>
 <p>这还是清早，过道的光线还不充足。可是有的房间门上已经挂好“列巴圈”了！</p>
-<p>**送牛奶的人，轻轻带着白色的、发热的瓶子，排在房间的门外。这非常引诱我，好象我已嗅到“列巴圈”的麦香，好象那成串肥胖的圆形的点心，已经挂在我的鼻头了。**几天没有饱食，我是怎样的需要啊！胃口在胸膛里面收缩，没有钱买，让那“列巴圈”们白白在虐待我。</p>
+<p><strong>送牛奶的人，轻轻带着白色的、发热的瓶子，排在房间的门外。这非常引诱我，好象我已嗅到“列巴圈”的麦香，好象那成串肥胖的圆形的点心，已经挂在我的鼻头了。</strong> 几天没有饱食，我是怎样的需要啊！胃口在胸膛里面收缩，没有钱买，让那“列巴圈”们白白在虐待我。</p>
 <p>过道渐渐响起来。他们呼唤着茶房，关门开门，倒脸水。外国女人清早便高声说笑。<strong>可是我的小室，没有光线，连灰尘都看不见飞扬，静得桌子在墙角欲睡了，藤椅在地板上伴着桌子睡，静得棚顶和天空一般高，一切离得我远远的，一切都厌烦我。</strong></p>
 </blockquote>
 <h2 id="家庭教师"><a class="header" href="#家庭教师">家庭教师</a></h2>
