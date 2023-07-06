@@ -38,7 +38,7 @@
 
 # DevOps
 
-- [Haddop in K8S](devops/hadoop-on-k8s.md)
+- [Hadoop in K8S](devops/hadoop-on-k8s.md)
 - [AWS Amplify Attempts](devops/aws-amplify.md)
 
 # Frontend
