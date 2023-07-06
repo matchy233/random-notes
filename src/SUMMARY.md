@@ -17,13 +17,16 @@
 - [Internet Sharing](Linux/net-forwarding.md)
 - [ssh config tips](Linux/ssh_config.md)
 - [VPN via Cisco Anyconnect](Linux/vpn-cisco-anyconnect.md)
+- [Use WSL with GUI](Linux/use-wsl-with-gui.md)
 
-# Terminal Usage
+# Terminal / Commands
 
 - [Effective Shell 1](Terminal/effective-shell.md)
 - [Random bash tips](Terminal/random-bash-tips.md)
 - [TMUX 101](Terminal/tmux.md)
 - [Things to put in your shellrc](Terminal/shellrc.md)
+- [GPG](Terminal/gpg.md)
+- [The output of `w`](Terminal/w.md)
 
 # LaTeX
 
@@ -32,8 +35,6 @@
 
 # Misc
 
-- [Use WSL with GUI](misc/use-wsl-with-gui.md)
-- [GPG](misc/gpg.md)
 - [Flankerology 101](misc/sukhoi-fighters.md)
 
 # DevOps
