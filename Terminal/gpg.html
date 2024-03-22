@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="zh" class="sidebar-visible no-js light">
+<html lang="zh" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
@@ -33,7 +33,7 @@
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -63,31 +63,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item "><a href="../RevEng/gdb.html"><strong aria-hidden="true">1.</strong> Intro to gdb</a></li><li class="chapter-item "><a href="../RevEng/ascii-asm.html"><strong aria-hidden="true">2.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item affix "><li class="part-title">IDE</li><li class="chapter-item "><a href="../IDE/vscode.html"><strong aria-hidden="true">3.</strong> VSCode tips</a></li><li class="chapter-item affix "><li class="part-title">Linux</li><li class="chapter-item "><a href="../Linux/disk-management.html"><strong aria-hidden="true">4.</strong> Disk Management</a></li><li class="chapter-item "><a href="../Linux/net-forwarding.html"><strong aria-hidden="true">5.</strong> Internet Sharing</a></li><li class="chapter-item "><a href="../Linux/ssh_config.html"><strong aria-hidden="true">6.</strong> ssh config tips</a></li><li class="chapter-item "><a href="../Linux/vpn-cisco-anyconnect.html"><strong aria-hidden="true">7.</strong> VPN via Cisco Anyconnect</a></li><li class="chapter-item "><a href="../Linux/use-wsl-with-gui.html"><strong aria-hidden="true">8.</strong> Use WSL with GUI</a></li><li class="chapter-item affix "><li class="part-title">Terminal / Commands</li><li class="chapter-item "><a href="../Terminal/effective-shell.html"><strong aria-hidden="true">9.</strong> Effective Shell 1</a></li><li class="chapter-item "><a href="../Terminal/random-bash-tips.html"><strong aria-hidden="true">10.</strong> Random bash tips</a></li><li class="chapter-item "><a href="../Terminal/tmux.html"><strong aria-hidden="true">11.</strong> TMUX 101</a></li><li class="chapter-item "><a href="../Terminal/shellrc.html"><strong aria-hidden="true">12.</strong> Things to put in your shellrc</a></li><li class="chapter-item expanded "><a href="../Terminal/gpg.html" class="active"><strong aria-hidden="true">13.</strong> GPG</a></li><li class="chapter-item "><a href="../Terminal/w.html"><strong aria-hidden="true">14.</strong> The output of w</a></li><li class="chapter-item affix "><li class="part-title">LaTeX</li><li class="chapter-item "><a href="../latex/general-latex-tricks.html"><strong aria-hidden="true">15.</strong> General LaTeX tricks</a></li><li class="chapter-item "><a href="../latex/latex-workshop.html"><strong aria-hidden="true">16.</strong> LaTeX Workshop notes</a></li><li class="chapter-item affix "><li class="part-title">Misc</li><li class="chapter-item "><a href="../misc/sukhoi-fighters.html"><strong aria-hidden="true">17.</strong> Flankerology 101</a></li><li class="chapter-item affix "><li class="part-title">DevOps</li><li class="chapter-item "><a href="../devops/hadoop-on-k8s.html"><strong aria-hidden="true">18.</strong> Hadoop in K8S</a></li><li class="chapter-item "><a href="../devops/aws-amplify.html"><strong aria-hidden="true">19.</strong> AWS Amplify Attempts</a></li><li class="chapter-item affix "><li class="part-title">Frontend</li><li class="chapter-item "><a href="../frontend/fix-node-modules.html"><strong aria-hidden="true">20.</strong> Fix node-modules</a></li><li class="chapter-item "><a href="../frontend/use-develop-branch.html"><strong aria-hidden="true">21.</strong> Use develop branch</a></li><li class="chapter-item "><a href="../frontend/group-buddy-teach-me-how-to-write-js.html"><strong aria-hidden="true">22.</strong> Frontend from scratch</a></li><li class="chapter-item affix "><li class="part-title">Literature</li><li class="chapter-item "><a href="../literature/quotes.html"><strong aria-hidden="true">23.</strong> Random Quotes</a></li><li class="chapter-item "><a href="../literature/literature.html"><strong aria-hidden="true">24.</strong> Literature Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../literature/literature/shang-shi-jie.html"><strong aria-hidden="true">24.1.</strong> 商市街</a></li></ol></li><li class="chapter-item "><a href="../literature/lyrics.html"><strong aria-hidden="true">25.</strong> Lyrics Quotes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../literature/lyrics/hurt.html"><strong aria-hidden="true">25.1.</strong> Hurt</a></li><li class="chapter-item "><a href="../literature/lyrics/ghost-towns.html"><strong aria-hidden="true">25.2.</strong> Ghost Towns</a></li><li class="chapter-item "><a href="../literature/lyrics/chasing-the-wind.html"><strong aria-hidden="true">25.3.</strong> Chasing the Wind</a></li></ol></li><li class="chapter-item "><a href="../literature/poems.html"><strong aria-hidden="true">26.</strong> Poem Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../literature/poems/blind-girl.html"><strong aria-hidden="true">26.1.</strong> 盲女</a></li><li class="chapter-item "><a href="../literature/poems/sleep-with-you.html"><strong aria-hidden="true">26.2.</strong> 穿过大半个中国去睡你</a></li><li class="chapter-item "><a href="../literature/poems/ale-you-are-unfortunately-reminded-by-me.html"><strong aria-hidden="true">26.3.</strong> 阿乐，你又不幸地被我想起</a></li><li class="chapter-item "><a href="../literature/poems/you-did-not-see-my-obscured-part.html"><strong aria-hidden="true">26.4.</strong> 你没有看见我被遮蔽的部分</a></li><li class="chapter-item "><a href="../literature/poems/had-i-not-seen-the-sun.html"><strong aria-hidden="true">26.5.</strong> Had I Not Seen The Sun</a></li><li class="chapter-item "><a href="../literature/poems/ocd.html"><strong aria-hidden="true">26.6.</strong> OCD</a></li><li class="chapter-item "><a href="../literature/poems/stranger.html"><strong aria-hidden="true">26.7.</strong> 路人</a></li></ol></li><li class="chapter-item "><a href="../literature/geoffrey-a-landis-short-fictions.html"><strong aria-hidden="true">27.</strong> Geoffrey A. Landis short fictions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Random Notes</a></li><li class="chapter-item affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item "><a href="../RevEng/gdb.html"><strong aria-hidden="true">1.</strong> Intro to gdb</a></li><li class="chapter-item "><a href="../RevEng/ascii-asm.html"><strong aria-hidden="true">2.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item affix "><li class="part-title">IDE</li><li class="chapter-item "><a href="../IDE/vscode.html"><strong aria-hidden="true">3.</strong> VSCode tips</a></li><li class="chapter-item affix "><li class="part-title">Linux</li><li class="chapter-item "><a href="../Linux/disk-management.html"><strong aria-hidden="true">4.</strong> Disk Management</a></li><li class="chapter-item "><a href="../Linux/net-forwarding.html"><strong aria-hidden="true">5.</strong> Internet Sharing</a></li><li class="chapter-item "><a href="../Linux/ssh_config.html"><strong aria-hidden="true">6.</strong> ssh config tips</a></li><li class="chapter-item "><a href="../Linux/vpn-cisco-anyconnect.html"><strong aria-hidden="true">7.</strong> VPN via Cisco Anyconnect</a></li><li class="chapter-item "><a href="../Linux/use-wsl-with-gui.html"><strong aria-hidden="true">8.</strong> Use WSL with GUI</a></li><li class="chapter-item affix "><li class="part-title">Terminal / Commands</li><li class="chapter-item "><a href="../Terminal/effective-shell.html"><strong aria-hidden="true">9.</strong> Effective Shell 1</a></li><li class="chapter-item "><a href="../Terminal/random-bash-tips.html"><strong aria-hidden="true">10.</strong> Random bash tips</a></li><li class="chapter-item "><a href="../Terminal/tmux.html"><strong aria-hidden="true">11.</strong> TMUX 101</a></li><li class="chapter-item "><a href="../Terminal/shellrc.html"><strong aria-hidden="true">12.</strong> Things to put in your shellrc</a></li><li class="chapter-item expanded "><a href="../Terminal/gpg.html" class="active"><strong aria-hidden="true">13.</strong> GPG</a></li><li class="chapter-item "><a href="../Terminal/w.html"><strong aria-hidden="true">14.</strong> The output of w</a></li><li class="chapter-item affix "><li class="part-title">LaTeX</li><li class="chapter-item "><a href="../latex/general-latex-tricks.html"><strong aria-hidden="true">15.</strong> General LaTeX tricks</a></li><li class="chapter-item "><a href="../latex/latex-workshop.html"><strong aria-hidden="true">16.</strong> LaTeX Workshop notes</a></li><li class="chapter-item affix "><li class="part-title">DevOps</li><li class="chapter-item "><a href="../devops/hadoop-on-k8s.html"><strong aria-hidden="true">17.</strong> Hadoop in K8S</a></li><li class="chapter-item "><a href="../devops/aws-amplify.html"><strong aria-hidden="true">18.</strong> AWS Amplify Attempts</a></li><li class="chapter-item affix "><li class="part-title">Frontend</li><li class="chapter-item "><a href="../frontend/fix-node-modules.html"><strong aria-hidden="true">19.</strong> Fix node-modules</a></li><li class="chapter-item "><a href="../frontend/group-buddy-teach-me-how-to-write-js.html"><strong aria-hidden="true">20.</strong> Frontend from scratch</a></li><li class="chapter-item affix "><li class="part-title">Literature</li><li class="chapter-item "><a href="../literature/quotes.html"><strong aria-hidden="true">21.</strong> Random Quotes</a></li><li class="chapter-item "><a href="../literature/literature.html"><strong aria-hidden="true">22.</strong> Literature Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../literature/literature/shang-shi-jie.html"><strong aria-hidden="true">22.1.</strong> 商市街</a></li></ol></li><li class="chapter-item "><a href="../literature/lyrics.html"><strong aria-hidden="true">23.</strong> Musical / Lyrics Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../literature/lyrics/hurt.html"><strong aria-hidden="true">23.1.</strong> Hurt</a></li><li class="chapter-item "><a href="../literature/lyrics/ghost-towns.html"><strong aria-hidden="true">23.2.</strong> Ghost Towns</a></li><li class="chapter-item "><a href="../literature/lyrics/chasing-the-wind.html"><strong aria-hidden="true">23.3.</strong> Chasing the Wind</a></li><li class="chapter-item "><a href="../literature/lyrics/der-besuch-der-altern-dame.html"><strong aria-hidden="true">23.4.</strong> Der Besuch der altern Dame (Musical)</a></li></ol></li><li class="chapter-item "><a href="../literature/poems.html"><strong aria-hidden="true">24.</strong> Poem Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../literature/poems/blind-girl.html"><strong aria-hidden="true">24.1.</strong> 盲女</a></li><li class="chapter-item "><a href="../literature/poems/sleep-with-you.html"><strong aria-hidden="true">24.2.</strong> 穿过大半个中国去睡你</a></li><li class="chapter-item "><a href="../literature/poems/ale-you-are-unfortunately-reminded-by-me.html"><strong aria-hidden="true">24.3.</strong> 阿乐，你又不幸地被我想起</a></li><li class="chapter-item "><a href="../literature/poems/you-did-not-see-my-obscured-part.html"><strong aria-hidden="true">24.4.</strong> 你没有看见我被遮蔽的部分</a></li><li class="chapter-item "><a href="../literature/poems/had-i-not-seen-the-sun.html"><strong aria-hidden="true">24.5.</strong> Had I Not Seen The Sun</a></li><li class="chapter-item "><a href="../literature/poems/ocd.html"><strong aria-hidden="true">24.6.</strong> OCD</a></li><li class="chapter-item "><a href="../literature/poems/stranger.html"><strong aria-hidden="true">24.7.</strong> 路人</a></li></ol></li><li class="chapter-item "><a href="../literature/geoffrey-a-landis-short-fictions.html"><strong aria-hidden="true">25.</strong> Geoffrey A. Landis short fictions</a></li><li class="chapter-item affix "><li class="part-title">Misc</li><li class="chapter-item "><a href="../misc/sukhoi-fighters.html"><strong aria-hidden="true">26.</strong> Flankerology 101</a></li><li class="chapter-item "><a href="../misc/move-to-basel.html"><strong aria-hidden="true">27.</strong> Move from Zurich to Basel</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -118,9 +125,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -176,7 +183,7 @@ path/to/gnupg/pubring.kbx
 ------------------------------------------------
 sec   rsa4096/20732A67E8F95BD9 2020-12-02 [SC]
       4BAE029D16C806BB4FCB925F20732A67E8F95BD9
-uid                 Mischa &quot;Matchy&quot; Volynskaya
+uid                 Mischa "Matchy" Volynskaya
 ssb   rsa4096/DABE372E78DCA377 2020-12-02 [E]
 </code></pre>
 <p>Export keys</p>
@@ -194,15 +201,15 @@ ssb   rsa4096/DABE372E78DCA377 2020-12-02 [E]
 <p>On (hopefully most) Linux distro the <code>&lt;key id&gt;</code> can be tab-completed. Unfortunately not possible for Windows PowerShell :(</p>
 </blockquote>
 <p>Sign a single commit</p>
-<pre><code class="language-bash">git commit -S -m &quot;commit message&quot;
+<pre><code class="language-bash">git commit -S -m "commit message"
 </code></pre>
 <p>Always sign</p>
 <pre><code class="language-bash">git config --global commit.gpgsign true
 </code></pre>
 <h3 id="trouble-shooting"><a class="header" href="#trouble-shooting">Trouble shooting</a></h3>
 <p>If you receive errors like <code>secrete key not available</code> or <code>no secret key</code> (one example shown below), it is possible that the <code>gpg</code> program used by your <code>git</code> is different from your system's default <code>gpg</code>. Thus, the secret key was only imported to the system <code>gpg</code>, but is still unknown to <code>git</code>'s <code>gpg</code>.</p>
-<pre><code class="language-shell">$ git commit -m &quot;Test&quot;
-gpg: skipped &quot;&lt;key id&gt;&quot;: No secret key
+<pre><code class="language-shell">$ git commit -m "Test"
+gpg: skipped "&lt;key id&gt;": No secret key
 gpg: signing failed: No secret key
 error: gpg failed to sign the data
 fatal: failed to write commit object
@@ -219,10 +226,10 @@ CommandType     Name                                               Version    So
 Application     gpg.exe                                            2.3.4.6... C:\Program Files (x86)\gnupg\bin\gpg.exe
 </code></pre>
 <p>Configure <code>git</code> to use the output (*nix shell) or the path listed in column <code>Source</code> (<code>Powershell</code>)</p>
-<pre><code class="language-bash">git config --global gpg.program &quot;C:\Program Files (x86)\gnupg\bin\gpg.exe&quot;
+<pre><code class="language-bash">git config --global gpg.program "C:\Program Files (x86)\gnupg\bin\gpg.exe"
 </code></pre>
 <p>Alternatively, you can run this one-liner</p>
-<pre><code class="language-bash">git config --global gpg.program &quot;$(which gpg)&quot;
+<pre><code class="language-bash">git config --global gpg.program "$(which gpg)"
 </code></pre>
 <pre><code class="language-powershell">git config --global gpg.program (Get-Command gpg).Source
 </code></pre>
@@ -235,7 +242,7 @@ Application     gpg.exe                                            2.3.4.6... C:
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../Terminal/w.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../Terminal/w.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -249,7 +256,7 @@ Application     gpg.exe                                            2.3.4.6... C:
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../Terminal/w.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../Terminal/w.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="zh" class="sidebar-visible no-js light">
+<html lang="zh" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Random Notes</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -34,7 +34,7 @@
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -64,31 +64,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Random Notes</a></li><li class="chapter-item affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item "><a href="RevEng/gdb.html"><strong aria-hidden="true">1.</strong> Intro to gdb</a></li><li class="chapter-item "><a href="RevEng/ascii-asm.html"><strong aria-hidden="true">2.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item affix "><li class="part-title">IDE</li><li class="chapter-item "><a href="IDE/vscode.html"><strong aria-hidden="true">3.</strong> VSCode tips</a></li><li class="chapter-item affix "><li class="part-title">Linux</li><li class="chapter-item "><a href="Linux/disk-management.html"><strong aria-hidden="true">4.</strong> Disk Management</a></li><li class="chapter-item "><a href="Linux/net-forwarding.html"><strong aria-hidden="true">5.</strong> Internet Sharing</a></li><li class="chapter-item "><a href="Linux/ssh_config.html"><strong aria-hidden="true">6.</strong> ssh config tips</a></li><li class="chapter-item "><a href="Linux/vpn-cisco-anyconnect.html"><strong aria-hidden="true">7.</strong> VPN via Cisco Anyconnect</a></li><li class="chapter-item "><a href="Linux/use-wsl-with-gui.html"><strong aria-hidden="true">8.</strong> Use WSL with GUI</a></li><li class="chapter-item affix "><li class="part-title">Terminal / Commands</li><li class="chapter-item "><a href="Terminal/effective-shell.html"><strong aria-hidden="true">9.</strong> Effective Shell 1</a></li><li class="chapter-item "><a href="Terminal/random-bash-tips.html"><strong aria-hidden="true">10.</strong> Random bash tips</a></li><li class="chapter-item "><a href="Terminal/tmux.html"><strong aria-hidden="true">11.</strong> TMUX 101</a></li><li class="chapter-item "><a href="Terminal/shellrc.html"><strong aria-hidden="true">12.</strong> Things to put in your shellrc</a></li><li class="chapter-item "><a href="Terminal/gpg.html"><strong aria-hidden="true">13.</strong> GPG</a></li><li class="chapter-item "><a href="Terminal/w.html"><strong aria-hidden="true">14.</strong> The output of w</a></li><li class="chapter-item affix "><li class="part-title">LaTeX</li><li class="chapter-item "><a href="latex/general-latex-tricks.html"><strong aria-hidden="true">15.</strong> General LaTeX tricks</a></li><li class="chapter-item "><a href="latex/latex-workshop.html"><strong aria-hidden="true">16.</strong> LaTeX Workshop notes</a></li><li class="chapter-item affix "><li class="part-title">Misc</li><li class="chapter-item "><a href="misc/sukhoi-fighters.html"><strong aria-hidden="true">17.</strong> Flankerology 101</a></li><li class="chapter-item affix "><li class="part-title">DevOps</li><li class="chapter-item "><a href="devops/hadoop-on-k8s.html"><strong aria-hidden="true">18.</strong> Hadoop in K8S</a></li><li class="chapter-item "><a href="devops/aws-amplify.html"><strong aria-hidden="true">19.</strong> AWS Amplify Attempts</a></li><li class="chapter-item affix "><li class="part-title">Frontend</li><li class="chapter-item "><a href="frontend/fix-node-modules.html"><strong aria-hidden="true">20.</strong> Fix node-modules</a></li><li class="chapter-item "><a href="frontend/use-develop-branch.html"><strong aria-hidden="true">21.</strong> Use develop branch</a></li><li class="chapter-item "><a href="frontend/group-buddy-teach-me-how-to-write-js.html"><strong aria-hidden="true">22.</strong> Frontend from scratch</a></li><li class="chapter-item affix "><li class="part-title">Literature</li><li class="chapter-item "><a href="literature/quotes.html"><strong aria-hidden="true">23.</strong> Random Quotes</a></li><li class="chapter-item "><a href="literature/literature.html"><strong aria-hidden="true">24.</strong> Literature Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="literature/literature/shang-shi-jie.html"><strong aria-hidden="true">24.1.</strong> 商市街</a></li></ol></li><li class="chapter-item "><a href="literature/lyrics.html"><strong aria-hidden="true">25.</strong> Lyrics Quotes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="literature/lyrics/hurt.html"><strong aria-hidden="true">25.1.</strong> Hurt</a></li><li class="chapter-item "><a href="literature/lyrics/ghost-towns.html"><strong aria-hidden="true">25.2.</strong> Ghost Towns</a></li><li class="chapter-item "><a href="literature/lyrics/chasing-the-wind.html"><strong aria-hidden="true">25.3.</strong> Chasing the Wind</a></li></ol></li><li class="chapter-item "><a href="literature/poems.html"><strong aria-hidden="true">26.</strong> Poem Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="literature/poems/blind-girl.html"><strong aria-hidden="true">26.1.</strong> 盲女</a></li><li class="chapter-item "><a href="literature/poems/sleep-with-you.html"><strong aria-hidden="true">26.2.</strong> 穿过大半个中国去睡你</a></li><li class="chapter-item "><a href="literature/poems/ale-you-are-unfortunately-reminded-by-me.html"><strong aria-hidden="true">26.3.</strong> 阿乐，你又不幸地被我想起</a></li><li class="chapter-item "><a href="literature/poems/you-did-not-see-my-obscured-part.html"><strong aria-hidden="true">26.4.</strong> 你没有看见我被遮蔽的部分</a></li><li class="chapter-item "><a href="literature/poems/had-i-not-seen-the-sun.html"><strong aria-hidden="true">26.5.</strong> Had I Not Seen The Sun</a></li><li class="chapter-item "><a href="literature/poems/ocd.html"><strong aria-hidden="true">26.6.</strong> OCD</a></li><li class="chapter-item "><a href="literature/poems/stranger.html"><strong aria-hidden="true">26.7.</strong> 路人</a></li></ol></li><li class="chapter-item "><a href="literature/geoffrey-a-landis-short-fictions.html"><strong aria-hidden="true">27.</strong> Geoffrey A. Landis short fictions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Random Notes</a></li><li class="chapter-item affix "><li class="part-title">Reverse Engineering</li><li class="chapter-item "><a href="RevEng/gdb.html"><strong aria-hidden="true">1.</strong> Intro to gdb</a></li><li class="chapter-item "><a href="RevEng/ascii-asm.html"><strong aria-hidden="true">2.</strong> ASCII shellcode (WIP)</a></li><li class="chapter-item affix "><li class="part-title">IDE</li><li class="chapter-item "><a href="IDE/vscode.html"><strong aria-hidden="true">3.</strong> VSCode tips</a></li><li class="chapter-item affix "><li class="part-title">Linux</li><li class="chapter-item "><a href="Linux/disk-management.html"><strong aria-hidden="true">4.</strong> Disk Management</a></li><li class="chapter-item "><a href="Linux/net-forwarding.html"><strong aria-hidden="true">5.</strong> Internet Sharing</a></li><li class="chapter-item "><a href="Linux/ssh_config.html"><strong aria-hidden="true">6.</strong> ssh config tips</a></li><li class="chapter-item "><a href="Linux/vpn-cisco-anyconnect.html"><strong aria-hidden="true">7.</strong> VPN via Cisco Anyconnect</a></li><li class="chapter-item "><a href="Linux/use-wsl-with-gui.html"><strong aria-hidden="true">8.</strong> Use WSL with GUI</a></li><li class="chapter-item affix "><li class="part-title">Terminal / Commands</li><li class="chapter-item "><a href="Terminal/effective-shell.html"><strong aria-hidden="true">9.</strong> Effective Shell 1</a></li><li class="chapter-item "><a href="Terminal/random-bash-tips.html"><strong aria-hidden="true">10.</strong> Random bash tips</a></li><li class="chapter-item "><a href="Terminal/tmux.html"><strong aria-hidden="true">11.</strong> TMUX 101</a></li><li class="chapter-item "><a href="Terminal/shellrc.html"><strong aria-hidden="true">12.</strong> Things to put in your shellrc</a></li><li class="chapter-item "><a href="Terminal/gpg.html"><strong aria-hidden="true">13.</strong> GPG</a></li><li class="chapter-item "><a href="Terminal/w.html"><strong aria-hidden="true">14.</strong> The output of w</a></li><li class="chapter-item affix "><li class="part-title">LaTeX</li><li class="chapter-item "><a href="latex/general-latex-tricks.html"><strong aria-hidden="true">15.</strong> General LaTeX tricks</a></li><li class="chapter-item "><a href="latex/latex-workshop.html"><strong aria-hidden="true">16.</strong> LaTeX Workshop notes</a></li><li class="chapter-item affix "><li class="part-title">DevOps</li><li class="chapter-item "><a href="devops/hadoop-on-k8s.html"><strong aria-hidden="true">17.</strong> Hadoop in K8S</a></li><li class="chapter-item "><a href="devops/aws-amplify.html"><strong aria-hidden="true">18.</strong> AWS Amplify Attempts</a></li><li class="chapter-item affix "><li class="part-title">Frontend</li><li class="chapter-item "><a href="frontend/fix-node-modules.html"><strong aria-hidden="true">19.</strong> Fix node-modules</a></li><li class="chapter-item "><a href="frontend/group-buddy-teach-me-how-to-write-js.html"><strong aria-hidden="true">20.</strong> Frontend from scratch</a></li><li class="chapter-item affix "><li class="part-title">Literature</li><li class="chapter-item "><a href="literature/quotes.html"><strong aria-hidden="true">21.</strong> Random Quotes</a></li><li class="chapter-item "><a href="literature/literature.html"><strong aria-hidden="true">22.</strong> Literature Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="literature/literature/shang-shi-jie.html"><strong aria-hidden="true">22.1.</strong> 商市街</a></li></ol></li><li class="chapter-item "><a href="literature/lyrics.html"><strong aria-hidden="true">23.</strong> Musical / Lyrics Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="literature/lyrics/hurt.html"><strong aria-hidden="true">23.1.</strong> Hurt</a></li><li class="chapter-item "><a href="literature/lyrics/ghost-towns.html"><strong aria-hidden="true">23.2.</strong> Ghost Towns</a></li><li class="chapter-item "><a href="literature/lyrics/chasing-the-wind.html"><strong aria-hidden="true">23.3.</strong> Chasing the Wind</a></li><li class="chapter-item "><a href="literature/lyrics/der-besuch-der-altern-dame.html"><strong aria-hidden="true">23.4.</strong> Der Besuch der altern Dame (Musical)</a></li></ol></li><li class="chapter-item "><a href="literature/poems.html"><strong aria-hidden="true">24.</strong> Poem Excerpts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="literature/poems/blind-girl.html"><strong aria-hidden="true">24.1.</strong> 盲女</a></li><li class="chapter-item "><a href="literature/poems/sleep-with-you.html"><strong aria-hidden="true">24.2.</strong> 穿过大半个中国去睡你</a></li><li class="chapter-item "><a href="literature/poems/ale-you-are-unfortunately-reminded-by-me.html"><strong aria-hidden="true">24.3.</strong> 阿乐，你又不幸地被我想起</a></li><li class="chapter-item "><a href="literature/poems/you-did-not-see-my-obscured-part.html"><strong aria-hidden="true">24.4.</strong> 你没有看见我被遮蔽的部分</a></li><li class="chapter-item "><a href="literature/poems/had-i-not-seen-the-sun.html"><strong aria-hidden="true">24.5.</strong> Had I Not Seen The Sun</a></li><li class="chapter-item "><a href="literature/poems/ocd.html"><strong aria-hidden="true">24.6.</strong> OCD</a></li><li class="chapter-item "><a href="literature/poems/stranger.html"><strong aria-hidden="true">24.7.</strong> 路人</a></li></ol></li><li class="chapter-item "><a href="literature/geoffrey-a-landis-short-fictions.html"><strong aria-hidden="true">25.</strong> Geoffrey A. Landis short fictions</a></li><li class="chapter-item affix "><li class="part-title">Misc</li><li class="chapter-item "><a href="misc/sukhoi-fighters.html"><strong aria-hidden="true">26.</strong> Flankerology 101</a></li><li class="chapter-item "><a href="misc/move-to-basel.html"><strong aria-hidden="true">27.</strong> Move from Zurich to Basel</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -119,9 +126,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -180,16 +187,16 @@ GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
 This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;
-and &quot;show warranty&quot; for details.
-This GDB was configured as &quot;x86_64-linux-gnu&quot;.
-Type &quot;show configuration&quot; for configuration details.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
 For bug reporting instructions, please see:
 &lt;http://www.gnu.org/software/gdb/bugs/&gt;.
 Find the GDB manual and other documentation resources online at:
 &lt;http://www.gnu.org/software/gdb/documentation/&gt;.
-For help, type &quot;help&quot;.
-Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;.
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
 + (gdb) file crackme
 Reading symbols from crackme...done.
 </code></pre>
@@ -227,7 +234,7 @@ $ gdb progName
 <pre><code class="language-bash">(gdb) r inputfile.txt
 </code></pre>
 <p>运行命令也是可以的啦。</p>
-<pre><code class="language-bash">(gdb) r $(echo &quot;hello!&quot;)
+<pre><code class="language-bash">(gdb) r $(echo "hello!")
 </code></pre>
 <p>也可以使用 <code>start</code> 或 <code>starti</code> 来运行程序，本质上是在 <code>main</code> （如果是 C 或者 C++ 程序……有人用 gdb debug 其他语言吗？）处设置一临时断点后执行 <code>run</code>。所有传给 <code>start</code> 的参数都会 verbatim 地转递给 <code>run</code>。</p>
 <p><code>starti</code> 与 <code>start</code> 的区别是如果 <code>main</code> 函数存在 elaboration phase （比如 C++ 里全局变量的建构函数执行），<code>starti</code> 将会在 elaboration phase 的开头打临时断点。</p>
@@ -312,11 +319,11 @@ gs             0x63     99
 <p>如果你知道变量名，可以用 <code>print var</code> 或 <code>p var</code> 打印其内容，也可以打印寄存器内容。</p>
 <p>比如打印 <code>argv[0]</code> （程序名）</p>
 <pre><code class="language-bash">(gdb) p argv[0]
-$1 = 0xffffd7f4 &quot;/path/to/crackme&quot;
+$1 = 0xffffd7f4 "/path/to/crackme"
 </code></pre>
 <p>注意到 <code>print</code> 有一个自增 id，我们可以通过 <code>print $id</code> 来打印之前打印过的值。</p>
 <pre><code class="language-bash">(gdb) p $1
-$2 = 0xffffd7f4 &quot;/path/to/crackme&quot;
+$2 = 0xffffd7f4 "/path/to/crackme"
 </code></pre>
 <p><code>x address</code> 可以用来检视内存内容，比如 <code>x $eax</code> 会把 <code>%eax</code> 中存储的值解读为内存地址，并打印其内容。</p>
 <p><code>p</code> 和 <code>x</code> 可以用基本相同的一套格式化方法来指定要打印变量 / 内存地址被解读为何种类型。</p>
@@ -349,13 +356,13 @@ $2 = 0xffffd7f4 &quot;/path/to/crackme&quot;
 </ul>
 <p>来看看打印效果：</p>
 <pre><code class="language-bash">(gdb) x/bs 0x8048817
-0x8048817:      &quot;250381&quot;
+0x8048817:      "250381"
 (gdb) x/ws 0x8048817
-0x8048817:      U&quot;\x33303532\x50003138\x77737361\x2064726f\x3a204b4f\x616c0029\x3a313062\x6f747574\x6c616972\x766e4900\x64696c61\x73615020\x726f7773Ⅴ\x31b0100䀻܀\xfffbc000烿\xfffc8000铿\xfffcd000峿\xfffda600\xa8ff\xfffe5300죿\xfffed000\xffff3000\x134ff᐀&quot;
+0x8048817:      U"\x33303532\x50003138\x77737361\x2064726f\x3a204b4f\x616c0029\x3a313062\x6f747574\x6c616972\x766e4900\x64696c61\x73615020\x726f7773Ⅴ\x31b0100䀻܀\xfffbc000烿\xfffc8000铿\xfffcd000峿\xfffda600\xa8ff\xfffe5300죿\xfffed000\xffff3000\x134ff᐀"
 (gdb) x/hs 0x8048817
-0x8048817:      u&quot;㔲㌰ㄸ倀獡睳牯⁤䭏㨠)慬ぢ㨱畴潴楲污䤀癮污摩倠獡睳牯Ⅴ&quot;
+0x8048817:      u"㔲㌰ㄸ倀獡睳牯⁤䭏㨠)慬ぢ㨱畴潴楲污䤀癮污摩倠獡睳牯Ⅴ"
 (gdb) x/ls 0x8048817
-0x8048817:      &quot;250381&quot;
+0x8048817:      "250381"
 </code></pre>
 <h3 id="其他"><a class="header" href="#其他">其他</a></h3>
 <p>如果想边看汇编边调试的话，可以用 <code>layout asm</code> 显示汇编和命令行。</p>
@@ -402,18 +409,18 @@ char buf[2048];
 int main()
 {
   if (!fgets(buf, sizeof(buf), stdin))
-    err(1, &quot;Too long input&quot;);
+    err(1, "Too long input");
 
   // a few info for debugging
-  printf(&quot;&gt; length: %d\n&quot;, (int)strlen(buf));
+  printf("&gt; length: %d\n", (int)strlen(buf));
   for (int i = 0; i &lt; strlen(buf); i += 1) {
     if (i % 16 == 0)
-      printf(&quot;&gt; %04X: &quot;, i);
-    printf(&quot;%02X &quot;, (unsigned char)buf[i]);
+      printf("&gt; %04X: ", i);
+    printf("%02X ", (unsigned char)buf[i]);
     if (i % 16 == 15)
-      printf(&quot;\n&quot;);
+      printf("\n");
   }
-  printf(&quot;\n&quot;);
+  printf("\n");
 
   (*(void (*)()) buf)();
 }
@@ -433,7 +440,7 @@ _start:
         xor $0x55, %al
         push %rax                       ; 0x14 on the stack now.
         pop %rax                        ; add back to %esp
-        imul  $0x41, (%rcx), %edi       ; %rdi = 0x3cf, a &quot;magic offset&quot; for us
+        imul  $0x41, (%rcx), %edi       ; %rdi = 0x3cf, a "magic offset" for us
                                         ; This is decimal value 975.
                                         ; If this is too low/high, suggest a
                                         ; modification to xor of %al for
@@ -706,7 +713,7 @@ main:
 <h3 id="but-thats-not-necessary-for-latex-workshop"><a class="header" href="#but-thats-not-necessary-for-latex-workshop">But that's not necessary for LaTeX workshop...</a></h3>
 <p>But I actually only want to solve the compilation problem of my $\LaTeX$ workshop: I sometimes compile locally on my personal laptop, which has ; and sometimes on a server w/ Debian 11. The solution for my problem is actually simple: <strong>set up <code>TEXMFHOME</code> on each machine</strong>.</p>
 <p>To be specific, add the following line in your <code>.bashrc</code> or <code>.zshrc</code> or <code>.whatever-rc</code>:</p>
-<pre><code class="language-bash">export TEXMFHOME=&quot;/path/to/your/latexmk&quot;
+<pre><code class="language-bash">export TEXMFHOME="/path/to/your/latexmk"
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="disk-management"><a class="header" href="#disk-management">Disk Management</a></h1>
 <h2 id="normal-disk-operations"><a class="header" href="#normal-disk-operations">Normal Disk Operations</a></h2>
@@ -726,15 +733,15 @@ $ mkfs.ext4 /dev/sba
 <pre><code class="language-shell">$ mount /dev/sba /mnt/sba
 </code></pre>
 <p>Add to <code>/etc/fstab</code> so that you don't need to mount it every time the device boots (how does it work?).</p>
-<pre><code class="language-shell">$ sudo bash -c 'echo &quot;/dev/sba /mnt/sba ext4 defaults 0 0&quot; &gt;&gt; /etc/fstab
+<pre><code class="language-shell">$ sudo bash -c 'echo "/dev/sba /mnt/sba ext4 defaults 0 0" &gt;&gt; /etc/fstab
 </code></pre>
 <p>Or use UUID.</p>
-<pre><code class="language-shell">$ UUID=$(sudo blkid | grep /dev/sba | cut -f2 -d ' ' | sed -e 's/\&quot;//g')
-$ sudo bash -c 'echo &quot;${UUID} /mnt/sba ext4 defaults 0 0&quot; &gt;&gt; /etc/fstab'
+<pre><code class="language-shell">$ UUID=$(sudo blkid | grep /dev/sba | cut -f2 -d ' ' | sed -e 's/\"//g')
+$ sudo bash -c 'echo "${UUID} /mnt/sba ext4 defaults 0 0" &gt;&gt; /etc/fstab'
 </code></pre>
 <p>Or add a label to the disk and use the label to mount.</p>
 <pre><code class="language-shell">$ sudo e2label /dev/sba DISK1
-sudo bash -c 'echo &quot;LABEL=DISK1 /mnt/sba ext4 defaults 0 0&quot; &gt;&gt; /etc/fstab'
+sudo bash -c 'echo "LABEL=DISK1 /mnt/sba ext4 defaults 0 0" &gt;&gt; /etc/fstab'
 </code></pre>
 <h3 id="optimize-disk-performance"><a class="header" href="#optimize-disk-performance">Optimize disk performance</a></h3>
 <p>Adjust the readahead value to increase IO performance</p>
@@ -800,7 +807,7 @@ eth1:
 <h2 id="gateway-setup"><a class="header" href="#gateway-setup">Gateway setup</a></h2>
 <h3 id="enable-ip-forwarding"><a class="header" href="#enable-ip-forwarding">Enable IP forwarding</a></h3>
 <p>Execute the following command</p>
-<pre><code class="language-bash">sudo sh -c &quot;echo 1 &gt; /proc/sys/net/ipv4/ip_forward&quot;
+<pre><code class="language-bash">sudo sh -c "echo 1 &gt; /proc/sys/net/ipv4/ip_forward"
 </code></pre>
 <p>Also edit <code>/etc/sysctl.conf</code> by uncommenting this line</p>
 <pre><code class="language-text">#net.ipv4.ip_forward=1
@@ -859,12 +866,12 @@ PING www.google.com (172.217.27.68) 56(84) bytes of data.
 
 Host cloud
     HostName dev.example.com
-    # automatically use &quot;matchy&quot; as the User
+    # automatically use "matchy" as the User
     # automatically use id_ed25519 as the IdentityFile
 
 Host dev
     HostName 147.47.233.45
-    User mischa # overwrites User=&quot;matchy&quot;
+    User mischa # overwrites User="matchy"
     Port 2333
     IdentityFile $HOME/.ssh/id_rsa # overwrites
 </code></pre>
@@ -1018,22 +1025,22 @@ xeyes
 <div style="break-before: page; page-break-before: always;"></div><h1 id="random-bash-tips"><a class="header" href="#random-bash-tips">Random bash tips</a></h1>
 <h2 id="mvcp-with-wildcard-blob"><a class="header" href="#mvcp-with-wildcard-blob"><code>mv</code>/<code>cp</code> with wildcard (blob)</a></h2>
 <p>The following command will not work</p>
-<pre><code class="language-bash">mv &quot;${dir}/*.txt&quot; &quot;${dir}/another_place&quot;
+<pre><code class="language-bash">mv "${dir}/*.txt" "${dir}/another_place"
 </code></pre>
 <p><code>*</code> will not be expanded inside quotation marks. To make it work, <code>*</code> should be
 put outside the quote.</p>
-<pre><code class="language-bash">mv &quot;${dir}/&quot;*&quot;.txt&quot; &quot;${dir}/another_place&quot;
+<pre><code class="language-bash">mv "${dir}/"*".txt" "${dir}/another_place"
 </code></pre>
 <blockquote>
 <p>Should have more explanation on wildcards and globs</p>
 </blockquote>
 <h2 id="custom-cd"><a class="header" href="#custom-cd">custom <code>cd</code></a></h2>
 <pre><code class="language-bash">function cd {
-    builtin cd &quot;$@&quot;
+    builtin cd "$@"
     if [[ $(ls | wc -l ) -le 50 ]]; then
         ls -F --color=auto
     else
-        echo &quot;There are a total of $(ls -F | wc -l) entries in $(pwd)&quot;
+        echo "There are a total of $(ls -F | wc -l) entries in $(pwd)"
     fi
 }
 </code></pre>
@@ -1061,7 +1068,7 @@ put outside the quote.</p>
 <p>All the commands for <code>tmux</code> are only available after you type the command prefix. By default it is <code>Ctrl</code>-<code>b</code>. After pressing this combination, it will activate the console mode (or so I believe).</p>
 <h3 id="pane-commands"><a class="header" href="#pane-commands">Pane commands</a></h3>
 <div class="table-wrapper"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&quot;</code></td><td>Split current pane <em>vertically</em>, create new pane <em>underneath</em></td></tr>
+<tr><td><code>"</code></td><td>Split current pane <em>vertically</em>, create new pane <em>underneath</em></td></tr>
 <tr><td><code>%</code></td><td>Split current pane <em>horizontally</em>, create new pane on the <em>right</em></td></tr>
 <tr><td><code>x</code></td><td>Close current pane (with confirmation, contrasst to simply pressing <code>Ctrl</code>-<code>d</code>)</td></tr>
 <tr><td><code>z</code></td><td>Maximize current pane (after <code>v1.8</code>)</td></tr>
@@ -1093,9 +1100,10 @@ bind C-a send-prefix
 <pre><code class="language-bash">tmux source-file ~/.tmux.conf
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="shell-rc"><a class="header" href="#shell-rc">Shell-rc</a></h1>
+<p>For <code>.bashrc</code>, <code>.zshrc</code>, <code>.profile</code>, or even <code>Microsoft.PowerShell_profile.ps1</code>).</p>
 <h2 id="general"><a class="header" href="#general">General</a></h2>
 <h3 id="know-if-im-in-wsl-or-native-linux"><a class="header" href="#know-if-im-in-wsl-or-native-linux">Know if I'm in WSL or native Linux</a></h3>
-<p>Simply check the content of <code>/proc/version</code>. WSLs will contain &quot;<strong>Microsoft / microsoft</strong>&quot; somewhere in the kernel build version (which is very interesting to me lol).</p>
+<p>Simply check the content of <code>/proc/version</code>. WSLs will contain "<strong>Microsoft / microsoft</strong>" somewhere in the kernel build version (which is very interesting to me lol).</p>
 <p>On WSL (running <strong>Ubuntu 18.04</strong>):</p>
 <pre><code class="language-shell">$ cat /proc/version
 Linux version 4.19.128-microsoft-standard (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 SMP Tue Jun 23 12:58:10 UTC 2020
@@ -1108,15 +1116,58 @@ Linux version 4.4.0-22000-Microsoft (Microsoft@Microsoft.com) (gcc version 5.4.0
 <pre><code class="language-shell">$ cat /proc/version
 Linux version 5.10.0-13-amd64 (debian-kernel@lists.debian.org) (gcc-10 (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2) #1 SMP Debian 5.10.106-1 (2022-03-17)
 </code></pre>
+<h3 id="list-files-in-a-directory-after-cd"><a class="header" href="#list-files-in-a-directory-after-cd">List files in a directory after <code>cd</code></a></h3>
+<p>Unix shells:</p>
+<pre><code class="language-bash">function cd {
+    builtin cd "$@"
+    if [ $(ls | wc -l) -le 50 ]; then
+        ls -F --color=auto
+    else
+        echo "There are a total of $(ls -F | wc -l) entries in $(pwd)"
+    fi
+}
+</code></pre>
+<p>PowerShell:</p>
+<pre><code class="language-powershell">Function cd_custom {
+    set-location @Args
+    $numObj = 0
+    $regex_opts = ([System.Text.RegularExpressions.RegexOptions]::IgnoreCase -bor [System.Text.RegularExpressions.RegexOptions]::Compiled)
+    $hidden = New-Object System.Text.RegularExpressions.Regex('^\.', $regex_opts)
+
+    get-childitem -n | foreach-object { if (!($hidden.IsMatch($_))) { $numObj++ } }
+    if ( $numObj -le 30 ) {
+        ls
+    }
+    else {
+        Write-Output "There are a total of $numObj entries in $((Get-Location).path)"
+    }
+}
+
+set-alias -Name cd -Value cd_custom -Option AllScope
+</code></pre>
 <h2 id="zshrc-specific-contents"><a class="header" href="#zshrc-specific-contents"><code>.zshrc</code> specific contents</a></h2>
+<h3 id="save-history-between-sessions"><a class="header" href="#save-history-between-sessions">Save history between sessions</a></h3>
+<p>Add those lines to <code>~/.zshrc</code>:</p>
+<pre><code class="language-bash">export HISTFILE=~/.zsh_history # follow the convention of bash
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt appendhistory
+</code></pre>
+<p>Also see <a href="https://github.com/microsoft/WSL/issues/2066#issuecomment-299569323">this discussion</a>
+in WSL gh issues, histories might not be saved if the session is not closed
+<em>gracefully</em>.</p>
+<p>General tip is: always use <code>exit</code> or <code>Ctrl+D</code>.</p>
 <h3 id="home-and-end-wrongly-captured-by-zsh"><a class="header" href="#home-and-end-wrongly-captured-by-zsh"><code>Home</code> and <code>End</code> wrongly captured by <code>zsh</code></a></h3>
 <p><a href="https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat">https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat</a></p>
 <blockquote>
 <p>Run <code>cat</code> then press keys to see the codes your shortcut send and...</p>
 </blockquote>
 <p>Add the key bindings to <code>~/.zshrc</code> using <code>bindkey</code>. For example:</p>
-<pre><code class="language-bash">bindkey  &quot;^[[1~&quot;  beginning-of-line
+<pre><code class="language-bash">bindkey  "^[[1~"  beginning-of-line
 </code></pre>
+<h2 id="powershell-specific-contents"><a class="header" href="#powershell-specific-contents"><code>PowerShell</code> specific contents</a></h2>
+<h3 id="bash-like-ls"><a class="header" href="#bash-like-ls">bash-like <code>ls</code></a></h3>
+<p>See <a href="https://gist.github.com/matchy233/0c8baaad8af9aa12838ded428d6f8e31">my gist</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gpg"><a class="header" href="#gpg">GPG</a></h1>
 <h2 id="basics"><a class="header" href="#basics">Basics</a></h2>
 <p>List keys</p>
@@ -1125,7 +1176,7 @@ path/to/gnupg/pubring.kbx
 ------------------------------------------------
 sec   rsa4096/20732A67E8F95BD9 2020-12-02 [SC]
       4BAE029D16C806BB4FCB925F20732A67E8F95BD9
-uid                 Mischa &quot;Matchy&quot; Volynskaya
+uid                 Mischa "Matchy" Volynskaya
 ssb   rsa4096/DABE372E78DCA377 2020-12-02 [E]
 </code></pre>
 <p>Export keys</p>
@@ -1143,15 +1194,15 @@ ssb   rsa4096/DABE372E78DCA377 2020-12-02 [E]
 <p>On (hopefully most) Linux distro the <code>&lt;key id&gt;</code> can be tab-completed. Unfortunately not possible for Windows PowerShell :(</p>
 </blockquote>
 <p>Sign a single commit</p>
-<pre><code class="language-bash">git commit -S -m &quot;commit message&quot;
+<pre><code class="language-bash">git commit -S -m "commit message"
 </code></pre>
 <p>Always sign</p>
 <pre><code class="language-bash">git config --global commit.gpgsign true
 </code></pre>
 <h3 id="trouble-shooting"><a class="header" href="#trouble-shooting">Trouble shooting</a></h3>
 <p>If you receive errors like <code>secrete key not available</code> or <code>no secret key</code> (one example shown below), it is possible that the <code>gpg</code> program used by your <code>git</code> is different from your system's default <code>gpg</code>. Thus, the secret key was only imported to the system <code>gpg</code>, but is still unknown to <code>git</code>'s <code>gpg</code>.</p>
-<pre><code class="language-shell">$ git commit -m &quot;Test&quot;
-gpg: skipped &quot;&lt;key id&gt;&quot;: No secret key
+<pre><code class="language-shell">$ git commit -m "Test"
+gpg: skipped "&lt;key id&gt;": No secret key
 gpg: signing failed: No secret key
 error: gpg failed to sign the data
 fatal: failed to write commit object
@@ -1168,10 +1219,10 @@ CommandType     Name                                               Version    So
 Application     gpg.exe                                            2.3.4.6... C:\Program Files (x86)\gnupg\bin\gpg.exe
 </code></pre>
 <p>Configure <code>git</code> to use the output (*nix shell) or the path listed in column <code>Source</code> (<code>Powershell</code>)</p>
-<pre><code class="language-bash">git config --global gpg.program &quot;C:\Program Files (x86)\gnupg\bin\gpg.exe&quot;
+<pre><code class="language-bash">git config --global gpg.program "C:\Program Files (x86)\gnupg\bin\gpg.exe"
 </code></pre>
 <p>Alternatively, you can run this one-liner</p>
-<pre><code class="language-bash">git config --global gpg.program &quot;$(which gpg)&quot;
+<pre><code class="language-bash">git config --global gpg.program "$(which gpg)"
 </code></pre>
 <pre><code class="language-powershell">git config --global gpg.program (Get-Command gpg).Source
 </code></pre>
@@ -1207,28 +1258,28 @@ However, for someone who's interested in parsing the output of <code>w</code>, t
 <p>Their outputs are all foramtted using <code>print_time_ival7</code> function.
 I'll use python-like pseudocode to explain.</p>
 <pre><code class="language-python">if idle_time &lt;= 60s:
-    output &quot;{seconds}.{centiseconds}s&quot; # e.g. 3.05s
+    output "{seconds}.{centiseconds}s" # e.g. 3.05s
     # first number will not be zero padded, but the second number will be
 elif idle_time &gt; 60s and idle_time &lt; 1 hour:
-    output &quot;{minutes}:{seconds}&quot; # e.g. 1:03
+    output "{minutes}:{seconds}" # e.g. 1:03
     # first number will not be zero padded, but the second number will be
 elif idle_time &gt;= 1 hour and idle_time &lt; 2days:
-    output &quot;{hours}:{minutes}m&quot; # e.g. 1:03m
+    output "{hours}:{minutes}m" # e.g. 1:03m
     # first number will not be zero padded, but the second number will be
 elif idle_time &gt;= 2 days:
-    output &quot;{days}days&quot; # e.g. 2days
+    output "{days}days" # e.g. 2days
 </code></pre>
 <p>So if you want to parse idle time / JCPU / PCPU, one should first check according to whether the string contains <code>days</code>, <code>m</code>, <code>s</code> or <code>:</code> and then decide how to parse it.</p>
 <h2 id="login"><a class="header" href="#login">LOGIN@</a></h2>
 <pre><code class="language-python">if current_time - login_time &gt; 12 hours and login_time.day_in_the_year is not today:
     if current_time - login_time &gt; 6 days:
-        output &quot;{day}{month}{year}&quot; # e.g. 07Aug23
+        output "{day}{month}{year}" # e.g. 07Aug23
         # the year is actually calculated by number of years from 1900 modulo 100
     else:
-        output &quot;{weekday}{hour}&quot; # Wed08
+        output "{weekday}{hour}" # Wed08
         # the hour is in 24-hour format
 else:
-    output &quot;{hour}:{minute}&quot; # 03:02
+    output "{hour}:{minute}" # 03:02
     # the hour is in 24-hour format
     # both numbers will be zero padded
 </code></pre>
@@ -1313,236 +1364,17 @@ The package asks the users to refer to the input parameters using a <strong>doub
 <strong>fragile</strong> command. This can be fixed by protecting <code>\ordinalnum</code> in the style definition.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="latex-workshop"><a class="header" href="#latex-workshop">LaTeX Workshop</a></h1>
 <h2 id="latex-workshop-formatter"><a class="header" href="#latex-workshop-formatter">LaTeX workshop formatter</a></h2>
-<p>Utilize <code>latexindent</code> on <strong>Debian/Ubuntu</strong>. </p>
+<p>Utilize <code>latexindent</code> on <strong>Debian/Ubuntu</strong>.</p>
 <p>It is a <code>Perl</code> script depending on <code>YAML::Tiny</code> and <code>File::HomeDir</code>. Be sure to install the deps through <code>cpan</code>:</p>
 <pre><code class="language-bash">sudo cpan YAML::Tiny File::HomeDir
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="侧卫学101"><a class="header" href="#侧卫学101">侧卫学101</a></h1>
-<style>
-table {
-    table-layout: fixed;
-    width: 150%;
-    cellpadding: 0;
-    cellspacing: 0;
-}
-td {
-    word-wrap: break-word;
-    text-align: center;
-}
-td.nobreak {
-    padding: 3px 1px!important;
-    font-weight: bold;
-    white-space: nowrap;
-}
-td.yes {
-    background-color: #ffa535;
-}
-</style>
-<p>看完这一篇你也能成为侧卫大师。</p>
-<h2 id="分类特征整理"><a class="header" href="#分类特征整理">分类特征整理</a></h2>
-<h3 id="基本类型侧卫--俄系侧卫"><a class="header" href="#基本类型侧卫--俄系侧卫">基本类型侧卫 —— 俄系侧卫</a></h3>
-<div class="table-wrapper"><table><thead><tr><th></th><th>座位</th><th>座舱分界</th><th>垂尾</th><th>起落架</th><th>空中加油</th><th>IRST</th><th>空速管</th><th>气动布局</th><th>其他</th><th>备注</th></tr></thead><tbody>
-<tr><td>Su-27</td><td>单座</td><td>座舱机身<br>明显分界</td><td>垂尾切尖</td><td><strong>前轮单轮</strong></td><td><strong>无空中加油接口</strong></td><td><strong>居中</strong></td><td>有机首空速管</td><td>普通翼身融合，无鸭翼</td><td>座舱后有突起天线</td><td></td></tr>
-<tr><td>Su-27UB</td><td><strong>双座</strong></td><td>座舱机身<br><strong>平滑过渡</strong></td><td>垂尾切尖</td><td><strong>前轮单轮</strong></td><td><strong>无空中加油接口</strong></td><td><strong>居中</strong></td><td>有机首空速管</td><td>普通翼身融合，无鸭翼</td><td>座舱后有突起天线</td><td>教练机</td></tr>
-<tr><td>Su-30</td><td><strong>双座</strong></td><td>座舱机身<br><strong>平滑过渡</strong></td><td>垂尾<strong>平行</strong></td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>有机首空速管</td><td>普通翼身融合，无鸭翼</td><td></td><td>Su-30MKK、Su-30MK2 也是这个基本构型</td></tr>
-<tr><td>Su-30SM</td><td><strong>双座</strong></td><td>座舱机身<br><strong>平滑过渡</strong></td><td>垂尾切尖</td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>有机首空速管</td><td><strong>有鸭翼</strong></td><td></td><td>出口印度、马来西亚和阿尔及利亚的 Su-30MKI/M/A 也是这个基本构型</td></tr>
-<tr><td>Su-33</td><td>单座</td><td>座舱机身<br>明显分界</td><td>垂尾介于<br>切尖和平<br>行之间</td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>有机首空速管</td><td><strong>有鸭翼</strong></td><td></td><td></td></tr>
-<tr><td>Su-35</td><td>单座</td><td>座舱机身<br>明显分界</td><td>垂尾切尖</td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>没有机首空速管</td><td>普通翼身融合，无鸭翼</td><td>雷达罩后方有 4 个小型 L 型空速管</td><td>早期验证机其实有鸭翼</td></tr>
-</tbody></table>
-</div>
-<h3 id="解放军版侧卫"><a class="header" href="#解放军版侧卫">解放军版侧卫</a></h3>
-<p>首先，J-11 完全等同于 Su-27，J-15 模仿的是 Su-33，J-16 模仿的是 Su-30，所以可以按照判断 Su-27、Su-30、Su-33 的方法大致把看到的 PLA 飞机归类。但进一步判断改型则需要结合涂装、雷达罩、翼尖挂架等等来具体判断。</p>
-<p>PLAAF 也买了一些俄方交付的 Su-27、Su-30 和 Su-35，和歼系（即使是组装的 J-11A）的最大区别就是没有编队灯。在此一并列出。</p>
-<p>PLA 的海军飞机都是偏白的，空海军共有的飞机的海军机种后面会带 H（如 J-11BH），在此不做区分。（P.S. H for Haijun，哈哈哈哈）</p>
-<div class="table-wrapper"><table><thead><tr><th></th><th style="text-align: center">基本型</th><th style="text-align: center">雷达罩</th><th style="text-align: center">备注</th></tr></thead><tbody>
-<tr><td>Su-27SK</td><td style="text-align: center">Su-27</td><td style="text-align: center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td style="text-align: center">没有编队灯</td></tr>
-<tr><td>Su-27UBK</td><td style="text-align: center">Su-27UB</td><td style="text-align: center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td style="text-align: center">没有编队灯<br>教练机，双座的</td></tr>
-<tr><td>J-11A</td><td style="text-align: center">Su-27</td><td style="text-align: center">雷达罩<strong>有缺口</strong></td><td style="text-align: center"></td></tr>
-<tr><td>J-11B</td><td style="text-align: center">Su-27</td><td style="text-align: center">黑色雷达罩</td><td style="text-align: center"></td></tr>
-<tr><td>J-11BS</td><td style="text-align: center">Su-27UB</td><td style="text-align: center">黑色雷达罩</td><td style="text-align: center">教练机，双座的</td></tr>
-<tr><td>J-15</td><td style="text-align: center">Su-33</td><td style="text-align: center">灰色雷达罩</td><td style="text-align: center"></td></tr>
-<tr><td>J-16</td><td style="text-align: center">Su-30</td><td style="text-align: center">灰色雷达罩</td><td style="text-align: center"></td></tr>
-</tbody></table>
-</div>
-<h2 id="基本型侧卫特征查表"><a class="header" href="#基本型侧卫特征查表">基本型侧卫特征查表</a></h2>
-<table >
-<thead>
-  <td class="nobreak"></td>
-  <td>单座</td>
-  <td>双座</td>
-<td>座舱机身明显分界</td>
-  <td>座舱机身平滑过渡</td>
-<td>垂尾不切尖</td>
-  <td>垂尾切尖</td>
-<td>单前轮</td>
-  <td>双前轮</td>
-<td>IRST居中</td>
-  <td>IRST偏左</td>
-<td>有空中加油接口</td>
-  <td>无空中加油接口</td>
-<td>无鸭翼</td>
-  <td>有鸭翼</td>
-</thead>
-<tr>
-  <td class="nobreak"> Su-27 </td>
-  <!-- 座位数目 -->
-  <td class="yes"></td>
-  <td></td>
-<!-- 座舱过渡 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 垂尾形状 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 起落架轮 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 制导位置 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 加油接口 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 气动布局 -->
-<td class="yes"></td>
-  <td></td>
-</tr>
-<tr>
-  <td class="nobreak"> Su-27UB </td>
-  <!-- 座位数目 -->
-  <td></td>
-  <td class="yes"></td>
-<!-- 座舱过渡 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 垂尾形状 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 起落架轮 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 制导位置 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 加油接口 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 气动布局 -->
-<td class="yes"></td>
-  <td></td>
-</tr>
-<tr>
-  <td class="nobreak"> Su-30MK </td>
-  <!-- 座位数目 -->
-  <td></td>
-  <td class="yes"></td>
-<!-- 座舱过渡 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 垂尾形状 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 起落架轮 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 制导位置 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 加油接口 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 气动布局 -->
-<td class="yes"></td>
-  <td></td>
-</tr>
-<tr>
-  <td class="nobreak"> Su-30SM </td>
-  <!-- 座位数目 -->
-  <td></td>
-  <td class="yes"></td>
-<!-- 座舱过渡 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 垂尾形状 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 起落架轮 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 制导位置 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 加油接口 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 气动布局 -->
-<td></td>
-  <td class="yes"></td>
-</tr>
-<tr>
-  <td class="nobreak"> Su-33 </td>
-  <!-- 座位数目 -->
-  <td class="yes"></td>
-  <td></td>
-<!-- 座舱过渡 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 垂尾形状 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 起落架轮 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 制导位置 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 加油接口 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 气动布局 -->
-<td></td>
-  <td class="yes"></td>
-</tr>
-<tr>
-  <td class="nobreak"> Su-35 </td>
-  <!-- 座位数目 -->
-  <td class="yes"></td>
-  <td></td>
-<!-- 座舱过渡 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 垂尾形状 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 起落架轮 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 制导位置 -->
-<td></td>
-  <td class="yes"></td>
-<!-- 加油接口 -->
-<td class="yes"></td>
-  <td></td>
-<!-- 气动布局 -->
-<td class="yes"></td>
-  <td></td>
-</tr>
-</table>
-<h2 id="名词解释"><a class="header" href="#名词解释">名词解释</a></h2>
-<ul>
-<li><code>IRST</code>：全称 <strong>I</strong>nfra-<strong>R</strong>ed <strong>S</strong>earch and <strong>T</strong>rack，红外跟踪与搜索技术。能够探测目标和空中背景的温差进行红外成像，和被动雷达类似，所以也被称为红外雷达。</li>
-</ul>
-<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
-<ol>
-<li><a href="https://www.zhihu.com/question/316210887/answer/640770443">如何区分一众苏和歼？ - kago嘉语的回答 - 知乎</a></li>
-</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="在-kubernetes-集群部署-hadoop"><a class="header" href="#在-kubernetes-集群部署-hadoop">在 kubernetes 集群部署 hadoop</a></h1>
 <p>实际上这是一个差的想法。</p>
 <h2 id="使用-helm-安装"><a class="header" href="#使用-helm-安装">使用 helm 安装</a></h2>
 <h3 id="下载-helm"><a class="header" href="#下载-helm">下载 helm</a></h3>
 <pre><code class="language-bash">curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
 sudo apt-get install apt-transport-https --yes
-echo &quot;deb https://baltocdn.com/helm/stable/debian/ all main&quot; | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 sudo apt-get update
 sudo apt-get install helm
 </code></pre>
@@ -1553,9 +1385,9 @@ sudo apt-get install helm
 <h3 id="install-a-chart"><a class="header" href="#install-a-chart">Install a chart</a></h3>
 <pre><code class="language-bash">helm install mychart-release-name mychart
 </code></pre>
-<pre><code class="language-bash">export POD_NAME=$(kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=mychart-release-name,app.kubernetes.io/instance=cluster-name&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
-export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath=&quot;{.spec.containers[0].ports[0].containerPort}&quot;)
-echo &quot;Visit http://127.0.0.1:8080 to use your application&quot;
+<pre><code class="language-bash">export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=mychart-release-name,app.kubernetes.io/instance=cluster-name" -o jsonpath="{.items[0].metadata.name}")
+export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+echo "Visit http://127.0.0.1:8080 to use your application"
 kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
 </code></pre>
 <h3 id="uninstall-chart"><a class="header" href="#uninstall-chart">Uninstall chart</a></h3>
@@ -1637,13 +1469,13 @@ mychart-release-name     default         1               2020-12-05 18:53:26.699
 <p>在 JSON 里添加 <code>auth</code> 相关字段。</p>
 <pre><code class="language-json">{
   ...
-  &quot;categories&quot;: {
-      &quot;auth&quot;: {
-        &quot;&lt;appName&gt;&quot;: {
-          &quot;userPoolId&quot;: &quot;...&quot;,
-          &quot;userPoolName&quot;: &quot;...&quot;,
-          &quot;webClientId&quot;: &quot;...&quot;,
-          &quot;nativeClientId&quot;: &quot;...&quot;
+  "categories": {
+      "auth": {
+        "&lt;appName&gt;": {
+          "userPoolId": "...",
+          "userPoolName": "...",
+          "webClientId": "...",
+          "nativeClientId": "..."
         }
       }
     }
@@ -1681,9 +1513,9 @@ mychart-release-name     default         1               2020-12-05 18:53:26.699
   name: String
   profile: ID
   role: String
-  ClassJoined: [StudentClass] @hasMany(indexName: &quot;byStudent&quot;, fields: [&quot;id&quot;])
-  ArtWorks: [ArtWork] @hasMany(indexName: &quot;byStudent&quot;, fields: [&quot;id&quot;])
-  Comments: [Comment] @hasMany(indexName: &quot;byStudent&quot;, fields: [&quot;id&quot;])
+  ClassJoined: [StudentClass] @hasMany(indexName: "byStudent", fields: ["id"])
+  ArtWorks: [ArtWork] @hasMany(indexName: "byStudent", fields: ["id"])
+  Comments: [Comment] @hasMany(indexName: "byStudent", fields: ["id"])
 }
 
 type Class @model @auth(rules: [{allow: private}]) {
@@ -1692,16 +1524,16 @@ type Class @model @auth(rules: [{allow: private}]) {
   description: String!
   ...
   startDate: AWSDateTime
-  students: [StudentClass] @hasMany(indexName: &quot;byClass&quot;, fields: [&quot;id&quot;])
-  teacherID: ID @index(name: &quot;byTeacher&quot;)
+  students: [StudentClass] @hasMany(indexName: "byClass", fields: ["id"])
+  teacherID: ID @index(name: "byTeacher")
 }
 
 type StudentClass @model(queries: null) @auth(rules: [{allow: private}]) {
   id: ID!
-  studentID: ID! @index(name: &quot;byStudent&quot;, sortKeyFields: [&quot;classID&quot;])
-  classID: ID! @index(name: &quot;byClass&quot;, sortKeyFields: [&quot;studentID&quot;])
-  student: Student! @belongsTo(fields: [&quot;studentID&quot;])
-  class: Class! @belongsTo(fields: [&quot;classID&quot;])
+  studentID: ID! @index(name: "byStudent", sortKeyFields: ["classID"])
+  classID: ID! @index(name: "byClass", sortKeyFields: ["studentID"])
+  student: Student! @belongsTo(fields: ["studentID"])
+  class: Class! @belongsTo(fields: ["classID"])
 }
 </code></pre>
 <p>Unfortunately we have two <code>@index</code>, and <code>Amplify</code> fails to find the second (here <code>byClass</code>).</p>
@@ -1715,9 +1547,9 @@ type StudentClass @model(queries: null) @auth(rules: [{allow: private}]) {
 <ol>
 <li>
 <p>项目的根目录 <code>package.json</code> 下，添加 <code>npm postinstall</code>, 以便每次执行 <code>npm install</code> 时能合进所有的patch文件：</p>
-<pre><code class="language-diff">&quot;scripts&quot;: {
+<pre><code class="language-diff">"scripts": {
    ...
-+  &quot;postinstall&quot;: &quot;patch-package&quot;
++  "postinstall": "patch-package"
    ...
 }
 </code></pre>
@@ -1742,19 +1574,6 @@ type StudentClass @model(queries: null) @auth(rules: [{allow: private}]) {
 <ol>
 <li><a href="https://juejin.im/post/6844904165328551944">JeanZhao: 修改node_modules中依赖库</a></li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="use-develop-branch-for-a-certain-package"><a class="header" href="#use-develop-branch-for-a-certain-package">Use develop branch for a certain package</a></h1>
-<h2 id="npm"><a class="header" href="#npm">npm</a></h2>
-<pre><code class="language-shell">npm install --save &lt;author&gt;/&lt;repo&gt;#&lt;branch-name or commit&gt;
-</code></pre>
-<p>Example:</p>
-<pre><code class="language-shell">npm install --save fluid-dev/hexo-theme-fluid#develop
-</code></pre>
-<h2 id="yarn"><a class="header" href="#yarn">yarn</a></h2>
-<pre><code class="language-shell">yarn add &lt;github-repo-url&gt;#&lt;branch-name or commit&gt;
-</code></pre>
-<p>Example</p>
-<pre><code class="language-shell">yarn add https://github.com/fluid-dev/hexo-theme-fluid.git#develop
-</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="群友教我写-js"><a class="header" href="#群友教我写-js">群友教我写 js</a></h1>
 <p>完全不懂前端硬写课设的时候学到的一星半点姿势。</p>
 <h2 id="this-in-js"><a class="header" href="#this-in-js"><code>this</code> in js</a></h2>
@@ -2092,6 +1911,10 @@ rootStore : RootStore;
 <p>夜的街，树枝上嫩绿的芽子看不见，是冬天吧？是秋天吧？<strong>但快乐的人们，不问四季总是快乐；哀哭的人们，不问四季也总是哀哭！</strong></p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lyrics-quotes"><a class="header" href="#lyrics-quotes">Lyrics Quotes</a></h1>
+<h2 id="musical"><a class="header" href="#musical">Musical</a></h2>
+<ul>
+<li><a href="literature/lyrics/der-besuch-der-altern-dame.html">Der Besuch der altern Dame (Musical)</a></li>
+</ul>
 <h2 id="misc"><a class="header" href="#misc">Misc</a></h2>
 <ul>
 <li><a href="literature/lyrics/hurt.html">Hurt</a></li>
@@ -2201,6 +2024,61 @@ I'm trying to reach You.<br/>
 I'm pushing all the things that are in my way.<br/>
 And they don't really know what You mean to me.<br/>
 No I'm not just chasing the wind.<br/></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="der-besuch-der-altern-dame-musical"><a class="header" href="#der-besuch-der-altern-dame-musical">Der Besuch der altern Dame (Musical)</a></h1>
+<h2 id="weißt-du-noch"><a class="header" href="#weißt-du-noch">Weißt du noch?</a></h2>
+<p><em>Claire</em>:<br/>
+Schau hier im Moos lag ich da, war's mit dir? (war's mittig?)</p>
+<p><em>Alfred</em>:<br/>
+Nein es war dort, ich sehs heut noch vor mir</p>
+<p><em>Claire &amp; Alfred</em>:<br/>
+Unsere Seelen flogen so hoch</p>
+<p><em>Claire</em>:<br/>
+Weißt Du noch?</p>
+<p><em>Alfred</em>:<br/>
+Weißt du noch?</p>
+<hr />
+<p><em>Claire</em>:<br/>
+<strong>Hier war's man sieht unser Herz noch am Baum</strong></p>
+<p><em>Afred</em>:<br/>
+<strong>Es ist verblasst und zerbrochen der Traum</strong></p>
+<p><em>Claire &amp; Alfred</em>:<br/>
+Wie konn’s gescheh’n, wir liebten uns doch!</p>
+<p><em>Claire</em>:<br/>
+Weißt du noch?</p>
+<p><em>Alfred</em>:<br/>
+Weißt du noch?</p>
+<hr />
+<p><em>Junger Claire</em>:<br/>
+Du sollst immer da sein, mir nah sein wie heut'<br/>
+Bis ans Ende der Zeit</p>
+<p><em>Junger Alfred</em>:<br/>
+Du sollst meine Frau sein im schneeweißen Kleid</p>
+<p><em>Junger Claire &amp; Junger Alfred</em>:<br/>
+Und zu zweit<br/>
+Teilen wir<br/>
+Jedes Glück,<br/>
+Jedes Leid.</p>
+<hr />
+<p><em>Claire</em>:<br/>
+Dann kam Mathilde, die bessre Partie!</p>
+<p><em>Alfred</em>:<br/>
+<strong>Wollt‘, dass du frei bist, nur d’rum nahm ich sie!</strong></p>
+<p><em>Claire &amp; Alfred</em>:<br/>
+Traurig das Ende, schön war es doch.<br/>
+Weißt du noch?<br/>
+Weißt du noch?</p>
+<hr />
+<p>Ich werde immer da sein, dir nah sein wie heute bis ans Ende der Zeit
+Wollten alles teilen und eins sein zu zweit</p>
+<p>Aber nun teilen wir
+Anstatt Glück
+Nur das Leid</p>
+<p>Siehst du das Herz, dieses Herz hier am Baum?
+Liebe, sie schenkt uns den herrlichsten Traum.
+Wie träumen Menschen in Ewigkeit nach?</p>
+<p>Und egal ob er bricht
+Wahrheit wird oder nicht</p>
+<p>Dein Traum fliegt so hoch (Kein Traum fliegt so hoch)</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="poetry-excerpts"><a class="header" href="#poetry-excerpts">Poetry Excerpts</a></h1>
 <h2 id="里尔克"><a class="header" href="#里尔克">里尔克</a></h2>
 <ul>
@@ -2497,7 +2375,278 @@ I leave the lights on.<br></p>
 <tr><td style="text-align: left">云城之主</td><td style="text-align: left">The Sultan of the Clouds</td><td></td></tr>
 <tr><td style="text-align: left">南极酒店</td><td style="text-align: left">A Hotel in Antarctica</td><td></td></tr>
 </tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="侧卫学101"><a class="header" href="#侧卫学101">侧卫学101</a></h1>
+<style>
+table {
+    table-layout: fixed;
+    width: 150%;
+    cellpadding: 0;
+    cellspacing: 0;
+}
+td {
+    word-wrap: break-word;
+    text-align: center;
+}
+td.nobreak {
+    padding: 3px 1px!important;
+    font-weight: bold;
+    white-space: nowrap;
+}
+td.yes {
+    background-color: #ffa535;
+}
+</style>
+<p>看完这一篇你也能成为侧卫大师。</p>
+<h2 id="分类特征整理"><a class="header" href="#分类特征整理">分类特征整理</a></h2>
+<h3 id="基本类型侧卫--俄系侧卫"><a class="header" href="#基本类型侧卫--俄系侧卫">基本类型侧卫 —— 俄系侧卫</a></h3>
+<div class="table-wrapper"><table><thead><tr><th></th><th>座位</th><th>座舱分界</th><th>垂尾</th><th>起落架</th><th>空中加油</th><th>IRST</th><th>空速管</th><th>气动布局</th><th>其他</th><th>备注</th></tr></thead><tbody>
+<tr><td>Su-27</td><td>单座</td><td>座舱机身<br>明显分界</td><td>垂尾切尖</td><td><strong>前轮单轮</strong></td><td><strong>无空中加油接口</strong></td><td><strong>居中</strong></td><td>有机首空速管</td><td>普通翼身融合，无鸭翼</td><td>座舱后有突起天线</td><td></td></tr>
+<tr><td>Su-27UB</td><td><strong>双座</strong></td><td>座舱机身<br><strong>平滑过渡</strong></td><td>垂尾切尖</td><td><strong>前轮单轮</strong></td><td><strong>无空中加油接口</strong></td><td><strong>居中</strong></td><td>有机首空速管</td><td>普通翼身融合，无鸭翼</td><td>座舱后有突起天线</td><td>教练机</td></tr>
+<tr><td>Su-30</td><td><strong>双座</strong></td><td>座舱机身<br><strong>平滑过渡</strong></td><td>垂尾<strong>平行</strong></td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>有机首空速管</td><td>普通翼身融合，无鸭翼</td><td></td><td>Su-30MKK、Su-30MK2 也是这个基本构型</td></tr>
+<tr><td>Su-30SM</td><td><strong>双座</strong></td><td>座舱机身<br><strong>平滑过渡</strong></td><td>垂尾切尖</td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>有机首空速管</td><td><strong>有鸭翼</strong></td><td></td><td>出口印度、马来西亚和阿尔及利亚的 Su-30MKI/M/A 也是这个基本构型</td></tr>
+<tr><td>Su-33</td><td>单座</td><td>座舱机身<br>明显分界</td><td>垂尾介于<br>切尖和平<br>行之间</td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>有机首空速管</td><td><strong>有鸭翼</strong></td><td></td><td></td></tr>
+<tr><td>Su-35</td><td>单座</td><td>座舱机身<br>明显分界</td><td>垂尾切尖</td><td>前轮双轮</td><td>有空中加油接口</td><td>侧偏</td><td>没有机首空速管</td><td>普通翼身融合，无鸭翼</td><td>雷达罩后方有 4 个小型 L 型空速管</td><td>早期验证机其实有鸭翼</td></tr>
+</tbody></table>
 </div>
+<h3 id="解放军版侧卫"><a class="header" href="#解放军版侧卫">解放军版侧卫</a></h3>
+<p>首先，J-11 完全等同于 Su-27，J-15 模仿的是 Su-33，J-16 模仿的是 Su-30，所以可以按照判断 Su-27、Su-30、Su-33 的方法大致把看到的 PLA 飞机归类。但进一步判断改型则需要结合涂装、雷达罩、翼尖挂架等等来具体判断。</p>
+<p>PLAAF 也买了一些俄方交付的 Su-27、Su-30 和 Su-35，和歼系（即使是组装的 J-11A）的最大区别就是没有编队灯。在此一并列出。</p>
+<p>PLA 的海军飞机都是偏白的，空海军共有的飞机的海军机种后面会带 H（如 J-11BH），在此不做区分。（P.S. H for Haijun，哈哈哈哈）</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th style="text-align: center">基本型</th><th style="text-align: center">雷达罩</th><th style="text-align: center">备注</th></tr></thead><tbody>
+<tr><td>Su-27SK</td><td style="text-align: center">Su-27</td><td style="text-align: center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td style="text-align: center">没有编队灯</td></tr>
+<tr><td>Su-27UBK</td><td style="text-align: center">Su-27UB</td><td style="text-align: center">雷达罩<strong>有缺口</strong>且<strong>有编号</strong></td><td style="text-align: center">没有编队灯<br>教练机，双座的</td></tr>
+<tr><td>J-11A</td><td style="text-align: center">Su-27</td><td style="text-align: center">雷达罩<strong>有缺口</strong></td><td style="text-align: center"></td></tr>
+<tr><td>J-11B</td><td style="text-align: center">Su-27</td><td style="text-align: center">黑色雷达罩</td><td style="text-align: center"></td></tr>
+<tr><td>J-11BS</td><td style="text-align: center">Su-27UB</td><td style="text-align: center">黑色雷达罩</td><td style="text-align: center">教练机，双座的</td></tr>
+<tr><td>J-15</td><td style="text-align: center">Su-33</td><td style="text-align: center">灰色雷达罩</td><td style="text-align: center"></td></tr>
+<tr><td>J-16</td><td style="text-align: center">Su-30</td><td style="text-align: center">灰色雷达罩</td><td style="text-align: center"></td></tr>
+</tbody></table>
+</div>
+<h2 id="基本型侧卫特征查表"><a class="header" href="#基本型侧卫特征查表">基本型侧卫特征查表</a></h2>
+<table >
+<thead>
+  <td class="nobreak"></td>
+  <td>单座</td>
+  <td>双座</td>
+  <td>座舱机身明显分界</td>
+  <td>座舱机身平滑过渡</td>
+  <td>垂尾不切尖</td>
+  <td>垂尾切尖</td>
+  <td>单前轮</td>
+  <td>双前轮</td>
+  <td>IRST居中</td>
+  <td>IRST偏左</td>
+  <td>有空中加油接口</td>
+  <td>无空中加油接口</td>
+  <td>无鸭翼</td>
+  <td>有鸭翼</td>
+</thead>
+<tr>
+  <td class="nobreak"> Su-27 </td>
+  <!-- 座位数目 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 座舱过渡 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 垂尾形状 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 起落架轮 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 制导位置 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 加油接口 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 气动布局 -->
+  <td class="yes"></td>
+  <td></td>
+</tr>
+<tr>
+  <td class="nobreak"> Su-27UB </td>
+  <!-- 座位数目 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 座舱过渡 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 垂尾形状 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 起落架轮 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 制导位置 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 加油接口 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 气动布局 -->
+  <td class="yes"></td>
+  <td></td>
+</tr>
+<tr>
+  <td class="nobreak"> Su-30MK </td>
+  <!-- 座位数目 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 座舱过渡 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 垂尾形状 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 起落架轮 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 制导位置 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 加油接口 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 气动布局 -->
+  <td class="yes"></td>
+  <td></td>
+</tr>
+<tr>
+  <td class="nobreak"> Su-30SM </td>
+  <!-- 座位数目 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 座舱过渡 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 垂尾形状 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 起落架轮 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 制导位置 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 加油接口 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 气动布局 -->
+  <td></td>
+  <td class="yes"></td>
+</tr>
+<tr>
+  <td class="nobreak"> Su-33 </td>
+  <!-- 座位数目 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 座舱过渡 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 垂尾形状 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 起落架轮 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 制导位置 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 加油接口 -->
+  <td class="yes"></td>
+  <td></td>
+<!-- 气动布局 -->
+  <td></td>
+  <td class="yes"></td>
+</tr>
+<tr>
+  <td class="nobreak"> Su-35 </td>
+  <!-- 座位数目 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 座舱过渡 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 垂尾形状 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 起落架轮 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 制导位置 -->
+  <td></td>
+  <td class="yes"></td>
+  <!-- 加油接口 -->
+  <td class="yes"></td>
+  <td></td>
+  <!-- 气动布局 -->
+  <td class="yes"></td>
+  <td></td>
+</tr>
+</table>
+<h2 id="名词解释"><a class="header" href="#名词解释">名词解释</a></h2>
+<ul>
+<li><code>IRST</code>：全称 <strong>I</strong>nfra-<strong>R</strong>ed <strong>S</strong>earch and <strong>T</strong>rack，红外跟踪与搜索技术。能够探测目标和空中背景的温差进行红外成像，和被动雷达类似，所以也被称为红外雷达。</li>
+</ul>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ol>
+<li><a href="https://www.zhihu.com/question/316210887/answer/640770443">如何区分一众苏和歼？ - kago嘉语的回答 - 知乎</a></li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="move-back-and-forth-from-basel-to-zurich"><a class="header" href="#move-back-and-forth-from-basel-to-zurich">Move back and forth from Basel to Zurich</a></h1>
+<h2 id="zurich-to-basel"><a class="header" href="#zurich-to-basel">Zurich to Basel</a></h2>
+<p>大体流程是：</p>
+<ol>
+<li>网上申请换州（canton）</li>
+<li>在苏黎世注销</li>
+<li>通知后去当地的 Residents' Registration Office 登记</li>
+</ol>
+<h3 id="useful-links"><a class="header" href="#useful-links">Useful links</a></h3>
+<ul>
+<li><a href="https://www.bdm.bs.ch/Wohnen/basel-for-new-arrivals.html">Basel for new arrivals</a></li>
+<li><a href="https://www.bdm.bs.ch/Wohnen/zuzug.html">Zuzug</a></li>
+</ul>
+<h3 id="申请换州"><a class="header" href="#申请换州">申请换州</a></h3>
+<p>德语原文：</p>
+<blockquote>
+<p><strong>Nicht EU/EFTA-Bürgerinnen und Bürger (Drittstaaten): Zuzug aus der Schweiz</strong></p>
+<ol>
+<li>Einverständnis zum Kantonswechsel
+Falls noch nicht eingereicht, können Sie das Gesuch online oder als PDF (128 KB) einreichen</li>
+<li>Anmeldeformular ausgefüllt pro erwachsene Person</li>
+<li>Vorstrafen- und Wohnsitzerklärung ausgefüllt pro erwachsene Person</li>
+<li>Abmeldebescheinigung der letzten Wohnsitzgemeinde in der Schweiz</li>
+<li>Ausländerausweis (L / B / C)</li>
+<li>Gültiger Reisepass oder Identitätskarte
+(bei schriftlicher Anmeldung bitte farbige Kopie der Vorder- UND Rückseite der Identitätskarte)</li>
+<li>a) Zuzug von verheirateten Personen: Trauungsurkunde oder Familienbüchlein/-ausweis
+b) Für Kinder unter 21 Jahren: Familienbüchlein oder Geburtsurkunde
+c) Erklärung bei Kindern unter gemeinsamer elterlicher Sorge (PDF, 24 KB)</li>
+<li>Mietvertrag oder Wohnungsausweis*.</li>
+</ol>
+</blockquote>
+<p>在线填写<a href="https://formulare.bs.ch/bdm/kantonswechsel-fuer-drittstaatangehoerige?type=initialize&amp;ekonto=optional">申请表</a></p>
+<p>需要的文件：</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+<a href="https://formulare.bs.ch/bdm/kantonswechsel-fuer-drittstaatangehoerige?type=initialize&amp;ekonto=optional">无犯罪记录声明</a>，自己填一下就行</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Permit B</li>
+<li><input disabled="" type="checkbox" checked=""/>
+护照</li>
+<li><input disabled="" type="checkbox" checked=""/>
+从苏黎世的注销证明</li>
+<li><input disabled="" type="checkbox" checked=""/>
+房契</li>
+<li><input disabled="" type="checkbox" checked=""/>
+certificate of employment</li>
+<li><input disabled="" type="checkbox" checked=""/>
+三个工资单</li>
+</ul>
+<h2 id="basel-to-zurich"><a class="header" href="#basel-to-zurich">Basel to Zurich</a></h2>
+<p>TBD</p>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
