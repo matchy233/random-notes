@@ -187,16 +187,6 @@ put outside the quote.</p>
 <blockquote>
 <p>Should have more explanation on wildcards and globs</p>
 </blockquote>
-<h2 id="custom-cd"><a class="header" href="#custom-cd">custom <code>cd</code></a></h2>
-<pre><code class="language-bash">function cd {
-    builtin cd "$@"
-    if [[ $(ls | wc -l ) -le 50 ]]; then
-        ls -F --color=auto
-    else
-        echo "There are a total of $(ls -F | wc -l) entries in $(pwd)"
-    fi
-}
-</code></pre>
 <h2 id="monitor-everything"><a class="header" href="#monitor-everything">Monitor everything...</a></h2>
 <p><code>pv</code>: pipe viewer</p>
 <h3 id="monitor-tar-extraction-progress"><a class="header" href="#monitor-tar-extraction-progress">Monitor tar extraction progress</a></h3>

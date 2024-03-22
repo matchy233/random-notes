@@ -1004,7 +1004,6 @@ xeyes
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="effective-shell"><a class="header" href="#effective-shell">Effective Shell</a></h1>
 <h2 id="navigating-along-the-command-line"><a class="header" href="#navigating-along-the-command-line">Navigating along the command line</a></h2>
-<p>可能应该录制一个 gif 来展示功能。</p>
 <div class="table-wrapper"><table><thead><tr><th>功能</th><th>快捷键</th></tr></thead><tbody>
 <tr><td>定位到行开头</td><td><code>Ctrl</code> + <code>A</code> 或者 <code>Home</code></td></tr>
 <tr><td>定位到行末尾</td><td><code>Ctrl</code> + <code>D</code> 或者 <code>End</code></td></tr>
@@ -1022,6 +1021,7 @@ xeyes
 <p><code>Ctrl</code> + <code>X</code>,<code>E</code> 打开的编辑器是通过环境变量 <code>$EDITOR</code> 指定的。</p>
 <p>这里有一张非常棒的图可作总结：</p>
 <p><img src="Terminal/img/2020-11-11-23-27-58.png" alt="Navigating the Command Line" /></p>
+<p>Note that <code>Ctrl</code> + <code>D</code> is sometimes captured as <code>exit</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="random-bash-tips"><a class="header" href="#random-bash-tips">Random bash tips</a></h1>
 <h2 id="mvcp-with-wildcard-blob"><a class="header" href="#mvcp-with-wildcard-blob"><code>mv</code>/<code>cp</code> with wildcard (blob)</a></h2>
 <p>The following command will not work</p>
@@ -1034,16 +1034,6 @@ put outside the quote.</p>
 <blockquote>
 <p>Should have more explanation on wildcards and globs</p>
 </blockquote>
-<h2 id="custom-cd"><a class="header" href="#custom-cd">custom <code>cd</code></a></h2>
-<pre><code class="language-bash">function cd {
-    builtin cd "$@"
-    if [[ $(ls | wc -l ) -le 50 ]]; then
-        ls -F --color=auto
-    else
-        echo "There are a total of $(ls -F | wc -l) entries in $(pwd)"
-    fi
-}
-</code></pre>
 <h2 id="monitor-everything"><a class="header" href="#monitor-everything">Monitor everything...</a></h2>
 <p><code>pv</code>: pipe viewer</p>
 <h3 id="monitor-tar-extraction-progress"><a class="header" href="#monitor-tar-extraction-progress">Monitor tar extraction progress</a></h3>
