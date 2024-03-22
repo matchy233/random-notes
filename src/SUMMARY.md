@@ -41,7 +41,6 @@
 # Frontend
 
 - [Fix node-modules](frontend/fix-node-modules.md)
-- [Use develop branch](frontend/use-develop-branch.md)
 - [Frontend from scratch](frontend/group-buddy-teach-me-how-to-write-js.md)
 
 # Literature
