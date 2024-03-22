@@ -33,10 +33,6 @@
 - [General LaTeX tricks](latex/general-latex-tricks.md)
 - [LaTeX Workshop notes](latex/latex-workshop.md)
 
-# Misc
-
-- [Flankerology 101](misc/sukhoi-fighters.md)
-
 # DevOps
 
 - [Hadoop in K8S](devops/hadoop-on-k8s.md)
@@ -53,10 +49,11 @@
 - [Random Quotes](literature/quotes.md)
 - [Literature Excerpts](literature/literature.md)
   - [商市街](literature/literature/shang-shi-jie.md)
-- [Lyrics Quotes](literature/lyrics.md)
+- [Musical / Lyrics Excerpts](literature/lyrics.md)
   - [Hurt](literature/lyrics/hurt.md)
   - [Ghost Towns](literature/lyrics/ghost-towns.md)
   - [Chasing the Wind](literature/lyrics/chasing-the-wind.md)
+  - [Der Besuch der altern Dame (Musical)](literature/lyrics/der-besuch-der-altern-dame.md)
 - [Poem Excerpts](literature/poems.md)
   - [盲女](literature/poems/blind-girl.md)
   - [穿过大半个中国去睡你](literature/poems/sleep-with-you.md)
@@ -66,3 +63,8 @@
   - [OCD](literature/poems/ocd.md)
   - [路人](literature/poems/stranger.md)
 - [Geoffrey A. Landis short fictions](literature/geoffrey-a-landis-short-fictions.md)
+
+# Misc
+
+- [Flankerology 101](misc/sukhoi-fighters.md)
+- [Move from Zurich to Basel](misc/move-to-basel.md)
