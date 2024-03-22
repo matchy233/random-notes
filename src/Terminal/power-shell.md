@@ -1,7 +1,5 @@
 # PowerShell Usage Tips
 
-资深 Windows 用户多少也要知道一点 `PowerShell` 吧。
-
 ## Intro to PowerShell
 
 1. 不区分大小写

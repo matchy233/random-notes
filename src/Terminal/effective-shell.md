@@ -2,8 +2,6 @@
 
 ## Navigating along the command line
 
-可能应该录制一个 gif 来展示功能。
-
 | 功能 | 快捷键 |
 | --- | --- |
 | 定位到行开头 | `Ctrl` + `A` 或者 `Home` |
@@ -23,3 +21,5 @@
 这里有一张非常棒的图可作总结：
 
 ![Navigating the Command Line](img/2020-11-11-23-27-58.png)
+
+Note that `Ctrl` + `D` is sometimes captured as `exit`.
