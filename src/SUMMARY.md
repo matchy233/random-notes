@@ -16,8 +16,9 @@
 - [Disk Management](Linux/disk-management.md)
 - [Internet Sharing](Linux/net-forwarding.md)
 - [ssh config tips](Linux/ssh_config.md)
+- [Use perf to profile](Linux/perf.md)
 - [VPN via Cisco Anyconnect](Linux/vpn-cisco-anyconnect.md)
-- [Use WSL with GUI](Linux/use-wsl-with-gui.md)
+- [(Deprecated) Use WSL with GUI](Linux/use-wsl-with-gui.md)
 
 # Terminal / Commands
 
@@ -67,3 +68,4 @@
 
 - [Flankerology 101](misc/sukhoi-fighters.md)
 - [Move from Zurich to Basel](misc/move-to-basel.md)
+- [Windows tricks](misc/windows.md)
