@@ -178,10 +178,29 @@
                         <h1 id="tricks-on-windows"><a class="header" href="#tricks-on-windows">Tricks on Windows</a></h1>
 <p>Windows 上的一些奇技淫巧</p>
 <h2 id="强制删除任何文件以及文件夹"><a class="header" href="#强制删除任何文件以及文件夹">强制删除任何文件以及文件夹</a></h2>
-<p>Run cmdlet as Administrator.</p>
+<p>First thing first: Run cmdlet as Administrator.</p>
+<h3 id="删除文件"><a class="header" href="#删除文件">删除文件</a></h3>
+<pre><code class="language-cmd">del /f &lt;path-to-file&gt;
+</code></pre>
+<h3 id="删除文件夹"><a class="header" href="#删除文件夹">删除文件夹</a></h3>
 <pre><code class="language-cmd">takeown/f &lt;path-to-file&gt; /r /d y
 icacls &lt;path-to-file&gt; /grant administrators:F /t
 rd /s /q &lt;path-to-file&gt;
+</code></pre>
+<h2 id="删除-service"><a class="header" href="#删除-service">删除 Service</a></h2>
+<p>In short, use <code>sc delete &lt;service-name&gt;</code>.</p>
+<pre><code class="language-cmd">sc stop &lt;service-name&gt;
+sc delete &lt;service-name&gt;
+</code></pre>
+<p>But the service name must be short service name.</p>
+<p>Use <code>sc query</code> to get the short service name.</p>
+<pre><code class="language-cmd">$ sc query state= all | find "&lt;service-name&gt;"
+  SERVICE_NAME: &lt;service-name&gt;
+</code></pre>
+<p>Sometimes you might need to print the context of your search because you might match to DISPLAY_NAME instead of SERVICE_NAME. <code>cmd</code> does not have <code>grep</code> like powerful string search tool (neither <code>find</code> nor <code>findstr</code> can do this). Use <code>Select-String</code> in PowerShell instead.</p>
+<p>Note that <code>sc</code> is the alias of <code>Set-Content</code> in PowerShell. One should use <code>sc.exe</code> to call the <code>sc</code> command.</p>
+<pre><code class="language-powershell"># print 5 lines before and after the match
+sc.exe query state= all | Select-String -Pattern "&lt;service-name&gt;" -Context 5, 5
 </code></pre>
 
                     </main>
