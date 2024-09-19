@@ -29,6 +29,14 @@ Host dev
     IdentityFile $HOME/.ssh/id_rsa # overwrites
 ```
 
+## Port forwarding
+
+```diff
+Host to_forward
+    # ...
++   LocalForward <port-to-forward> 127.0.0.1:<port-on-local>
+```
+
 ## Jump/Bastion server make-easy
 
 `ProxyJump` is available since **OpenSSH version 7.5**.
