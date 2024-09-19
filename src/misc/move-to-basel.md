@@ -46,4 +46,33 @@
 
 ## Basel to Zurich
 
-TBD
+大体流程仍然是先在网上申请换州，然后在 Basel Stadt 注销，最后去 Zurich 注册。
+
+### 插曲：reactivate my residence status
+
+My residence status was deactivated since I no longer live in my old residence in Basel and was not in Switzerland during June and July for my internship. During that time, a letter arrived and was sent back to the Migrationsamt, as a result they deactivated my residence status. I had to go to the Migrationsamt to reactivate it first.
+
+The required documents are:
+
+- [x] Rental agreement / contract showing that I occupied the place before I left Switzerland
+- [x] Flight ticket showing that I am not in Switzerland during June and July
+- [x] New rental agreement / contract
+- [x] CHF 40
+
+### 申请换州
+
+Submit a contact form via [this link](https://www.zh.ch/de/migration-integration/kontaktformularmigrationsamt.html).
+
+The ZH-number is the "KANT.REFERENZ" on the back of your residence permit.
+
+ZEMIS NR is the number in front of KANT.REFERENZ.
+
+在申请换州时，最好把所需的文件全部提交，以免被要求补充（可能会用 slow mail，非常抽象）。
+
+需要文件：
+
+- Passport scan
+- Permit B scan
+- Matriculation certificate
+- New rental agreement
+- Proof that you hold enough money for a year in your bank account

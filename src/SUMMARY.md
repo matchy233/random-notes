@@ -4,8 +4,8 @@
 
 # Reverse Engineering
 
-- [Intro to gdb](RevEng/gdb.md)
-- [ASCII shellcode (WIP)](RevEng/ascii-asm.md)
+- [GDB 101](RevEng/gdb.md)
+- [(WIP) ASCII shellcode](RevEng/ascii-asm.md)
 
 # IDE
 
@@ -15,24 +15,24 @@
 
 - [Disk Management](Linux/disk-management.md)
 - [Internet Sharing](Linux/net-forwarding.md)
-- [ssh config tips](Linux/ssh_config.md)
-- [Use perf to profile](Linux/perf.md)
+- [ssh config](Linux/ssh_config.md)
+- [perf 101 for profiling](Linux/perf.md)
 - [VPN via Cisco Anyconnect](Linux/vpn-cisco-anyconnect.md)
 - [(Deprecated) Use WSL with GUI](Linux/use-wsl-with-gui.md)
 
 # Terminal / Commands
 
-- [Effective Shell 1](Terminal/effective-shell.md)
-- [Random bash tips](Terminal/random-bash-tips.md)
+- [shell navigation 101](Terminal/effective-shell.md)
+- [sh/bash command](Terminal/random-bash-tips.md)
 - [TMUX 101](Terminal/tmux.md)
-- [Things to put in your shellrc](Terminal/shellrc.md)
+- [shellrc](Terminal/shellrc.md)
 - [GPG](Terminal/gpg.md)
-- [The output of `w`](Terminal/w.md)
+- [output of `w`](Terminal/w.md)
 
 # LaTeX
 
-- [General LaTeX tricks](latex/general-latex-tricks.md)
-- [LaTeX Workshop notes](latex/latex-workshop.md)
+- [General LaTeX](latex/general-latex-tricks.md)
+- [LaTeX Workshop](latex/latex-workshop.md)
 
 # DevOps
 
@@ -41,21 +41,22 @@
 
 # Frontend
 
-- [Fix node-modules](frontend/fix-node-modules.md)
+- [Patch node-modules without PR](frontend/fix-node-modules.md)
 - [Frontend from scratch](frontend/group-buddy-teach-me-how-to-write-js.md)
 
 # Literature
 
-- [Random Quotes](literature/quotes.md)
 - [Literature Excerpts](literature/literature.md)
   - [商市街](literature/literature/shang-shi-jie.md)
-- [Musical / Lyrics Excerpts](literature/lyrics.md)
+<!-- - [Musical / Lyrics Excerpts](literature/lyrics.md)
   - [Hurt](literature/lyrics/hurt.md)
   - [Ghost Towns](literature/lyrics/ghost-towns.md)
   - [Chasing the Wind](literature/lyrics/chasing-the-wind.md)
-  - [Der Besuch der altern Dame (Musical)](literature/lyrics/der-besuch-der-altern-dame.md)
+  - [Der Besuch der altern Dame (Musical)](literature/lyrics/der-besuch-der-altern-dame.md) -->
 - [Poem Excerpts](literature/poems.md)
   - [盲女](literature/poems/blind-girl.md)
+  - [《奥克诺斯》](literature/poems/ocnos.md)
+  - [《二十首爱情诗和一首绝望的歌》](literature/poems/20-love-poems-and-a-song-of-despair.md)
   - [穿过大半个中国去睡你](literature/poems/sleep-with-you.md)
   - [阿乐，你又不幸地被我想起](literature/poems/ale-you-are-unfortunately-reminded-by-me.md)
   - [你没有看见我被遮蔽的部分](literature/poems/you-did-not-see-my-obscured-part.md)
@@ -67,5 +68,5 @@
 # Misc
 
 - [Flankerology 101](misc/sukhoi-fighters.md)
-- [Move from Zurich to Basel](misc/move-to-basel.md)
+- [Move between Zurich and Basel](misc/move-to-basel.md)
 - [Windows tricks](misc/windows.md)

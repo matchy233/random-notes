@@ -4,6 +4,14 @@
 
 - [盲女](poems/blind-girl.md)
 
+## 塞尔努达
+
+- [《奥克诺斯》](poems/ocnos.md)
+
+## 聂鲁达
+
+- [《二十首爱情诗和一首绝望的歌》](poems/20-love-poems-and-a-song-of-despair.md)
+
 ## 余秀华
 
 - [穿过大半个中国去睡你](poems/sleep-with-you.md)

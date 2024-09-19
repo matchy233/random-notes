@@ -60,3 +60,7 @@ To apply changes, you need to source the configuration file:
 ```bash
 tmux source-file ~/.tmux.conf
 ```
+
+## Rotate panes
+
+https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux
