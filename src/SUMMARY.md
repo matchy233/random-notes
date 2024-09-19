@@ -69,4 +69,4 @@
 
 - [Flankerology 101](misc/sukhoi-fighters.md)
 - [Move between Zurich and Basel](misc/move-to-basel.md)
-- [Windows tricks](misc/windows.md)
+- [Windows commad line / powershell](misc/windows.md)
