@@ -17,6 +17,7 @@
 - [Internet Sharing](Linux/net-forwarding.md)
 - [ssh config](Linux/ssh_config.md)
 - [perf 101 for profiling](Linux/perf.md)
+- [i18n related (LANG, LANGUAGE, LC_ALL etc)](Linux/locale.md)
 - [VPN via Cisco Anyconnect](Linux/vpn-cisco-anyconnect.md)
 - [(Deprecated) Use WSL with GUI](Linux/use-wsl-with-gui.md)
 
