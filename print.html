@@ -1098,7 +1098,7 @@ put outside the quote.</p>
 </ol>
 <p>And it's just cool when you can split the shells windows!</p>
 <h2 id="basic-usage"><a class="header" href="#basic-usage">Basic Usage</a></h2>
-<p>All the commands for <code>tmux</code> are only available after you type the command prefix. By default it is <code>Ctrl</code>-<code>b</code>. After pressing this combination, it will activate the console mode (or so I believe).</p>
+<p>All the commands for <code>tmux</code> are only available after you type the <strong>command prefix</strong> (termed <code>CmdP</code> hereafter). By default it is <code>Ctrl</code>-<code>b</code>. After pressing this combination, it will activate the console mode (or so I believe).</p>
 <h3 id="pane-commands"><a class="header" href="#pane-commands">Pane commands</a></h3>
 <div class="table-wrapper"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>"</code></td><td>Split current pane <em>vertically</em>, create new pane <em>underneath</em></td></tr>
@@ -1132,8 +1132,24 @@ bind C-a send-prefix
 <p>To apply changes, you need to source the configuration file:</p>
 <pre><code class="language-bash">tmux source-file ~/.tmux.conf
 </code></pre>
+<h3 id="colors"><a class="header" href="#colors">Colors</a></h3>
+<pre><code class="language-bash">set -g default-terminal "screen-256color"
+# or
+set -g default-terminal "xterm-256color"
+</code></pre>
 <h2 id="rotate-panes"><a class="header" href="#rotate-panes">Rotate panes</a></h2>
-<p>https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux</p>
+<p><code>CmdP space</code>: (bound to <code>next-layout</code> by default) will cycle through available layouts.</p>
+<h2 id="bug-fixes"><a class="header" href="#bug-fixes">Bug fixes</a></h2>
+<h3 id="tmux-session-wrongly-captures-home-and-end-keys"><a class="header" href="#tmux-session-wrongly-captures-home-and-end-keys"><code>tmux</code> session wrongly captures <code>Home</code> and <code>End</code> keys</a></h3>
+<p>Add the following lines to your <code>~/.tmux.conf</code>:</p>
+<pre><code class="language-bash">bind-key -n Home send Escape "OH"
+bind-key -n End send Escape "OF"
+</code></pre>
+<h2 id="reference-3"><a class="header" href="#reference-3">Reference</a></h2>
+<ul>
+<li><a href="https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux">How to convert 2 horizontal panes to vertical panes in tmux? - Super User</a></li>
+<li><a href="https://stackoverflow.com/questions/18600188/home-end-keys-do-not-work-in-tmux">linux - Home/End keys do not work in tmux - Stack Overflow</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="shell-rc"><a class="header" href="#shell-rc">Shell-rc</a></h1>
 <p>For <code>.bashrc</code>, <code>.zshrc</code>, <code>.profile</code>, or even <code>Microsoft.PowerShell_profile.ps1</code>).</p>
 <h2 id="general"><a class="header" href="#general">General</a></h2>
@@ -1193,7 +1209,7 @@ in WSL gh issues, histories might not be saved if the session is not closed
 <em>gracefully</em>.</p>
 <p>General tip is: always use <code>exit</code> or <code>Ctrl+D</code>.</p>
 <h3 id="home-and-end-wrongly-captured-by-zsh"><a class="header" href="#home-and-end-wrongly-captured-by-zsh"><code>Home</code> and <code>End</code> wrongly captured by <code>zsh</code></a></h3>
-<p><a href="https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat">https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat</a></p>
+<p>See <a href="Terminal/shellrc.html#reference">[1]</a> in Reference.</p>
 <blockquote>
 <p>Run <code>cat</code> then press keys to see the codes your shortcut send and...</p>
 </blockquote>
@@ -1203,6 +1219,10 @@ in WSL gh issues, histories might not be saved if the session is not closed
 <h2 id="powershell-specific-contents"><a class="header" href="#powershell-specific-contents"><code>PowerShell</code> specific contents</a></h2>
 <h3 id="bash-like-ls"><a class="header" href="#bash-like-ls">bash-like <code>ls</code></a></h3>
 <p>See <a href="https://gist.github.com/matchy233/0c8baaad8af9aa12838ded428d6f8e31">my gist</a>.</p>
+<h2 id="reference-4"><a class="header" href="#reference-4">Reference</a></h2>
+<ol>
+<li><a href="https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat">ubuntu - Fix key settings (Home/End/Insert/Delete) in .zshrc when running Zsh in Terminator Terminal Emulator - Stack Overflow</a></li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gpg"><a class="header" href="#gpg">GPG</a></h1>
 <h2 id="basics"><a class="header" href="#basics">Basics</a></h2>
 <p>List keys</p>
@@ -1261,6 +1281,18 @@ Application     gpg.exe                                            2.3.4.6... C:
 </code></pre>
 <pre><code class="language-powershell">git config --global gpg.program (Get-Command gpg).Source
 </code></pre>
+<h3 id="windows-commit-signing-takes-too-long"><a class="header" href="#windows-commit-signing-takes-too-long">(Windows) commit signing takes too long</a></h3>
+<p>If you are using <code>gpg</code> on Windows, you might have noticed that signing a commit takes a long time. This is because <code>gpg</code> is trying to use the <code>gpg-agent</code> to cache the passphrase. However, the <code>gpg-agent</code> is not started by default on Windows. To solve this issue, you can start the <code>gpg-agent</code> by running the following command:</p>
+<pre><code class="language-powershell">gpg-connect-agent /bye
+</code></pre>
+<p>You can also add this command to your <code>Microsoft.PowerShell_profile.ps1</code> file to start the <code>gpg-agent</code> automatically when you start PowerShell.</p>
+<pre><code class="language-powershell">Add-Content $PROFILE -Value "gpg-connect-agent /bye"
+</code></pre>
+<p>Or you can add a shortcut to <code>gpg-connect-agent</code> to your startup folder (e.g. <code>C:\Users\&lt;user-name&gt;\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</code>)</p>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<ul>
+<li><a href="https://gist.github.com/matusnovak/302c7b003043849337f94518a71df777">GPG + Git SSH Authentication and Signing on Windows 10 (github.com)</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-output-format-of-w"><a class="header" href="#the-output-format-of-w">The output format of <code>w</code></a></h1>
 <p><code>w</code> command shows who is logged on and what they are doing.</p>
 <p>A typical output of <code>w</code> looks like this (the output is generated by copilot)</p>
@@ -1605,7 +1637,7 @@ type StudentClass @model(queries: null) @auth(rules: [{allow: private}]) {
 </code></pre>
 </li>
 </ol>
-<h2 id="reference-3"><a class="header" href="#reference-3">Reference</a></h2>
+<h2 id="reference-5"><a class="header" href="#reference-5">Reference</a></h2>
 <ol>
 <li><a href="https://juejin.im/post/6844904165328551944">JeanZhao: 修改node_modules中依赖库</a></li>
 </ol>

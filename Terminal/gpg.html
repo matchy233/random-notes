@@ -233,6 +233,18 @@ Application     gpg.exe                                            2.3.4.6... C:
 </code></pre>
 <pre><code class="language-powershell">git config --global gpg.program (Get-Command gpg).Source
 </code></pre>
+<h3 id="windows-commit-signing-takes-too-long"><a class="header" href="#windows-commit-signing-takes-too-long">(Windows) commit signing takes too long</a></h3>
+<p>If you are using <code>gpg</code> on Windows, you might have noticed that signing a commit takes a long time. This is because <code>gpg</code> is trying to use the <code>gpg-agent</code> to cache the passphrase. However, the <code>gpg-agent</code> is not started by default on Windows. To solve this issue, you can start the <code>gpg-agent</code> by running the following command:</p>
+<pre><code class="language-powershell">gpg-connect-agent /bye
+</code></pre>
+<p>You can also add this command to your <code>Microsoft.PowerShell_profile.ps1</code> file to start the <code>gpg-agent</code> automatically when you start PowerShell.</p>
+<pre><code class="language-powershell">Add-Content $PROFILE -Value "gpg-connect-agent /bye"
+</code></pre>
+<p>Or you can add a shortcut to <code>gpg-connect-agent</code> to your startup folder (e.g. <code>C:\Users\&lt;user-name&gt;\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</code>)</p>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<ul>
+<li><a href="https://gist.github.com/matusnovak/302c7b003043849337f94518a71df777">GPG + Git SSH Authentication and Signing on Windows 10 (github.com)</a></li>
+</ul>
 
                     </main>
 
