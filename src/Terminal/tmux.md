@@ -11,7 +11,7 @@ And it's just cool when you can split the shells windows!
 
 ## Basic Usage
 
-All the commands for `tmux` are only available after you type the command prefix. By default it is `Ctrl`-`b`. After pressing this combination, it will activate the console mode (or so I believe).
+All the commands for `tmux` are only available after you type the **command prefix** (termed `CmdP` hereafter). By default it is `Ctrl`-`b`. After pressing this combination, it will activate the console mode (or so I believe).
 
 ### Pane commands
 
@@ -61,6 +61,30 @@ To apply changes, you need to source the configuration file:
 tmux source-file ~/.tmux.conf
 ```
 
+### Colors
+
+```bash
+set -g default-terminal "screen-256color"
+# or
+set -g default-terminal "xterm-256color"
+```
+
 ## Rotate panes
 
-https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux
+`CmdP space`: (bound to `next-layout` by default) will cycle through available layouts.
+
+## Bug fixes
+
+### `tmux` session wrongly captures `Home` and `End` keys
+
+Add the following lines to your `~/.tmux.conf`:
+
+```bash
+bind-key -n Home send Escape "OH"
+bind-key -n End send Escape "OF"
+```
+
+## Reference
+
+- [How to convert 2 horizontal panes to vertical panes in tmux? - Super User](https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux)
+- [linux - Home/End keys do not work in tmux - Stack Overflow](https://stackoverflow.com/questions/18600188/home-end-keys-do-not-work-in-tmux)

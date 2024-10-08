@@ -86,7 +86,7 @@ General tip is: always use `exit` or `Ctrl+D`.
 
 ### `Home` and `End` wrongly captured by `zsh`
 
-<https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat>
+See [[1]](#reference) in Reference.
 
 > Run `cat` then press keys to see the codes your shortcut send and...
 
@@ -101,3 +101,7 @@ bindkey  "^[[1~"  beginning-of-line
 ### bash-like `ls`
 
 See [my gist](https://gist.github.com/matchy233/0c8baaad8af9aa12838ded428d6f8e31).
+
+## Reference
+
+1. [ubuntu - Fix key settings (Home/End/Insert/Delete) in .zshrc when running Zsh in Terminator Terminal Emulator - Stack Overflow](https://stackoverflow.com/questions/8638012/fix-key-settings-home-end-insert-delete-in-zshrc-when-running-zsh-in-terminat)
