@@ -29,6 +29,7 @@
 - [shellrc](Terminal/shellrc.md)
 - [GPG](Terminal/gpg.md)
 - [output of `w`](Terminal/w.md)
+- [Git (not 101)](Terminal/git.md)
 
 # LaTeX
 
