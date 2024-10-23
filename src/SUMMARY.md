@@ -7,10 +7,6 @@
 - [GDB 101](RevEng/gdb.md)
 - [(WIP) ASCII shellcode](RevEng/ascii-asm.md)
 
-# IDE
-
-- [VSCode tips](IDE/vscode.md)
-
 # Linux
 
 - [Disk Management](Linux/disk-management.md)
@@ -19,7 +15,11 @@
 - [perf 101 for profiling](Linux/perf.md)
 - [i18n related (LANG, LANGUAGE, LC_ALL etc)](Linux/locale.md)
 - [VPN via Cisco Anyconnect](Linux/vpn-cisco-anyconnect.md)
-- [(Deprecated) Use WSL with GUI](Linux/use-wsl-with-gui.md)
+
+# Windows
+
+- [X-forwarding on Windows](windows/use-wsl-with-gui.md)
+- [Windows commad line / powershell](windows/windows.md)
 
 # Terminal / Commands
 
@@ -30,6 +30,10 @@
 - [GPG](Terminal/gpg.md)
 - [output of `w`](Terminal/w.md)
 - [Git (not 101)](Terminal/git.md)
+
+# IDE
+
+- [VSCode tips](IDE/vscode.md)
 
 # LaTeX
 
@@ -71,5 +75,4 @@
 
 - [Flankerology 101](misc/sukhoi-fighters.md)
 - [Move between Zurich and Basel](misc/move-to-basel.md)
-- [Windows commad line / powershell](misc/windows.md)
 - [Citation generation](misc/citation.md)

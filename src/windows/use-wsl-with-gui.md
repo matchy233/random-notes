@@ -1,12 +1,15 @@
 # 在 Windows 10 上装 X
 
-## 基本配置
+## Motivation： 为啥装 X？
 
-### Windows 设置：安装 Xserver
+1. 在 WSL 还在刀耕火种时期，想要在 WSL 上使用 GUI 应用需要 Windows 上安装有 X server
+2. 想*不用 MobaXTerm 或者 PuTTY* (这些为 Windows 设计的 terminal emulator 开发比较完善，内建 X forwarding 解决方案) 也能转发 GUI 时需要 Windows 上装有 X server 才能 forwarding
 
-其实安装个 Xserver 挺简单的。
+## 安装 Xserver 和 HiDPI 设置
 
-Windows 上的 Xserver 有好几个选择，我用的是 [VcXsrv](https://sourceforge.net/projects/vcxsrv/)。如果你用 [choco](https://chocolatey.org/)，还能更方便，可以直接 `choco install vcxsrv`。 可爱强强又富有的[狗哥](https://github.com/FluorineDog)推荐了微软应用商店的 [X410](https://x410.dev/)，看起来和 Windows 10 整合得很优秀，不过真的好贵啊……
+Windows 上的 Xserver 有好几个选择，我用的是 [VcXsrv](https://sourceforge.net/projects/vcxsrv/)。如果你用 [choco](https://chocolatey.org/) 或者 [scoop](https://scoop.sh/)，还能更方便，可以直接 `choco install vcxsrv` 或者 `scoop install vcxsrv`（不过 `scoop` 需要先 `scoop bucket add extras`）。
+
+可爱强强又富有的[狗哥](https://github.com/FluorineDog)推荐了微软应用商店的 [X410](https://x410.dev/)，看起来和 Windows 10 整合得很优秀，不过真的好贵啊……
 
 然后是 HiDPI 设置，一般通过轻薄本现在应该都至少是 2K 或 3K 屏幕了。不设置一下的话字体会糊。
 
@@ -17,16 +20,50 @@ Windows 上的 Xserver 有好几个选择，我用的是 [VcXsrv](https://source
 3. 选中 `Override high DPI scaling behavior`
 4. 将 Scaling performed by 选项设为 Application
 
-![vcsrv HiDPI setting](img/2020-11-11-16-52-53.png)
+![vcsrv HiDPI setting](./img/2020-11-11-16-52-53.png)
 
-在开始菜单查找 XLaunch 并运行，一路默认就可以开启 Xserver。如果是 WSL2，记得还要关闭 access control。用命令行的话就是添加 `-ac` 选项。
+## 服务器端设置
+
+确保要连接到的服务器上 `sshd` 被正确配置。在 `/etc/ssh/sshd_config` 中确保 `X11Forwarding` 被设置为 `yes`。
+
+```bash
+X11Forwarding yes
+```
+
+如有需要，可以设置 `X11DisplayOffset`，默认是 10。
+
+```bash
+X11DisplayOffset 10
+```
+
+## 启动 Xserver
+
+在开始菜单查找 XLaunch 并运行，一路默认就可以开启 Xserver。
+
+如果之前设置了 `X11DisplayOffset`，在启动时注意不要让 vcxsrv 自己设置 `DISPLAY` (默认 -1），不然它会随机选一个数字……在之后设置客户端的时候有点头痛。
+
+如果是 WSL2，记得还要关闭 access control。用命令行的话就是添加 `-ac` 选项。
+
+## 客户端 (Windows/WSL) 设置
+
+为了能够成功进行 X forwarding，客户端需要设置好 `$DISPLAY` 环境变量。这可不是 Unix，没法直接 `export DISPLAY=:0`。想要把远端 forward 到 Windows 上看下面的 "Windows 设置", "WSL 设置" 是为了在 WSL 上使用 GUI 应用的。
+
+### Windows 设置
+
+打开 PowerShell，输入以下指令即可在当前 terminal 临时设置 `DISPLAY` 环境变量：
+
+```powershell
+$env:DISPLAY='localhost:<display_offset>.0'
+```
+
+如何一劳永逸：打开你的 PowerShell profile 文件（一般是 `$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`，也可以 `notepad $PROFILE` 打开， `$PROFILE` 不区分大小写），把上面的指令加进去， 再 `. $PROFILE` 一下就好了。
 
 ### WSL 设置
 
-首先设置 `DISPLAY` 环境变量。 WSL1 可以 `export DISPLAY=localhost:0.0` ， WSL2 就要指定 IP 了。 可以这样一劳永逸：
+WSL1 可以 `export DISPLAY=localhost:10.0` ， WSL2 就要指定 IP 了。 可以这样一劳永逸：
 
 ```bash
-export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):10.0
 ```
 
 这里也设置了一下 `LIBGL_ALWAYS_INDIRECT`，虽然窝目前好像也没什么 3D rendering 需要……
