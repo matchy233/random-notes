@@ -2,6 +2,19 @@
 
 Windows 上的一些奇技淫巧
 
+## PowerShell
+
+### Concise error message
+
+```powershell
+# PowerShell 7.0+
+$ErrorView = 'ConciseView'
+# PowerShell 5.0+
+$ErrorView = 'CategoryView'
+```
+
+But honestly, `ConciseView` will still sometimes produce multiline error message. Especially when the error is generated from a `PowerShell` script.
+
 ## 强制删除任何文件以及文件夹
 
 First thing first: Run cmdlet as Administrator.
@@ -15,7 +28,7 @@ del /f <path-to-file>
 ### 删除文件夹
 
 ```cmd
-takeown/f <path-to-file> /r /d y
+takeown /f <path-to-file> /r /d y
 icacls <path-to-file> /grant administrators:F /t
 rd /s /q <path-to-file>
 ```
