@@ -31,6 +31,11 @@
 - [output of `w`](Terminal/w.md)
 - [Git (not 101)](Terminal/git.md)
 
+# Python
+
+- [General](python/python.md)
+- [Version and package management](python/ver-and-deps.md)
+
 # IDE
 
 - [VSCode tips](IDE/vscode.md)
