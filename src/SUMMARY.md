@@ -39,6 +39,7 @@
 # IDE
 
 - [VSCode tips](IDE/vscode.md)
+- [JetBrains IDEs tips](IDE/jetbrains.md)
 
 # LaTeX
 
