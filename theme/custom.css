@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+/* lxgw-wenkai-tc-300 - chinese-hongkong */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "LXGW WenKai";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/LXGWWenKai-Light.ttf") format("truetype"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* lxgw-wenkai-tc-regular - chinese-hongkong */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "LXGW WenKai";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/LXGWWenKai-Regular.ttf") format("truetype"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* lxgw-wenkai-tc-700 - chinese-hongkong */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "LXGW WenKai";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/LXGWWenKai-Medium.ttf") format("truetype"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root {
+  --font-family: "Libre Baskerville", "LXGW WenKai", serif;
+  --font-family-monospace: "JetBrains Mono", monospace;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+
+.menu-title {
+  font-family: var(--font-family-monospace);
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.chapter .chapter-item {
+  font-family: var(--font-family-monospace);
+  font-size: 0.9em;
+}
+
+li.part-title {
+    /* add a top horizontal line to separate parts */
+    border-top: 1px solid var(--sidebar-spacer);
+    color: var(--sidebar-active) !important;
+}
+
+pre, code {
+    font-family: var(--font-family-monospace) !important;
+    font-size: var(--code-font-size);
+}
