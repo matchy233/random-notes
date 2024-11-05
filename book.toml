@@ -7,8 +7,9 @@ title = "Random Notes"
 
 [output.html]
 mathjax-support = true
-default-theme = "Light"
+default-theme = "Rust"
 preferred-dark-theme = "Ayu"
+additional-css = ["theme/custom.css"]
 
 [output.html.fold]
 enable = true
