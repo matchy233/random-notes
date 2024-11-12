@@ -82,3 +82,4 @@
 - [Flankerology 101](misc/sukhoi-fighters.md)
 - [Move between Zurich and Basel](misc/move-to-basel.md)
 - [Citation generation](misc/citation.md)
+- [Notify myself](misc/notify.md)
