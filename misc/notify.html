@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Literature Excerpts - Random Notes</title>
+        <title>Notify myself - Random Notes</title>
 
 
         <!-- Custom HTML head -->
@@ -155,23 +155,28 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="literature-excerpts"><a class="header" href="#literature-excerpts">Literature Excerpts</a></h1>
-<h2 id="萧红"><a class="header" href="#萧红">萧红</a></h2>
-<ul>
-<li><a href="literature/shang-shi-jie.html">商市街</a></li>
-</ul>
+                        <h1 id="notify-myself"><a class="header" href="#notify-myself">Notify myself</a></h1>
+<h2 id="notify-send"><a class="header" href="#notify-send"><code>notify-send</code></a></h2>
+<p>Works on Linux Desktop.</p>
+<p>TODO: elaborate on this.</p>
+<h2 id="wsl-notify-send"><a class="header" href="#wsl-notify-send"><code>wsl-notify-send</code></a></h2>
+<p>For sending WSL notifications to Windows. Works as a toast.</p>
+<h3 id="installation"><a class="header" href="#installation">Installation</a></h3>
+<p>Get <code>wsl-notify-send.exe</code> from the <a href="https://github.com/stuartleeks/wsl-notify-send/releases">GitHub release page</a>, unzip it (contains <code>LICENSE</code>, <code>README.md</code> and <code>wsl-notify-send.exe</code>), and put it in your <code>PATH</code>.</p>
+<p>To use it conveniently similar to <code>notif-send</code>, add this to your shell rc file:</p>
+<pre><code class="language-bash">notify-send() {
+    wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}";
+}
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../frontend/group-buddy-teach-me-how-to-write-js.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../misc/citation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../literature/literature/shang-shi-jie.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -179,13 +184,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../frontend/group-buddy-teach-me-how-to-write-js.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../misc/citation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../literature/literature/shang-shi-jie.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>
