@@ -2,18 +2,9 @@
 
 List scraped from [CSFDB](https://csfdb.scifi-wiki.com/people/754).
 
-Online reading resources  are most from 九九藏书网 (Chinese), 月光博客 (Chinese) , chinasf(Chinese)
+Online reading resources  are most from 九九藏书网 (Chinese), 月光博客 (Chinese) , chinasf(Chinese). Struggled to find proper eBook resources :(
 
-Collection: [冲击参数](http://st.kanxshuo.com/book-73635-1.html)
-
-* [追赶太阳](http://st.kanxshuo.com/book-73635-3.html)
-* [冲击参数](http://st.kanxshuo.com/book-73635-6.html)
-* [四元素](http://st.kanxshuo.com/book-73635-10.html)
-* [生态形成](http://st.kanxshuo.com/book-73635-19.html)
-* [穿过黑暗](http://st.kanxshuo.com/book-73635-28.html) (not sure if it's complete)
-
-Struggled to find proper eBook resources :(
-
+Update 2024: I bought a second-handed copy of "Impact Parameter" from a local bookstore during my internship in the States. I'll transcribe some of the stories in this website.
 
 | title                                                        | english title                      | read? |
 | :----------------------------------------------------------- | :--------------------------------- | ----- |
@@ -22,7 +13,7 @@ Struggled to find proper eBook resources :(
 | 恐龙                                                         | Dinosaurs                          |       |
 | [真空态](https://www.99csw.com/book/10134/364697.htm)        | Vacuum States                      | ✅      |
 | 空中的大海                                                   | The River of Air, the Ocean of Sky |       |
-| [狄拉克海上的涟漪](https://www.williamlong.info/story/archives/355.html) | Ripples in the Dirac Sea           | ✅     |
+| [狄拉克海上的涟漪](https://www.williamlong.info/story/archives/355.html) | [Ripples in the Dirac Sea](./geoffrey-a-landis-short-fictions/ripples-in-the-dirac-sea.md)           | ✅     |
 | [追赶太阳](https://www.99csw.com/article/9288.htm)           | A Walk in the Sun                  | ✅     |
 | 时空的插曲                                                   | [Interlude at the Circus](http://www.geoffreylandis.com/interlude.htp)            |       |
 | [冲击参数]((http://st.kanxshuo.com/book-73635-6.html))       | Impact Parameter                   | ✅      |

@@ -76,6 +76,7 @@
   - [OCD](literature/poems/ocd.md)
   - [路人](literature/poems/stranger.md)
 - [Geoffrey A. Landis short fictions](literature/geoffrey-a-landis-short-fictions.md)
+  - [Ripples in the Dirac Sea](literature/geoffrey-a-landis-short-fictions/ripples-in-the-dirac-sea.md)
 
 # Misc
 
